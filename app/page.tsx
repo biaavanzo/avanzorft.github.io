@@ -237,6 +237,22 @@ export default function Home() {
           </div>
         </section>
 
+        <div style={{ textAlign: "center", marginTop: 20, marginBottom: 0 }}>
+          <a
+            href="https://doi.org/10.5281/zenodo.18905376"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              fontSize: 12, color: "#888", fontFamily: "system-ui",
+              textDecoration: "none", letterSpacing: "0.04em",
+              borderBottom: "1px solid #ddd", paddingBottom: 2,
+              transition: "color 0.15s, border-color 0.15s",
+            }}
+          >
+            Read the full paper ↗
+          </a>
+        </div>
+
         <div className="section-divider" />
 
         {/* WHY THIS MATTERS */}

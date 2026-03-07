@@ -5,30 +5,6 @@ import React, { useState } from "react"
 export default function FormalizationPathway() {
     const [openPattern, setOpenPattern] = useState<number | null>(null)
 
-    const patterns = [
-        {
-            label: "Fragmentation",
-            range: "M < 1",
-            signature: "Φ · Kₑ < F",
-            desc: "High semantic entropy, narrative instability, and increased regulatory demand across the hierarchy. The system's predictive load exceeds its integrative capacity.",
-            color: "#c0392b",
-        },
-        {
-            label: "Relative Equilibrium",
-            range: "M ≈ 1",
-            signature: "Φ · Kₑ ≈ F",
-            desc: "Minimally stable experiential continuity and baseline homeostatic control. The system is functional but operating near the threshold of coherence.",
-            color: "#e67e22",
-        },
-        {
-            label: "High Coherence",
-            range: "M > 1",
-            signature: "Φ · Kₑ >> F",
-            desc: "Fluid and adaptive experiential organization, high predictive efficiency, and systemic resilience. Epistemic scaffolding appears to support the reduction of cross-layer uncertainty.",
-            color: "#27ae60",
-        },
-    ]
-
     return (
         <>
             <link
@@ -149,40 +125,6 @@ export default function FormalizationPathway() {
         .legend-def { color: #555; font-family: system-ui; }
         .legend-def strong { color: #111; font-weight: 500; }
 
-        /* PATTERNS */
-        .patterns-label {
-          font-size: 13px; font-weight: 600; color: #555;
-          text-transform: uppercase; letter-spacing: 0.12em;
-          font-family: system-ui; margin-bottom: 24px;
-        }
-        .patterns { display: flex; flex-direction: column; gap: 2px; margin-bottom: 52px; }
-        .pattern-row {
-          border: 1px solid #eee; background: #fafafa;
-          display: grid; grid-template-columns: 4px 1fr;
-          transition: background 0.15s;
-        }
-        .pattern-row:hover { background: #f4f4f4; }
-        .pattern-accent { width: 4px; }
-        .pattern-body { padding: 18px 20px; }
-        .pattern-top {
-          display: flex; align-items: baseline;
-          justify-content: space-between; margin-bottom: 6px;
-        }
-        .pattern-name {
-          font-size: 14px; font-weight: 500; color: #111; font-family: system-ui;
-        }
-        .pattern-range {
-          font-family: 'EB Garamond', Georgia, serif;
-          font-size: 15px; color: #888; font-style: italic;
-        }
-        .pattern-sig {
-          font-family: 'EB Garamond', Georgia, serif;
-          font-size: 13px; color: #555; margin-bottom: 6px;
-        }
-        .pattern-desc {
-          font-size: 13px; line-height: 1.65; color: #666; font-family: system-ui;
-        }
-
         /* PROTOCOL STEPS */
         .protocol { display: flex; flex-direction: column; gap: 2px; margin-bottom: 0; }
         .protocol-step {
@@ -202,14 +144,6 @@ export default function FormalizationPathway() {
         }
         .protocol-desc {
           font-size: 13px; line-height: 1.65; color: #666; font-family: system-ui;
-        }
-        .protocol-tags {
-          display: flex; gap: 6px; flex-wrap: wrap; margin-top: 10px;
-        }
-        .protocol-tag {
-          font-size: 10px; font-family: system-ui; letter-spacing: 0.05em;
-          text-transform: uppercase; padding: 2px 7px;
-          border: 1px solid #eee; color: #555;
         }
 
         /* REFERENCES */
@@ -278,61 +212,11 @@ export default function FormalizationPathway() {
                         The M-RFT Metric was developed through an iterative process of theory-building, grounded in a longitudinal N-of-1 pilot study that employed a neurophenomenological framework <span className="cite">(Varela, 1996)</span> and analytic autoethnography. By integrating the roles of researcher and subject, this approach allowed for the systematic documentation of physiological symptoms, reactive behavioral patterns, and cognitive-symbolic shifts. These observations were organized along a spatiotemporal timeline, tracking changes in perceived internal coherence under varying conditions of stress and informational load.
                     </p>
                     <p>
-                        A central observation during this investigative process was the apparent relationship between the structured organization of knowledge and shifts in internal regulatory dynamics. This led to the hypothesis that the acquisition of higher-order symbolic structure may function as a stabilizing constraint on lower-level biological and neural variability. These preliminary insights were subsequently formalized into the M-RFT Metric, which is proposed here as a heuristic bridge to explore the potential correlations between Epistemic Synchrony (Kₑ) and the coordination of systemic dynamics under conditions of informational uncertainty.
+                        A central observation during this investigative process was the apparent relationship between the structured organization of knowledge and shifts in internal regulatory dynamics. This led to the hypothesis that the acquisition of higher-order symbolic structure may function as a stabilizing constraint on lower-level biological and neural variability.
                     </p>
-                </div>
-
-                <div className="divider" />
-
-                {/* VARIABLES + PATTERNS MERGED */}
-                <div className="patterns-label">What the Metric Observes</div>
-
-                <div style={{ display: "flex", flexDirection: "column", gap: 2, marginBottom: 32 }}>
-                    {[
-                        {
-                            sym: "Φ",
-                            title: "Degree of informational integration",
-                            desc: <>A conceptual bridge with Integrated Information Theory <span className="cite">(Tononi, 2004; Tononi et al., 2016)</span>. Φ represents the extent to which the system is generating information as a unified whole, rather than as a collection of independent parts.</>,
-                        },
-                        {
-                            sym: "Kₑ",
-                            title: "Epistemic Synchrony",
-                            desc: <>The degree to which structured self-knowledge at the symbolic layer (C3) provides stable, coherent reference points for the system’s predictive processes. Kₑ is treated as a potentially modulable variable that may increase when the symbolic layer gains explanatory adequacy in relation to sources of uncertainty.</>,
-                        },
-                        {
-                            sym: "F",
-                            title: "Variational free energy",
-                            desc: <>A formal description of the mismatch between the system's internal model and incoming signals <span className="cite">(Friston, 2010)</span>. F functions here as a proxy for systemic noise: the regulatory burden placed on the hierarchy when prediction errors cannot be resolved at the symbolic level.</>,
-                        },
-                    ].map((v, i) => (
-                        <div key={i} style={{ display: "grid", gridTemplateColumns: "52px 1fr", border: "1px solid #eee", background: "#fafafa" }}>
-                            <div style={{
-                                display: "flex", alignItems: "center", justifyContent: "center",
-                                fontFamily: "'EB Garamond', Georgia, serif", fontSize: 22,
-                                fontStyle: "italic", color: "#fff", background: "#111",
-                                minHeight: 80,
-                            }}>{v.sym}</div>
-                            <div style={{ padding: "16px 20px" }}>
-                                <div style={{ fontSize: 16, fontWeight: 500, color: "#111", fontFamily: "system-ui", marginBottom: 6 }}>{v.title}</div>
-                                <div style={{ fontSize: 13, lineHeight: 1.7, color: "#666", fontFamily: "system-ui" }}>{v.desc}</div>
-                            </div>
-                        </div>
-                    ))}
-                </div>
-
-                <div className="patterns-label">Model-Derived Alignment Patterns</div>
-                <div className="patterns">
-                    {patterns.map((p, i) => (
-                        <div className="pattern-row" key={i}>
-                            <div className="pattern-accent" style={{ background: p.color }} />
-                            <div className="pattern-body">
-                                <div className="pattern-top">
-                                    <span className="pattern-name">{p.label}</span>
-                                </div>
-                                <div className="pattern-desc">{p.desc}</div>
-                            </div>
-                        </div>
-                    ))}
+                    <p>
+                        The full technical specification and research implications are available in a separate document <a href="/contact" style={{ color: "#111", textDecoration: "underline" }}>upon request</a>. What follows is an experimental protocol and illustrative case example — a practical demonstration of how the metric operates.
+                    </p>
                 </div>
 
                 <div className="divider" />
@@ -371,13 +255,45 @@ export default function FormalizationPathway() {
 
                 <div className="divider" />
 
-
-
                 {/* JOÃO CASE EXAMPLE */}
                 <div className="section">
                     <div className="section-title">Illustrative Case Example</div>
                     <p>
-                        The formal mathematical specification and full research implementation are presented in a separate technical framework and can be provided upon request. The following hypothetical scenario is offered to clarify how structured self-knowledge may function as an epistemic tool within the M-RFT framework.
+                        The following hypothetical scenario is offered to clarify how structured self-knowledge may function as an epistemic tool within the M-RFT framework.
+                    </p>
+                </div>
+
+                {/* SITUATION SETUP */}
+                <div style={{
+                    border: "1px solid #eee", background: "#fafafa",
+                    padding: "28px 28px 24px", marginBottom: 2, textAlign: "center",
+                }}>
+                    <div style={{ fontSize: 10, fontWeight: 600, color: "#555", textTransform: "uppercase", letterSpacing: "0.12em", fontFamily: "system-ui", marginBottom: 20 }}>The Setup</div>
+                    <div style={{ display: "flex", justifyContent: "center", marginBottom: 24 }}>
+                        <svg width="320" height="80" viewBox="0 0 320 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M138 32 L146 68 L174 68 L182 32 Z" stroke="#111" strokeWidth="1.5" fill="none" strokeLinejoin="round" />
+                            <line x1="136" y1="32" x2="184" y2="32" stroke="#111" strokeWidth="1.5" strokeLinecap="round" />
+                            <ellipse cx="160" cy="72" rx="28" ry="4" stroke="#111" strokeWidth="1.5" fill="none" />
+                            <path d="M182 42 Q194 42 194 52 Q194 62 182 62" stroke="#111" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+                            <path d="M152 24 Q154 18 152 12" stroke="#aaa" strokeWidth="1.2" fill="none" strokeLinecap="round" />
+                            <path d="M160 22 Q162 16 160 10" stroke="#aaa" strokeWidth="1.2" fill="none" strokeLinecap="round" />
+                            <path d="M168 24 Q170 18 168 12" stroke="#aaa" strokeWidth="1.2" fill="none" strokeLinecap="round" />
+                            <polyline points="138,52 120,52 114,34 107,68 100,40 93,58 84,52 10,52" stroke="#c0392b" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+                            <line x1="182" y1="52" x2="310" y2="52" stroke="#c0392b" strokeWidth="1.5" strokeLinecap="round" />
+                        </svg>
+                    </div>
+                    <p style={{
+                        fontFamily: "'EB Garamond', Georgia, serif",
+                        fontSize: 20, color: "#111", lineHeight: 1.6,
+                        margin: "0 0 12px 0",
+                    }}>
+                        An individual drinks an espresso and experiences sudden, transient tachycardia — a racing heart.
+                    </p>
+                    <p style={{ fontSize: 13, color: "#777", fontFamily: "system-ui", lineHeight: 1.7, margin: "0 0 6px 0" }}>
+                        This is a Layer C1 (Biological) arousal event.
+                    </p>
+                    <p style={{ fontSize: 13, color: "#777", fontFamily: "system-ui", lineHeight: 1.7, margin: 0, fontStyle: "italic" }}>
+                        How does the system interpret this?
                     </p>
                 </div>
 
@@ -391,10 +307,10 @@ export default function FormalizationPathway() {
                                 <div style={{ fontSize: 10, fontWeight: 600, color: "#555", textTransform: "uppercase", letterSpacing: "0.1em", fontFamily: "system-ui", marginBottom: 4 }}>Scenario A</div>
                                 <div style={{ fontSize: 16, fontWeight: 500, color: "#111", fontFamily: "system-ui", marginBottom: 12 }}>Fragmentation — Lower Epistemic Synchrony</div>
                                 <p style={{ fontSize: 14, lineHeight: 1.8, color: "#555", fontFamily: "system-ui", marginBottom: 12, textIndent: 0 }}>
-                                    João experiences transient tachycardia following caffeine intake. Lacking an accurate symbolic interpretation of the physiological trigger, the C3 layer fails to provide an adequate model for the C1 biological arousal. Under these circumstances, large-scale neural systems associated with self-referential processing (C2) — including regions linked to DMN activity — may interpret the signal as potentially threatening.
+                                    Upon caffeine intake, transient tachycardia is triggered. Lacking an accurate symbolic interpretation of the physiological trigger, the C3 layer fails to provide an adequate model for the C1 biological arousal. Under these circumstances, large-scale neural systems associated with self-referential processing (C2) — including regions linked to DMN activity — may interpret the signal as potentially threatening.
                                 </p>
                                 <p style={{ fontSize: 14, lineHeight: 1.8, color: "#555", fontFamily: "system-ui", marginBottom: 16, textIndent: 0 }}>
-                                    João reports persistent ruminative thoughts, growing self-doubt regarding his ability to focus at work, and anxiety about the potential consequences of this attentional difficulty. Within the RFT framework, this state corresponds to reduced systemic integration, low synchronization between self-narrative and experiential reality, and elevated systemic noise.
+                                    Persistent ruminative thoughts emerge, along with growing self-doubt regarding the ability to focus at work and anxiety about the potential consequences of this attentional difficulty. Within the RFT framework, this state corresponds to reduced systemic integration, low synchronization between self-narrative and experiential reality, and elevated systemic noise.
                                 </p>
                             </div>
                         </div>
@@ -410,7 +326,7 @@ export default function FormalizationPathway() {
                                 <div style={{ fontSize: 10, fontWeight: 600, color: "#555", textTransform: "uppercase", letterSpacing: "0.1em", fontFamily: "system-ui", marginBottom: 4 }}>Scenario B</div>
                                 <div style={{ fontSize: 16, fontWeight: 500, color: "#111", fontFamily: "system-ui", marginBottom: 12 }}>Integration — Higher Epistemic Synchrony</div>
                                 <p style={{ fontSize: 14, lineHeight: 1.8, color: "#555", fontFamily: "system-ui", marginBottom: 16, textIndent: 0 }}>
-                                    When João correctly updates his generative model — <em>&ldquo;This sensation is likely related to caffeine intake&rdquo;</em> — and decouples his identity from the temporary bodily state — <em>&ldquo;I have experienced this response previously after caffeine&rdquo;</em> — epistemic alignment increases. The C3 layer now provides an adequate explanatory model for the C1 signal, potentially reducing variational free energy at C2 and attenuating the threat-detection cascade.
+                                    When the subject correctly updates their generative model — <em>&ldquo;This sensation is likely related to caffeine intake&rdquo;</em> — and decouples the self from the temporary bodily state — <em>&ldquo;I have experienced this response previously after caffeine&rdquo;</em> — epistemic alignment increases. The C3 layer now provides an adequate explanatory model for the C1 signal, potentially reducing variational free energy at C2 and attenuating the threat-detection cascade.
                                 </p>
                             </div>
                         </div>
@@ -427,7 +343,7 @@ export default function FormalizationPathway() {
                         The M-RFT metric represents an attempt to move beyond the description of fragmentation toward its measurement. By treating Epistemic Synchrony (Kₑ) as a potentially manipulable variable — introduced at the symbolic layer and tracked across biological and neural indices — this framework opens a tractable research pathway into the dynamics of self-coherence under conditions of informational entropy.
                     </p>
                     <p>
-                        The ‘João’ case study illustrates a localized mechanism: the possibility that structured epistemic scaffolding functions as a top-down constraint, associated with reductions in systemic noise (F) and enhanced individual stability. This observation raises a critical research question: if integrative processes are strengthened at the individual level, to what extent might these effects manifest across different spatiotemporal scales? This invites rigorous investigation into whether stabilization at the individual level correlates with more consistent patterns of organization across biological, neural, and socio-environmental domains.
+                        This case study illustrates a localized mechanism: the possibility that structured epistemic scaffolding functions as a top-down constraint, associated with reductions in systemic noise (F) and enhanced individual stability. This observation raises a critical research question: if integrative processes are strengthened at the individual level, to what extent might these effects manifest across different spatiotemporal scales? This invites rigorous investigation into whether stabilization at the individual level correlates with more consistent patterns of organization across biological, neural, and socio-environmental domains.
                     </p>
                     <p>
                         The subsequent section evaluates the scope of the M-RFT across clinical and everyday contexts, alongside the empirical requirements necessary to formally assess these cross-scale implications.
