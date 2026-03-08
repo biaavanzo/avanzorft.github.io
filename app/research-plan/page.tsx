@@ -382,6 +382,13 @@ export default function FormalizationPathway() {
                     </ol>
                 </section>
 
+                {/* RIGHTS */}
+                <div style={{ marginTop: 40, paddingTop: 28, borderTop: "1px solid #eee", textAlign: "center" }}>
+                    <a href="https://www.safecreative.org/work/2603074797166" rel="cc:license" target="_blank">
+                        <img src="https://resources.safecreative.org/work/2603074797166/label/logo-300" style={{ border: 0, height: 24, opacity: 0.6 }} title="Safe Creative #2603074797166" />
+                    </a>
+                </div>
+
             </main>
         </>
     )
