@@ -3,8 +3,6 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
-  color-scheme: light;
-  /* força UI/inputs em light */
 }
 
 @theme inline {
@@ -14,7 +12,12 @@
   --font-mono: var(--font-geist-mono);
 }
 
-/* Removido: prefers-color-scheme: dark */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
 
 body {
   background: var(--background);
