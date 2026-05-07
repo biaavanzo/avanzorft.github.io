@@ -17,7 +17,7 @@ export default function AboutTheAuthor() {
           alignItems: "center", justifyContent: "center", gap: 40, padding: "14px 0",
         }}>
           <a href="/" style={{ fontSize: 16, fontWeight: 500, color: "#111", fontFamily: "system-ui", whiteSpace: "nowrap", textDecoration: "none" }}>
-            Bianca Avanzo — The Root Frequency Theory
+            Root Lab
           </a>
           <nav style={{ display: "flex", gap: 24 }}>
             <a href="/the-paper" style={{ fontSize: 15, color: "#555", textDecoration: "none", fontFamily: "system-ui", whiteSpace: "nowrap" }}>About RFT</a>

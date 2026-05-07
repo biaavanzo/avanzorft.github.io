@@ -114,7 +114,7 @@ export default function ThePaper() {
 
             <header>
                 <div className="header-inner">
-                    <a href="/" className="header-name">Bianca Avanzo — The Root Frequency Theory</a>
+                    <a href="/" className="header-name">Root Lab</a>
                     <nav>
                         <a href="/the-paper">About RFT</a>
                         <a href="/about-the-author">About the Author</a>

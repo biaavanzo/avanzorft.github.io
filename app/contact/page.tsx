@@ -68,7 +68,7 @@ export default function Contact() {
             <header style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 100, background: "#fff", borderBottom: "1px solid #eee", padding: "0 32px" }}>
                 <div style={{ maxWidth: 900, margin: "0 auto", display: "flex", alignItems: "center", justifyContent: "center", gap: 40, padding: "14px 0" }}>
                     <a href="/" style={{ fontSize: 16, fontWeight: 500, color: "#111", fontFamily: "system-ui", whiteSpace: "nowrap", textDecoration: "none" }}>
-                        Bianca Avanzo — The Root Frequency Theory
+                        Root Lab
                     </a>
                     <nav style={{ display: "flex", gap: 24 }}>
                         <a href="/the-paper" style={navLink}>About RFT</a>
