@@ -59,30 +59,6 @@ export default function Home() {
           margin-top: 48px; color: #444; line-height: 1.85; text-align: center;
           width: 100%; max-width: 580px; margin-left: auto; margin-right: auto; padding: 0 24px;
         }
-        .status-block {
-          border: 1px solid #eee; background: #fafafa;
-          padding: 28px 32px; margin: 48px 0;
-        }
-        .status-label {
-          font-size: 10px; font-weight: 600; color: #555;
-          text-transform: uppercase; letter-spacing: 0.14em;
-          font-family: system-ui; margin-bottom: 20px;
-        }
-        .status-row {
-          display: grid; grid-template-columns: 1fr auto;
-          align-items: center; padding: 12px 0;
-          border-bottom: 1px solid #eee; gap: 24px;
-        }
-        .status-row:last-child { border-bottom: none; }
-        .status-title { font-size: 14px; color: #111; font-family: system-ui; font-weight: 500; }
-        .status-badge {
-          font-size: 10px; font-weight: 600; letter-spacing: 0.1em;
-          text-transform: uppercase; font-family: system-ui;
-          padding: 3px 8px; border: 1px solid; white-space: nowrap;
-        }
-        .badge-published { color: #111; border-color: #111; }
-        .badge-embargoed { color: #888; border-color: #ccc; }
-        .badge-active { color: #2d6a4f; border-color: #2d6a4f; }
         .section-divider { width: 100%; height: 1px; background: #eee; margin: 48px 0; }
         .problem-block { margin-bottom: 48px; }
         .problem-block h2 {
@@ -100,35 +76,42 @@ export default function Home() {
           display: grid; grid-template-columns: repeat(3, 1fr);
           gap: 2px; margin: 48px 0;
         }
-        .audience-card { border: 1px solid #eee; padding: 24px 20px; background: #fafafa; }
+        .audience-card {
+          border: 1px solid #eee; padding: 24px 20px; background: #fafafa;
+          display: flex; flex-direction: column; gap: 12px;
+        }
         .audience-title {
           font-size: 11px; font-weight: 600; color: #111;
-          text-transform: uppercase; letter-spacing: 0.12em;
-          font-family: system-ui; margin-bottom: 12px;
+          text-transform: uppercase; letter-spacing: 0.12em; font-family: system-ui;
         }
-        .audience-text { font-size: 14px; line-height: 1.7; color: #555; font-family: system-ui; }
+        .audience-text { font-size: 14px; line-height: 1.7; color: #555; font-family: system-ui; flex: 1; }
+        .audience-link {
+          font-size: 12px; color: #111; text-decoration: none;
+          font-family: system-ui; letter-spacing: 0.04em;
+          border-bottom: 1px solid #ddd; padding-bottom: 1px;
+          align-self: flex-start; transition: border-color 0.15s;
+        }
+        .audience-link:hover { border-color: #111; }
         .cards-section { margin-bottom: 0; }
         .cards-label {
           font-size: 10px; font-weight: 600; color: #555;
           text-transform: uppercase; letter-spacing: 0.14em;
           font-family: system-ui; margin-bottom: 16px; text-align: center;
         }
-        .cards {
-          display: grid; grid-template-columns: repeat(3, 1fr);
-          gap: 2px; align-items: stretch;
-        }
+        .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; align-items: stretch; }
         .card-wrapper {
           text-decoration: none; display: flex; flex-direction: column;
           border: 1px solid #e8e8e8; padding: 22px 20px; background: #fafafa;
-          transition: background 0.2s, border-color 0.2s;
+          transition: background 0.2s, border-color 0.2s; gap: 8px;
         }
         .card-wrapper:hover { background: #f0f0ee; border-color: #ccc; }
         .card-title {
           font-size: 12px; font-weight: 600; color: #111;
-          font-family: system-ui; margin-bottom: 12px; line-height: 1.3;
+          font-family: system-ui; line-height: 1.3;
           text-transform: uppercase; letter-spacing: 0.08em;
         }
         .card-text { font-size: 14px; line-height: 1.7; color: #555; font-family: system-ui; flex: 1; }
+        .card-date { font-size: 12px; color: #aaa; font-family: system-ui; margin-top: auto; padding-top: 12px; }
         .cta-row {
           margin-top: 48px; display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;
         }
@@ -141,6 +124,32 @@ export default function Home() {
         .cta-link:hover { border-color: #111; background: #f7f7f7; }
         .cta-link.primary { background: #111; color: #fff; border-color: #111; }
         .cta-link.primary:hover { background: #333; }
+        .status-block {
+          border: 1px solid #eee; background: #fafafa;
+          padding: 28px 32px; margin: 48px 0 0;
+        }
+        .status-label {
+          font-size: 10px; font-weight: 600; color: #555;
+          text-transform: uppercase; letter-spacing: 0.14em;
+          font-family: system-ui; margin-bottom: 20px;
+        }
+        .status-row {
+          display: grid; grid-template-columns: 1fr auto;
+          align-items: start; padding: 16px 0;
+          border-bottom: 1px solid #eee; gap: 24px;
+        }
+        .status-row:last-child { border-bottom: none; }
+        .status-row-left { display: flex; flex-direction: column; gap: 4px; }
+        .status-title { font-size: 14px; color: #111; font-family: system-ui; font-weight: 500; }
+        .status-desc { font-size: 13px; color: #888; font-family: system-ui; line-height: 1.5; }
+        .status-badge {
+          font-size: 10px; font-weight: 600; letter-spacing: 0.1em;
+          text-transform: uppercase; font-family: system-ui;
+          padding: 3px 8px; border: 1px solid; white-space: nowrap; margin-top: 2px;
+        }
+        .badge-published { color: #111; border-color: #111; }
+        .badge-embargoed { color: #888; border-color: #ccc; }
+        .badge-active { color: #2d6a4f; border-color: #2d6a4f; }
         @media (max-width: 640px) {
           .header-inner { flex-direction: column; gap: 10px; padding: 12px 0; }
           main { padding-top: 100px; }
@@ -175,26 +184,6 @@ export default function Home() {
                     </p>
                 </section>
 
-                <div className="status-block">
-                    <div className="status-label">Active Research Program</div>
-                    <div className="status-row">
-                        <span className="status-title">Root Frequency Theory</span>
-                        <span className="status-badge badge-published">Published</span>
-                    </div>
-                    <div className="status-row">
-                        <span className="status-title">M-RFT Coherence Metric</span>
-                        <span className="status-badge badge-embargoed">Embargoed</span>
-                    </div>
-                    <div className="status-row">
-                        <span className="status-title">Root Knowledge — Human-AI Coherence</span>
-                        <span className="status-badge badge-published">Published</span>
-                    </div>
-                    <div className="status-row">
-                        <span className="status-title">Root Extension — N=1 Longitudinal Study</span>
-                        <span className="status-badge badge-active">Active</span>
-                    </div>
-                </div>
-
                 <div className="section-divider" />
 
                 <div className="problem-block">
@@ -203,7 +192,7 @@ export default function Home() {
                         Modern systems optimize for output. Speed. Engagement. Accuracy. What they do not account for is the state of the human producing that output — or the cost of fragmentation across biological, neural, and narrative layers that precedes diagnosis, burnout, and the quiet erosion of self-continuity.
                     </p>
                     <p>
-                        Root Lab investigates whether coherence can be formally modeled, longitudinally tracked, and supported — through structured human-AI interaction and physiological measurement. The framework is pre-empirical and epistemically honest about that. The research program is not.
+                        Root Lab investigates whether coherence can be formally modeled, longitudinally tracked, and supported — through structured human-AI interaction and physiological measurement. The framework is pre-empirical and explicit about that.
                     </p>
                 </div>
 
@@ -211,14 +200,17 @@ export default function Home() {
                     <div className="audience-card">
                         <div className="audience-title">Neuroscience & Interoception</div>
                         <p className="audience-text">A formal coherence metric grounded in predictive processing, IIT, and HRV-indexed autonomic flexibility. Full protocol available upon request.</p>
+                        <a href="/research-plan" className="audience-link">→ View protocol</a>
                     </div>
                     <div className="audience-card">
                         <div className="audience-title">AI & Human-Computer Interaction</div>
                         <p className="audience-text">AI optimized for engagement amplifies fragmentation. Root Knowledge proposes a coherence layer between information systems and the humans integrating them.</p>
+                        <a href="/the-paper" className="audience-link">→ Read Root Knowledge</a>
                     </div>
                     <div className="audience-card">
                         <div className="audience-title">Clinical & Translational Research</div>
                         <p className="audience-text">Fragmentation as a measurable, pre-symptomatic variable. Root Extension is a prototype instrument for longitudinal coherence tracking.</p>
+                        <a href="/contact" className="audience-link">→ Collaborate</a>
                     </div>
                 </div>
 
@@ -230,14 +222,17 @@ export default function Home() {
                         <a href="/the-paper" className="card-wrapper">
                             <div className="card-title">Root Frequency Theory</div>
                             <p className="card-text">The foundational framework. C0–C4 nested architecture. Experiential continuity as a systemic property.</p>
+                            <div className="card-date">February 2026 · Published</div>
                         </a>
                         <a href="/research-plan" className="card-wrapper">
                             <div className="card-title">M-RFT Coherence Metric</div>
-                            <p className="card-text">A formal index of cross-level coordination. Pre-empirical. Designed for lab validation.</p>
+                            <p className="card-text">A formal index of cross-level coordination. Pre-empirical. Designed for lab validation with neuroimaging partners.</p>
+                            <div className="card-date">2026 · Embargoed preprint</div>
                         </a>
                         <a href="/expected-outcomes" className="card-wrapper">
-                            <div className="card-title">Research Implications</div>
-                            <p className="card-text">Psychopathology, preventive mental health, and collective coherence. What a validated metric opens up.</p>
+                            <div className="card-title">Root Knowledge</div>
+                            <p className="card-text">Human-AI interaction as coherence scaffolding. The integration layer between information systems and lived experience.</p>
+                            <div className="card-date">May 2026 · Published</div>
                         </a>
                     </div>
                 </section>
@@ -245,6 +240,38 @@ export default function Home() {
                 <div className="cta-row">
                     <a href="https://doi.org/10.5281/zenodo.18905376" target="_blank" rel="noopener noreferrer" className="cta-link primary">Read the paper ↗</a>
                     <a href="/contact" className="cta-link">Collaborate</a>
+                </div>
+
+                <div className="status-block">
+                    <div className="status-label">Active Research Program</div>
+                    <div className="status-row">
+                        <div className="status-row-left">
+                            <span className="status-title">Root Frequency Theory</span>
+                            <span className="status-desc">Five nested layers. Coherence as the mechanism of self-continuity.</span>
+                        </div>
+                        <span className="status-badge badge-published">Published</span>
+                    </div>
+                    <div className="status-row">
+                        <div className="status-row-left">
+                            <span className="status-title">M-RFT Coherence Metric</span>
+                            <span className="status-desc">A formal coherence index. Available to researchers upon request.</span>
+                        </div>
+                        <span className="status-badge badge-embargoed">Embargoed</span>
+                    </div>
+                    <div className="status-row">
+                        <div className="status-row-left">
+                            <span className="status-title">Root Knowledge — Human-AI Coherence</span>
+                            <span className="status-desc">On AI as epistemic scaffold, not output generator.</span>
+                        </div>
+                        <span className="status-badge badge-published">Published</span>
+                    </div>
+                    <div className="status-row">
+                        <div className="status-row-left">
+                            <span className="status-title">Root Extension — N=1 Longitudinal Study</span>
+                            <span className="status-desc">Active data collection April–October 2026.</span>
+                        </div>
+                        <span className="status-badge badge-active">Active</span>
+                    </div>
                 </div>
 
             </main>
