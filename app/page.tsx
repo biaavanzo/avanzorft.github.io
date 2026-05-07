@@ -25,7 +25,7 @@ export default function Home() {
         }
         .header-name {
           font-size: 16px; font-weight: 500; color: #111;
-          font-family: system-ui; white-space: nowrap;
+          font-family: system-ui; white-space: nowrap; text-decoration: none;
         }
         nav { display: flex; gap: 24px; }
         nav a {
@@ -41,7 +41,6 @@ export default function Home() {
           max-width: 900px; margin: 0 auto;
         }
 
-        /* HERO */
         .hero { margin-bottom: 64px; display: flex; flex-direction: column; align-items: stretch; }
         .hero-title-center { display: flex; flex-direction: column; align-items: center; }
         .hero-title-wrap { position: relative; line-height: 1; }
@@ -77,7 +76,6 @@ export default function Home() {
           padding: 0 24px;
         }
 
-        /* CARDS — quick scan after abstract */
         .cards-section { margin-top: 8px; margin-bottom: 0; }
         .cards-label {
           font-size: 16px; font-weight: 700; color: #111;
@@ -112,12 +110,10 @@ export default function Home() {
         }
         .card-text { font-size: 15px; line-height: 1.7; color: #333; font-family: system-ui; text-align: center; flex: 1; display: flex; align-items: center; justify-content: center; }
 
-        /* SECTION DIVIDER */
         .section-divider {
           width: 100%; height: 1px; background: #eee; margin: 48px 0;
         }
 
-        /* WHY — secondary attention block */
         .why h2 {
           font-family: 'EB Garamond', Georgia, serif;
           font-size: clamp(32px, 4vw, 44px);
@@ -134,7 +130,6 @@ export default function Home() {
         .why-body p:last-child { margin-bottom: 0; }
         sup { font-size: 10px; vertical-align: super; line-height: 0; color: #aaa; }
 
-        /* CTA back to cards */
         .cta-row {
           margin-top: 72px; display: flex; gap: 12px; justify-content: center;
           flex-wrap: wrap;
@@ -151,7 +146,6 @@ export default function Home() {
         }
         .cta-link.primary:hover { background: #333; }
 
-        /* REFERENCES */
         .references {
           border-top: 1px solid #eee; padding-top: 28px;
           max-width: 900px; margin: 96px auto 80px;
@@ -173,14 +167,12 @@ export default function Home() {
           .header-inner { flex-direction: column; gap: 10px; padding: 12px 0; }
           main { padding-top: 100px; }
           .cards { grid-template-columns: 1fr; }
-          .abstract-block { padding: 24px 20px; }
         }
       `}</style>
 
-      {/* HEADER */}
       <header>
         <div className="header-inner">
-          <span className="header-name">Bianca Avanzo — The Root Frequency Theory</span>
+          <a href="/" className="header-name">Root Lab</a>
           <nav>
             <a href="/the-paper">About RFT</a>
             <a href="/about-the-author">About the Author</a>
@@ -191,7 +183,6 @@ export default function Home() {
 
       <main>
 
-        {/* HERO */}
         <section className="hero">
           <div className="hero-title-center">
             <div className="hero-title-wrap">
@@ -203,22 +194,21 @@ export default function Home() {
                 <line x1="22" y1="22" x2="16" y2="28" stroke="#111" strokeWidth="1" strokeLinecap="round" />
                 <line x1="40" y1="16" x2="46" y2="26" stroke="#111" strokeWidth="1" strokeLinecap="round" />
               </svg>
-              <h1 className="hero-title">Root Frequency</h1>
+              <h1 className="hero-title">Root Lab</h1>
             </div>
             <div className="hero-subtitle-row">
-              <span className="hero-subtitle">Theory</span>
+              <span className="hero-subtitle">An Independent Research Program</span>
             </div>
             <div className="hero-divider" />
           </div>
 
           <div className="hero-desc-wrap">
             <p className="hero-desc" style={{ fontSize: 22, fontWeight: 500, color: "#555" }}>
-              What sustains a coherent sense of self? Root Frequency Theory proposes an integrative framework for understanding how brain, body, and lived experience might remain aligned across time, and what conditions could disrupt this coherence.
+              Investigating how biological regulation, neural dynamics, and self-narrative integrate to sustain a coherent sense of self — and what happens, across scales, when they don't.
             </p>
           </div>
         </section>
 
-        {/* CARDS — quick overview */}
         <section className="cards-section">
           <div className="cards-label">Explore the framework</div>
           <div className="cards">
@@ -238,86 +228,83 @@ export default function Home() {
         </section>
 
         <div style={{ textAlign: "center", marginTop: 20, marginBottom: 0 }}>
-          <a
-            href="https://doi.org/10.5281/zenodo.18905376"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{
-              fontSize: 12, color: "#888", fontFamily: "system-ui",
-              textDecoration: "none", letterSpacing: "0.04em",
-              borderBottom: "1px solid #ddd", paddingBottom: 2,
-              transition: "color 0.15s, border-color 0.15s",
-            }}
+
+          href="https://doi.org/10.5281/zenodo.18905376"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{
+            fontSize: 12, color: "#888", fontFamily: "system-ui",
+            textDecoration: "none", letterSpacing: "0.04em",
+            borderBottom: "1px solid #ddd", paddingBottom: 2,
+            transition: "color 0.15s, border-color 0.15s",
+          }}
           >
-            Read the full paper ↗
-          </a>
+          Read the full paper ↗
+        </a>
+      </div>
+
+      <div className="section-divider" />
+
+      <section className="why">
+        <h2>Why does this matter?</h2>
+        <div className="why-body">
+          <p>
+            Contemporary neuroscience has made major advances in characterizing neural
+            dynamics<sup>1</sup>, intrinsic self-related activity<sup>2</sup>, and the organization
+            of large-scale brain networks, along with their associated
+            vulnerabilities<sup>3,4,5,6,7</sup>. Yet these domains are often investigated
+            separately, leaving open a critical question: could multiscale alignment play a
+            key role in understanding the maintenance and potential perturbation of
+            lived-experience continuity?
+          </p>
+          <p>
+            This question becomes increasingly relevant in today&apos;s information-dense and
+            cognitively demanding environments. Within this context, Root Frequency Theory
+            considers how cognitive information overload may impact cross-level coordination.
+            We hypothesize that under such sustained load, the system&apos;s integrative capacity
+            may be reduced<sup>8</sup>, thereby placing increased demands on predictive
+            regulation<sup>1</sup>.
+          </p>
+          <p>
+            The proposed M-RFT metric aims to quantify variations in cross-scale alignment
+            and examine whether such variations help predict emerging patterns of experiential
+            fragmentation across both clinical and everyday contexts<sup>3,7</sup>.
+          </p>
         </div>
 
-        <div className="section-divider" />
+        <div className="cta-row">
+          <a href="/the-paper" className="cta-link primary">Read the paper →</a>
+          <a href="/research-plan" className="cta-link">M-RFT Metric</a>
+          <a href="/expected-outcomes" className="cta-link">Expected Outcomes</a>
+        </div>
+      </section>
 
-        {/* WHY THIS MATTERS */}
-        <section className="why">
-          <h2>Why does this matter?</h2>
-          <div className="why-body">
-            <p>
-              Contemporary neuroscience has made major advances in characterizing neural
-              dynamics<sup>1</sup>, intrinsic self-related activity<sup>2</sup>, and the organization
-              of large-scale brain networks, along with their associated
-              vulnerabilities<sup>3,4,5,6,7</sup>. Yet these domains are often investigated
-              separately, leaving open a critical question: could multiscale alignment play a
-              key role in understanding the maintenance and potential perturbation of
-              lived-experience continuity?
-            </p>
-            <p>
-              This question becomes increasingly relevant in today&apos;s information-dense and
-              cognitively demanding environments. Within this context, Root Frequency Theory
-              considers how cognitive information overload may impact cross-level coordination.
-              We hypothesize that under such sustained load, the system&apos;s integrative capacity
-              may be reduced<sup>8</sup>, thereby placing increased demands on predictive
-              regulation<sup>1</sup>.
-            </p>
-            <p>
-              The proposed M-RFT metric aims to quantify variations in cross-scale alignment
-              and examine whether such variations help predict emerging patterns of experiential
-              fragmentation across both clinical and everyday contexts<sup>3,7</sup>.
-            </p>
-          </div>
+      <section className="references">
+        <h3>References</h3>
+        <ol>
+          {[
+            { text: "Friston, K. (2010). The free-energy principle: A unified brain theory? Nature Reviews Neuroscience, 11(2), 127–138.", url: "https://doi.org/10.1038/nrn2787" },
+            { text: "Northoff, G. (2016). Neuro-philosophy and the healthy mind: Learning from the unwell brain. W. W. Norton & Company.", url: null },
+            { text: "Menon, V. (2011). Large-scale brain networks and psychopathology: A unifying triple network model. Trends in Cognitive Sciences, 15(10), 483–506.", url: "https://doi.org/10.1016/j.tics.2011.08.003" },
+            { text: "Seth, A. K., Dienes, Z., Cleeremans, A., Overgaard, M., & Pessoa, L. (2008). Measuring consciousness: Relating behavioural and neurophysiological approaches. Trends in Cognitive Sciences, 12(8), 314–321.", url: "https://doi.org/10.1016/j.tics.2008.04.008" },
+            { text: "Edelman, G. M., Gally, J. A., & Baars, B. J. (2011). Biology of consciousness. Frontiers in Psychology, 2, 4.", url: "https://doi.org/10.3389/fpsyg.2011.00004" },
+            { text: "Cleeremans, A. (2011). The radical plasticity thesis: How the brain learns to be conscious. Frontiers in Psychology, 2, 86.", url: "https://doi.org/10.3389/fpsyg.2011.00086" },
+            { text: "Sapolsky, R. M. (2004). Why zebras don't get ulcers (3rd ed.). Henry Holt.", url: null },
+            { text: "Tononi, G., Boly, M., Massimini, M., & Koch, C. (2016). Integrated information theory: From consciousness to its physical substrate. Nature Reviews Neuroscience, 17, 450–461.", url: "https://doi.org/10.1038/nrn.2016.44" },
+          ].map((ref, i) => (
+            <li key={i}>
+              {ref.text}{" "}
+              {ref.url && (
+                <a href={ref.url} target="_blank" rel="noopener noreferrer">
+                  {ref.url}
+                </a>
+              )}
+            </li>
+          ))}
+        </ol>
+      </section>
 
-          {/* CTA back to cards */}
-          <div className="cta-row">
-            <a href="/the-paper" className="cta-link primary">Read the paper →</a>
-            <a href="/research-plan" className="cta-link">M-RFT Metric</a>
-            <a href="/expected-outcomes" className="cta-link">Expected Outcomes</a>
-          </div>
-        </section>
-
-        {/* REFERENCES */}
-        <section className="references">
-          <h3>References</h3>
-          <ol>
-            {[
-              { text: "Friston, K. (2010). The free-energy principle: A unified brain theory? Nature Reviews Neuroscience, 11(2), 127–138.", url: "https://doi.org/10.1038/nrn2787" },
-              { text: "Northoff, G. (2016). Neuro-philosophy and the healthy mind: Learning from the unwell brain. W. W. Norton & Company.", url: null },
-              { text: "Menon, V. (2011). Large-scale brain networks and psychopathology: A unifying triple network model. Trends in Cognitive Sciences, 15(10), 483–506.", url: "https://doi.org/10.1016/j.tics.2011.08.003" },
-              { text: "Seth, A. K., Dienes, Z., Cleeremans, A., Overgaard, M., & Pessoa, L. (2008). Measuring consciousness: Relating behavioural and neurophysiological approaches. Trends in Cognitive Sciences, 12(8), 314–321.", url: "https://doi.org/10.1016/j.tics.2008.04.008" },
-              { text: "Edelman, G. M., Gally, J. A., & Baars, B. J. (2011). Biology of consciousness. Frontiers in Psychology, 2, 4.", url: "https://doi.org/10.3389/fpsyg.2011.00004" },
-              { text: "Cleeremans, A. (2011). The radical plasticity thesis: How the brain learns to be conscious. Frontiers in Psychology, 2, 86.", url: "https://doi.org/10.3389/fpsyg.2011.00086" },
-              { text: "Sapolsky, R. M. (2004). Why zebras don't get ulcers (3rd ed.). Henry Holt.", url: null },
-              { text: "Tononi, G., Boly, M., Massimini, M., & Koch, C. (2016). Integrated information theory: From consciousness to its physical substrate. Nature Reviews Neuroscience, 17, 450–461.", url: "https://doi.org/10.1038/nrn.2016.44" },
-            ].map((ref, i) => (
-              <li key={i}>
-                {ref.text}{" "}
-                {ref.url && (
-                  <a href={ref.url} target="_blank" rel="noopener noreferrer">
-                    {ref.url}
-                  </a>
-                )}
-              </li>
-            ))}
-          </ol>
-        </section>
-
-      </main>
+    </main >
     </>
   )
 }

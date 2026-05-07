@@ -85,7 +85,6 @@ export default function FormalizationPathway() {
 
         .divider { width: 100%; height: 1px; background: #eee; margin: 48px 0; }
 
-        /* FORMULA BLOCK */
         .formula-block {
           border: 1px solid #eee; background: #fafafa;
           padding: 36px 32px; margin-bottom: 52px; text-align: center;
@@ -125,7 +124,6 @@ export default function FormalizationPathway() {
         .legend-def { color: #555; font-family: system-ui; }
         .legend-def strong { color: #111; font-weight: 500; }
 
-        /* PROTOCOL STEPS */
         .protocol { display: flex; flex-direction: column; gap: 2px; margin-bottom: 0; }
         .protocol-step {
           border: 1px solid #eee; background: #fafafa;
@@ -146,7 +144,6 @@ export default function FormalizationPathway() {
           font-size: 13px; line-height: 1.65; color: #666; font-family: system-ui;
         }
 
-        /* REFERENCES */
         .references {
           border-top: 1px solid #eee; padding-top: 28px; margin-top: 48px;
         }
@@ -169,7 +166,7 @@ export default function FormalizationPathway() {
 
             <header>
                 <div className="header-inner">
-                    <a href="/" className="header-name">Bianca Avanzo — The Root Frequency Theory</a>
+                    <a href="/" className="header-name">Root Lab</a>
                     <nav>
                         <a href="/the-paper">About RFT</a>
                         <a href="/about-the-author">About the Author</a>
@@ -192,7 +189,6 @@ export default function FormalizationPathway() {
                 <h1 className="page-title">M-RFT Coherence Metric</h1>
                 <p className="page-subtitle">Operational Proxy for Multiscale Integration</p>
 
-                {/* ABSTRACT */}
                 <div className="section">
                     <div className="section-title">Abstract</div>
                     <p>
@@ -205,7 +201,6 @@ export default function FormalizationPathway() {
 
                 <div className="divider" />
 
-                {/* ORIGIN */}
                 <div className="section">
                     <div className="section-title">Origin of the Metric</div>
                     <p>
@@ -221,7 +216,6 @@ export default function FormalizationPathway() {
 
                 <div className="divider" />
 
-                {/* PROTOCOL */}
                 <div className="section">
                     <div className="section-title">Proposed Experimental Protocol</div>
                     <p>
@@ -241,21 +235,20 @@ export default function FormalizationPathway() {
                         <div className="protocol-num">2</div>
                         <div className="protocol-body">
                             <div className="protocol-title">Structured Knowledge Intervention</div>
-                            <div className="protocol-desc">Introduction of organized, interdependent information layers targeting detected prediction errors. Explanatory frameworks linking somatic signals to narrative context are implemented to examine whether Kₑ increases and variational free energy (F) correspondingly decreases.</div>
+                            <div className="protocol-desc">Introduction of organized, interdependent information layers targeting detected prediction errors. Explanatory frameworks linking somatic signals to narrative context are implemented to examine whether epistemic alignment increases and systemic regulatory burden correspondingly decreases.</div>
                         </div>
                     </div>
                     <div className="protocol-step">
                         <div className="protocol-num">3</div>
                         <div className="protocol-body">
                             <div className="protocol-title">Post-Intervention Assessment</div>
-                            <div className="protocol-desc">Re-evaluation of neural, physiological, and phenomenological reports, testing whether increases in Kₑ are associated with corresponding changes in the M-RFT index across the three predicted outcomes.</div>
+                            <div className="protocol-desc">Re-evaluation of neural, physiological, and phenomenological reports, testing whether increases in epistemic alignment are associated with corresponding changes in the M-RFT index across the three predicted outcomes.</div>
                         </div>
                     </div>
                 </div>
 
                 <div className="divider" />
 
-                {/* JOÃO CASE EXAMPLE */}
                 <div className="section">
                     <div className="section-title">Illustrative Case Example</div>
                     <p>
@@ -263,7 +256,6 @@ export default function FormalizationPathway() {
                     </p>
                 </div>
 
-                {/* SITUATION SETUP */}
                 <div style={{
                     border: "1px solid #eee", background: "#fafafa",
                     padding: "28px 28px 24px", marginBottom: 2, textAlign: "center",
@@ -298,8 +290,6 @@ export default function FormalizationPathway() {
                 </div>
 
                 <div style={{ display: "flex", flexDirection: "column", gap: 2, marginBottom: 52 }}>
-
-                    {/* SCENARIO A */}
                     <div style={{ border: "1px solid #eee", background: "#fafafa" }}>
                         <div style={{ display: "grid", gridTemplateColumns: "4px 1fr" }}>
                             <div style={{ background: "#c0392b" }} />
@@ -318,7 +308,6 @@ export default function FormalizationPathway() {
 
                     <div style={{ width: 1, height: 14, background: "#ddd", marginLeft: 26 }} />
 
-                    {/* SCENARIO B */}
                     <div style={{ border: "1px solid #eee", background: "#fafafa" }}>
                         <div style={{ display: "grid", gridTemplateColumns: "4px 1fr" }}>
                             <div style={{ background: "#27ae60" }} />
@@ -331,26 +320,23 @@ export default function FormalizationPathway() {
                             </div>
                         </div>
                     </div>
-
                 </div>
 
                 <div className="divider" />
 
-                {/* CONCLUSION */}
                 <div className="section">
                     <div className="section-title">Conclusion</div>
                     <p>
                         The M-RFT metric represents an attempt to move beyond the description of fragmentation toward its measurement. By treating Epistemic Synchrony (Kₑ) as a potentially manipulable variable — introduced at the symbolic layer and tracked across biological and neural indices — this framework opens a tractable research pathway into the dynamics of self-coherence under conditions of informational entropy.
                     </p>
                     <p>
-                        This case study illustrates a localized mechanism: the possibility that structured epistemic scaffolding functions as a top-down constraint, associated with reductions in systemic noise (F) and enhanced individual stability. This observation raises a critical research question: if integrative processes are strengthened at the individual level, to what extent might these effects manifest across different spatiotemporal scales? This invites rigorous investigation into whether stabilization at the individual level correlates with more consistent patterns of organization across biological, neural, and socio-environmental domains.
+                        This case study illustrates a localized mechanism: the possibility that structured epistemic scaffolding functions as a top-down constraint, associated with reductions in systemic noise and enhanced individual stability. This observation raises a critical research question: if integrative processes are strengthened at the individual level, to what extent might these effects manifest across different spatiotemporal scales? This invites rigorous investigation into whether stabilization at the individual level correlates with more consistent patterns of organization across biological, neural, and socio-environmental domains.
                     </p>
                     <p>
                         The subsequent section evaluates the scope of the M-RFT across clinical and everyday contexts, alongside the empirical requirements necessary to formally assess these cross-scale implications.
                     </p>
                 </div>
 
-                {/* BOTTOM NAV */}
                 <div style={{
                     display: "flex", justifyContent: "space-between", alignItems: "center",
                     borderTop: "1px solid #eee", marginTop: 48, paddingTop: 28,
@@ -370,7 +356,6 @@ export default function FormalizationPathway() {
                     </a>
                 </div>
 
-                {/* REFERENCES */}
                 <section className="references">
                     <h3>References</h3>
                     <ol>
@@ -382,7 +367,6 @@ export default function FormalizationPathway() {
                     </ol>
                 </section>
 
-                {/* RIGHTS */}
                 <div style={{ marginTop: 40, paddingTop: 28, borderTop: "1px solid #eee", textAlign: "center" }}>
                     <a href="https://www.safecreative.org/work/2603074797166" rel="cc:license" target="_blank">
                         <img src="https://resources.safecreative.org/work/2603074797166/label/logo-300" style={{ border: 0, height: 24, opacity: 0.6 }} title="Safe Creative #2603074797166" />
