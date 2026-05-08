@@ -72,29 +72,41 @@ export default function Home() {
         .problem-block h2 {
           font-family: 'EB Garamond', Georgia, serif;
           font-size: clamp(20px, 2.8vw, 26px);
-          font-weight: 500; color: #111; margin-bottom: 14px;
+          font-weight: 500; color: #111; margin-bottom: 16px;
           letter-spacing: -0.01em; line-height: 1.2;
         }
         .problem-block p {
           font-size: 16px; line-height: 1.9; color: #444;
-          font-family: system-ui; margin-bottom: 28px;
+          font-family: system-ui; margin-bottom: 20px;
           text-align: justify; hyphens: auto;
+        }
+        .problem-closing {
+          font-family: 'EB Garamond', Georgia, serif;
+          font-size: clamp(17px, 2.2vw, 21px);
+          font-weight: 500; color: #111; line-height: 1.5;
+          margin: 32px 0 40px; font-style: italic;
+        }
+        .investigate-block { margin-top: 40px; }
+        .investigate-question {
+          font-family: 'EB Garamond', Georgia, serif;
+          font-size: clamp(16px, 2vw, 20px);
+          font-weight: 400; color: #333; line-height: 1.7;
+          margin-top: 14px; font-style: italic;
+          border-left: 2px solid #ddd; padding-left: 20px;
         }
         sup {
           font-size: 10px; color: #aaa; font-family: system-ui;
           vertical-align: super; line-height: 0; margin-left: 1px;
         }
         .references {
-          border-top: 1px solid #eee; padding-top: 24px; margin-top: 8px;
+          border-top: 1px solid #eee; padding-top: 24px; margin-top: 40px;
         }
         .references-label {
           font-size: 10px; font-weight: 600; color: #ccc;
           text-transform: uppercase; letter-spacing: 0.14em;
           font-family: system-ui; margin-bottom: 12px;
         }
-        .ref-list {
-          list-style: none; padding: 0; margin: 0;
-        }
+        .ref-list { list-style: none; padding: 0; margin: 0; }
         .ref-list li {
           font-size: 11px; color: #bbb; font-family: system-ui;
           line-height: 1.7; margin-bottom: 4px; padding-left: 20px;
@@ -106,10 +118,7 @@ export default function Home() {
           text-transform: uppercase; letter-spacing: 0.14em;
           font-family: system-ui; margin-bottom: 16px; text-align: center;
         }
-        .cards {
-          display: grid; grid-template-columns: repeat(2, 1fr);
-          gap: 2px; align-items: stretch;
-        }
+        .cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2px; align-items: stretch; }
         .card-wrapper {
           text-decoration: none; display: flex; flex-direction: column;
           border: 1px solid #e8e8e8; padding: 22px 20px; background: #fafafa;
@@ -207,15 +216,36 @@ export default function Home() {
 
         <div className="problem-block">
 
-          <h2>The problem</h2>
+          <h2>The Problem</h2>
+
           <p>
-            Over a billion people are living with a mental health condition<sup>1</sup> — and the gap between what science understands about how the mind breaks down and what clinical tools can actually measure keeps widening. Fragmentation — the loss of coordination between physiological regulation, neural dynamics, and self-narrative — is now recognized as a shared mechanism across anxiety, depression, and dissociation,<sup>2,3</sup> one that precedes symptom onset.<sup>4</sup> But it remains formally unmeasured in daily life. The instruments exist in separate silos: interoceptive accuracy in the lab,<sup>5</sup> HRV in the clinic,<sup>6</sup> narrative coherence in phenomenology.<sup>7</sup> Nothing integrates them longitudinally, outside a scanner, in the person&apos;s actual life. And the AI systems now embedded in that life are optimized for engagement — which, from a predictive processing standpoint, is precisely the wrong objective.<sup>8</sup>
+            More than one billion people are living with a mental health condition,<sup>1</sup> yet the gap between what science understands about the breakdown of mind-body regulation and what clinical tools can actually measure continues to widen.
           </p>
 
-          <h2>What this program is investigating</h2>
           <p>
-            Root Lab is an independent research program working on a single question: can cross-level coherence — the alignment of physiological, neural, and representational processes — be formally measured, tracked over time, and supported through structured human-AI interaction? The M-RFT metric proposes a formal index: M = (Φ · K&#x2091;) / F, where Φ captures neural integration across interoceptive-predictive networks, K&#x2091; operationalizes the alignment between interoceptive signal and self-narrative, and F indexes regulatory burden via autonomic flexibility.<sup>9</sup> Root Frequency Theory provides the multilayered theoretical architecture — five nested layers (C0–C4) through which experiential continuity either holds or fractures.<sup>10</sup> Root Knowledge extends this to human-AI interaction, proposing that AI can function as an epistemic scaffold — organizing information in ways that reduce prediction error rather than amplify it.<sup>11</sup> Root Extension is the instrument designed to test these ideas ecologically, in real time, over six months.
+            Across anxiety, depression, dissociation, and chronic stress, a common pattern is emerging: fragmentation. Not simply distress, but a loss of coordination between physiological regulation, neural dynamics, and self-narrative.<sup>2,3</sup> This breakdown may begin before symptoms become clinically visible.<sup>4</sup>
           </p>
+
+          <p>
+            Current tools remain siloed. Interoceptive accuracy is measured in the lab.<sup>5</sup> HRV is tracked in clinical or consumer health settings.<sup>6</sup> Narrative coherence is studied through phenomenology and psychology.<sup>7</sup> But no system integrates these layers longitudinally, outside the scanner, in the actual flow of a person&apos;s life.
+          </p>
+
+          <p>
+            At the same time, AI systems are becoming embedded in that life. Most are optimized for speed, personalization, and engagement. But from a predictive processing perspective, engagement is not the same as coherence. In many cases, it may amplify prediction error, attention fragmentation, and narrative instability.<sup>8</sup>
+          </p>
+
+          <p className="problem-closing">
+            Root Lab begins from this gap:<br />
+            if fragmentation is cross-layer, our tools must become cross-layer too.
+          </p>
+
+          <div className="investigate-block">
+            <h2>What this program investigates</h2>
+            <p>Root Lab is an independent research program organized around one central question:</p>
+            <p className="investigate-question">
+              Can cross-level coherence — the alignment between physiological regulation, neural dynamics, and self-representation — be formally measured, tracked over time, and supported through coherence-centered human-AI interaction?
+            </p>
+          </div>
 
           <div className="references">
             <div className="references-label">References</div>
@@ -228,9 +258,6 @@ export default function Home() {
               <li>6. Thayer, J. F., &amp; Lane, R. D. (2000). A model of neurovisceral integration in emotion regulation and dysregulation. <em>Journal of Affective Disorders, 61</em>(3), 201–216.</li>
               <li>7. Varela, F. J. (1996). Neurophenomenology: A methodological remedy for the hard problem. <em>Journal of Consciousness Studies, 3</em>(4), 330–349.</li>
               <li>8. Avanzo, B. (2026). Root Knowledge: Embodied knowledge as a foundation for coherent human–AI interaction. Independent researcher.</li>
-              <li>9. Avanzo, B. (2026). Multiscale integration of interoceptive signals and narrative scaffolding: Can systemic coherence be formally measured? (M-RFT). Unpublished manuscript.</li>
-              <li>10. Avanzo, B. (2026). Root Frequency Theory. Zenodo. https://doi.org/10.5281/zenodo.18905376</li>
-              <li>11. Friston, K. (2010). The free-energy principle: A unified brain theory? <em>Nature Reviews Neuroscience, 11</em>(2), 127–138.</li>
             </ol>
           </div>
         </div>
