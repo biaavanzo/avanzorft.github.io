@@ -83,16 +83,18 @@ export default function Home() {
         .problem-closing {
           font-family: 'EB Garamond', Georgia, serif;
           font-size: clamp(17px, 2.2vw, 21px);
-          font-weight: 500; color: #111; line-height: 1.5;
-          margin: 32px 0 40px; font-style: italic;
+          font-weight: 500; color: #111; line-height: 1.6;
+          margin: 32px 0 40px; padding: 24px 0;
+          border-top: 1px solid #eee; border-bottom: 1px solid #eee;
         }
         .investigate-block { margin-top: 40px; }
         .investigate-question {
           font-family: 'EB Garamond', Georgia, serif;
           font-size: clamp(16px, 2vw, 20px);
           font-weight: 400; color: #333; line-height: 1.7;
-          margin-top: 14px; font-style: italic;
+          margin-top: 14px;
           border-left: 2px solid #ddd; padding-left: 20px;
+          font-style: italic;
         }
         sup {
           font-size: 10px; color: #aaa; font-family: system-ui;
@@ -219,25 +221,17 @@ export default function Home() {
           <h2>The Problem</h2>
 
           <p>
-            More than one billion people are living with a mental health condition,<sup>1</sup> yet the gap between what science understands about the breakdown of mind-body regulation and what clinical tools can actually measure continues to widen.
+            More than one billion people are living with a mental health condition,<sup>1</sup> yet the gap between what science understands about the breakdown of mind-body regulation and what clinical tools can actually measure continues to widen. Across anxiety, depression, dissociation, and chronic stress, a common pattern is emerging: fragmentation. Not simply distress, but a loss of coordination between physiological regulation, neural dynamics, and self-narrative.<sup>2,3</sup> This breakdown may begin before symptoms become clinically visible.<sup>4</sup>
           </p>
 
           <p>
-            Across anxiety, depression, dissociation, and chronic stress, a common pattern is emerging: fragmentation. Not simply distress, but a loss of coordination between physiological regulation, neural dynamics, and self-narrative.<sup>2,3</sup> This breakdown may begin before symptoms become clinically visible.<sup>4</sup>
+            Current tools remain siloed. Interoceptive accuracy is measured in the lab.<sup>5</sup> HRV is tracked in clinical or consumer health settings.<sup>6</sup> Narrative coherence is studied through phenomenology and psychology.<sup>7</sup> But no system integrates these layers longitudinally, outside the scanner, in the actual flow of a person&apos;s life. At the same time, AI systems are becoming embedded in that life. Most are optimized for speed, personalization, and engagement. But from a predictive processing perspective, engagement is not the same as coherence. In many cases, it may amplify prediction error, attention fragmentation, and narrative instability.<sup>8</sup>
           </p>
 
-          <p>
-            Current tools remain siloed. Interoceptive accuracy is measured in the lab.<sup>5</sup> HRV is tracked in clinical or consumer health settings.<sup>6</sup> Narrative coherence is studied through phenomenology and psychology.<sup>7</sup> But no system integrates these layers longitudinally, outside the scanner, in the actual flow of a person&apos;s life.
-          </p>
-
-          <p>
-            At the same time, AI systems are becoming embedded in that life. Most are optimized for speed, personalization, and engagement. But from a predictive processing perspective, engagement is not the same as coherence. In many cases, it may amplify prediction error, attention fragmentation, and narrative instability.<sup>8</sup>
-          </p>
-
-          <p className="problem-closing">
+          <div className="problem-closing">
             Root Lab begins from this gap:<br />
             if fragmentation is cross-layer, our tools must become cross-layer too.
-          </p>
+          </div>
 
           <div className="investigate-block">
             <h2>What this program investigates</h2>
