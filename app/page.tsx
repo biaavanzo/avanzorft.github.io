@@ -151,7 +151,7 @@ export default function Home() {
         .paper-cta-card {
           text-decoration: none; display: flex; flex-direction: column;
           border: 1px solid #e8e8e8; padding: 20px; background: #fafafa;
-          transition: background 0.2s, border-color 0.2s; gap: 10px;
+          transition: background 0.2s, border-color 0.2s; gap: 6px;
           justify-content: space-between;
         }
         .paper-cta-card:hover { background: #f0f0ee; border-color: #ccc; }
@@ -163,9 +163,14 @@ export default function Home() {
           font-size: 14px; font-weight: 600; color: #111;
           font-family: system-ui; line-height: 1.4;
         }
+        .paper-cta-doi {
+          font-size: 11px; color: #aaa; font-family: system-ui;
+          letter-spacing: 0.01em; word-break: break-all;
+        }
+        .paper-cta-card.embargoed .paper-cta-doi { color: #c9a800; }
         .paper-cta-action {
           font-size: 12px; color: #888; font-family: system-ui;
-          letter-spacing: 0.02em;
+          letter-spacing: 0.02em; margin-top: 4px;
         }
         .paper-cta-card.embargoed .paper-cta-action { color: #a07800; }
         .status-block {
@@ -310,15 +315,24 @@ export default function Home() {
           <div className="paper-cta-label">Read the full papers</div>
           <div className="paper-cta-grid">
             <a href="https://doi.org/10.5281/zenodo.18905376" target="_blank" rel="noopener noreferrer" className="paper-cta-card">
-              <div className="paper-cta-title">Root Frequency Theory</div>
+              <div>
+                <div className="paper-cta-title">Root Frequency Theory</div>
+                <div className="paper-cta-doi">10.5281/zenodo.18905376</div>
+              </div>
               <div className="paper-cta-action">Read on Zenodo ↗</div>
             </a>
-            <a href="/expected-outcomes" className="paper-cta-card">
-              <div className="paper-cta-title">Root Knowledge — Embodied Knowledge & Human–AI Coherence</div>
-              <div className="paper-cta-action">Read the paper →</div>
+            <a href="https://doi.org/10.5281/zenodo.20060589" target="_blank" rel="noopener noreferrer" className="paper-cta-card">
+              <div>
+                <div className="paper-cta-title">Root Knowledge — Embodied Knowledge & Human–AI Coherence</div>
+                <div className="paper-cta-doi">10.5281/zenodo.20060589</div>
+              </div>
+              <div className="paper-cta-action">Read on Zenodo ↗</div>
             </a>
             <a href="/contact" className="paper-cta-card embargoed">
-              <div className="paper-cta-title">M-RFT Coherence Metric</div>
+              <div>
+                <div className="paper-cta-title">M-RFT Coherence Metric</div>
+                <div className="paper-cta-doi">Registered preprint · embargo Dec 2026</div>
+              </div>
               <div className="paper-cta-action">Request access →</div>
             </a>
           </div>
