@@ -71,14 +71,34 @@ export default function Home() {
         .problem-block { margin-bottom: 48px; }
         .problem-block h2 {
           font-family: 'EB Garamond', Georgia, serif;
-          font-size: clamp(28px, 4vw, 38px);
-          font-weight: 500; color: #111; margin-bottom: 24px;
-          letter-spacing: -0.01em; line-height: 1.2; text-align: center;
+          font-size: clamp(20px, 2.8vw, 26px);
+          font-weight: 500; color: #111; margin-bottom: 14px;
+          letter-spacing: -0.01em; line-height: 1.2;
         }
         .problem-block p {
-          font-size: 17px; line-height: 1.9; color: #444;
-          font-family: system-ui; margin-bottom: 14px;
+          font-size: 16px; line-height: 1.9; color: #444;
+          font-family: system-ui; margin-bottom: 28px;
           text-align: justify; hyphens: auto;
+        }
+        sup {
+          font-size: 10px; color: #aaa; font-family: system-ui;
+          vertical-align: super; line-height: 0; margin-left: 1px;
+        }
+        .references {
+          border-top: 1px solid #eee; padding-top: 24px; margin-top: 8px;
+        }
+        .references-label {
+          font-size: 10px; font-weight: 600; color: #ccc;
+          text-transform: uppercase; letter-spacing: 0.14em;
+          font-family: system-ui; margin-bottom: 12px;
+        }
+        .ref-list {
+          list-style: none; padding: 0; margin: 0;
+        }
+        .ref-list li {
+          font-size: 11px; color: #bbb; font-family: system-ui;
+          line-height: 1.7; margin-bottom: 4px; padding-left: 20px;
+          text-indent: -20px;
         }
         .cards-section { margin-bottom: 0; }
         .cards-label {
@@ -186,13 +206,33 @@ export default function Home() {
         <div className="section-divider" />
 
         <div className="problem-block">
-          <h2>The coherent self is not a given.</h2>
+
+          <h2>The problem</h2>
           <p>
-            Modern systems optimize for output. Speed. Engagement. Accuracy. What they do not account for is the state of the human producing that output — or the cost of fragmentation across biological, neural, and narrative layers that precedes diagnosis, burnout, and the quiet erosion of self-continuity.
+            Over a billion people are living with a mental health condition<sup>1</sup> — and the gap between what science understands about how the mind breaks down and what clinical tools can actually measure keeps widening. Fragmentation — the loss of coordination between physiological regulation, neural dynamics, and self-narrative — is now recognized as a shared mechanism across anxiety, depression, and dissociation,<sup>2,3</sup> one that precedes symptom onset.<sup>4</sup> But it remains formally unmeasured in daily life. The instruments exist in separate silos: interoceptive accuracy in the lab,<sup>5</sup> HRV in the clinic,<sup>6</sup> narrative coherence in phenomenology.<sup>7</sup> Nothing integrates them longitudinally, outside a scanner, in the person&apos;s actual life. And the AI systems now embedded in that life are optimized for engagement — which, from a predictive processing standpoint, is precisely the wrong objective.<sup>8</sup>
           </p>
+
+          <h2>What this program is investigating</h2>
           <p>
-            Root Lab investigates whether coherence can be formally modeled, longitudinally tracked, and supported — through structured human-AI interaction and physiological measurement. The framework is pre-empirical and explicit about that.
+            Root Lab is an independent research program working on a single question: can cross-level coherence — the alignment of physiological, neural, and representational processes — be formally measured, tracked over time, and supported through structured human-AI interaction? The M-RFT metric proposes a formal index: M = (Φ · K&#x2091;) / F, where Φ captures neural integration across interoceptive-predictive networks, K&#x2091; operationalizes the alignment between interoceptive signal and self-narrative, and F indexes regulatory burden via autonomic flexibility.<sup>9</sup> Root Frequency Theory provides the multilayered theoretical architecture — five nested layers (C0–C4) through which experiential continuity either holds or fractures.<sup>10</sup> Root Knowledge extends this to human-AI interaction, proposing that AI can function as an epistemic scaffold — organizing information in ways that reduce prediction error rather than amplify it.<sup>11</sup> Root Extension is the instrument designed to test these ideas ecologically, in real time, over six months.
           </p>
+
+          <div className="references">
+            <div className="references-label">References</div>
+            <ol className="ref-list">
+              <li>1. GBD 2019 Mental Disorders Collaborators. (2022). Global, regional, and national burden of 12 mental disorders in 204 countries and territories, 1990–2019. <em>The Lancet Psychiatry, 9</em>(2), 137–150.</li>
+              <li>2. Northoff, G. (2016). Spatiotemporal psychopathology I: No rest for the brain&apos;s resting state activity in depression? <em>Journal of Affective Disorders, 190,</em> 854–866.</li>
+              <li>3. Critchley, H. D., &amp; Garfinkel, S. N. (2017). Interoception and emotion. <em>Current Opinion in Psychology, 17,</em> 7–14.</li>
+              <li>4. Seth, A. K., Suzuki, K., &amp; Critchley, H. D. (2012). An interoceptive predictive coding model of conscious presence. <em>Frontiers in Psychology, 2,</em> 395.</li>
+              <li>5. Garfinkel, S. N., Seth, A. K., Barrett, A. B., Suzuki, K., &amp; Critchley, H. D. (2015). Knowing your own heart: Distinguishing interoceptive accuracy from interoceptive awareness. <em>Biological Psychology, 104,</em> 65–74.</li>
+              <li>6. Thayer, J. F., &amp; Lane, R. D. (2000). A model of neurovisceral integration in emotion regulation and dysregulation. <em>Journal of Affective Disorders, 61</em>(3), 201–216.</li>
+              <li>7. Varela, F. J. (1996). Neurophenomenology: A methodological remedy for the hard problem. <em>Journal of Consciousness Studies, 3</em>(4), 330–349.</li>
+              <li>8. Avanzo, B. (2026). Root Knowledge: Embodied knowledge as a foundation for coherent human–AI interaction. Independent researcher.</li>
+              <li>9. Avanzo, B. (2026). Multiscale integration of interoceptive signals and narrative scaffolding: Can systemic coherence be formally measured? (M-RFT). Unpublished manuscript.</li>
+              <li>10. Avanzo, B. (2026). Root Frequency Theory. Zenodo. https://doi.org/10.5281/zenodo.18905376</li>
+              <li>11. Friston, K. (2010). The free-energy principle: A unified brain theory? <em>Nature Reviews Neuroscience, 11</em>(2), 127–138.</li>
+            </ol>
+          </div>
         </div>
 
         <div className="section-divider" />
