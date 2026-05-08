@@ -139,8 +139,6 @@ export default function Home() {
         }
         .card-text { font-size: 14px; line-height: 1.7; color: #555; font-family: system-ui; flex: 1; }
         .card-date { font-size: 12px; color: #aaa; font-family: system-ui; margin-top: auto; padding-top: 12px; }
-
-        /* PAPER CTA SECTION */
         .paper-cta-section { margin-top: 48px; }
         .paper-cta-label {
           font-size: 10px; font-weight: 600; color: #555;
@@ -153,29 +151,23 @@ export default function Home() {
         .paper-cta-card {
           text-decoration: none; display: flex; flex-direction: column;
           border: 1px solid #e8e8e8; padding: 20px; background: #fafafa;
-          transition: background 0.2s, border-color 0.2s; gap: 6px;
+          transition: background 0.2s, border-color 0.2s; gap: 10px;
+          justify-content: space-between;
         }
         .paper-cta-card:hover { background: #f0f0ee; border-color: #ccc; }
         .paper-cta-card.embargoed {
           border-color: #e8d98a; background: #fdfbee;
         }
         .paper-cta-card.embargoed:hover { background: #faf6d0; border-color: #c9a800; }
-        .paper-cta-type {
-          font-size: 10px; font-weight: 600; color: #888;
-          font-family: system-ui; letter-spacing: 0.1em; text-transform: uppercase;
-        }
-        .paper-cta-card.embargoed .paper-cta-type { color: #a07800; }
         .paper-cta-title {
           font-size: 14px; font-weight: 600; color: #111;
-          font-family: system-ui; line-height: 1.3; flex: 1;
+          font-family: system-ui; line-height: 1.4;
         }
-        .paper-cta-card.embargoed .paper-cta-title { color: #111; }
         .paper-cta-action {
           font-size: 12px; color: #888; font-family: system-ui;
-          margin-top: 8px; letter-spacing: 0.02em;
+          letter-spacing: 0.02em;
         }
         .paper-cta-card.embargoed .paper-cta-action { color: #a07800; }
-
         .status-block {
           border: 1px solid #eee; background: #fafafa;
           padding: 28px 32px; margin: 48px 0 0;
@@ -314,22 +306,18 @@ export default function Home() {
           </div>
         </section>
 
-        {/* PAPER CTA */}
         <div className="paper-cta-section">
           <div className="paper-cta-label">Read the full papers</div>
           <div className="paper-cta-grid">
             <a href="https://doi.org/10.5281/zenodo.18905376" target="_blank" rel="noopener noreferrer" className="paper-cta-card">
-              <div className="paper-cta-type">Framework · Published</div>
               <div className="paper-cta-title">Root Frequency Theory</div>
               <div className="paper-cta-action">Read on Zenodo ↗</div>
             </a>
             <a href="/expected-outcomes" className="paper-cta-card">
-              <div className="paper-cta-type">Human-AI · Published</div>
               <div className="paper-cta-title">Root Knowledge — Embodied Knowledge & Human–AI Coherence</div>
               <div className="paper-cta-action">Read the paper →</div>
             </a>
             <a href="/contact" className="paper-cta-card embargoed">
-              <div className="paper-cta-type">Metric · Embargoed</div>
               <div className="paper-cta-title">M-RFT Coherence Metric</div>
               <div className="paper-cta-action">Request access →</div>
             </a>
