@@ -80,13 +80,6 @@ export default function Home() {
           font-family: system-ui; margin-bottom: 20px;
           text-align: justify; hyphens: auto;
         }
-        .problem-closing {
-          font-family: 'EB Garamond', Georgia, serif;
-          font-size: clamp(17px, 2.2vw, 21px);
-          font-weight: 400; color: #111; line-height: 1.6;
-          margin: 32px 0 40px; padding: 24px 0;
-          border-top: 1px solid #eee; border-bottom: 1px solid #eee;
-        }
         .investigate-block { margin-top: 40px; }
         .investigate-question {
           font-family: 'EB Garamond', Georgia, serif;
@@ -131,9 +124,7 @@ export default function Home() {
           text-transform: uppercase; letter-spacing: 0.14em;
           font-family: system-ui; margin-bottom: 16px; text-align: center;
         }
-        .paper-cta-grid {
-          display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px;
-        }
+        .paper-cta-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
         .paper-cta-card {
           text-decoration: none; display: flex; flex-direction: column;
           border: 1px solid #e8e8e8; padding: 20px; background: #fafafa;
@@ -157,8 +148,6 @@ export default function Home() {
           letter-spacing: 0.02em; margin-top: 4px;
         }
         .paper-cta-card.embargoed .paper-cta-action { color: #a07800; }
-
-        /* IMPLICATIONS */
         .implications-block {
           border: 1px solid #eee; background: #fafafa;
           padding: 28px 32px; margin: 48px 0 0;
@@ -184,8 +173,6 @@ export default function Home() {
           width: 5px; height: 5px; border-radius: 50%;
           background: #ccc; flex-shrink: 0; margin-top: 9px;
         }
-
-        /* REFERENCES */
         .references-section {
           border-top: 1px solid #eee; padding-top: 24px; margin-top: 48px;
         }
@@ -253,11 +240,6 @@ export default function Home() {
           <p>
             Current tools remain siloed. Interoceptive accuracy is measured in the lab.<sup>5</sup> HRV is tracked in clinical or consumer health settings.<sup>6</sup> Narrative coherence is studied through phenomenology and psychology.<sup>7</sup> But no system integrates these layers longitudinally, outside the scanner, in the actual flow of a person&apos;s life. At the same time, AI systems are becoming embedded in that life. Most are optimized for speed, personalization, and engagement. But from a predictive processing perspective, engagement is not the same as coherence. In many cases, it may amplify prediction error, attention fragmentation, and narrative instability.<sup>8</sup>
           </p>
-
-          <div className="problem-closing">
-            Root Lab begins from this gap:<br />
-            if fragmentation is cross-layer, our tools must become cross-layer too.
-          </div>
 
           <div className="investigate-block">
             <h2>What this program investigates</h2>
