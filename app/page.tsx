@@ -80,42 +80,29 @@ export default function Home() {
           font-family: system-ui; margin-bottom: 14px;
           text-align: justify; hyphens: auto;
         }
-        .audience-grid {
-          display: grid; grid-template-columns: repeat(3, 1fr);
-          gap: 2px; margin: 48px 0;
-        }
-        .audience-card {
-          border: 1px solid #eee; padding: 24px 20px; background: #fafafa;
-          display: flex; flex-direction: column; gap: 12px;
-          text-decoration: none; color: inherit;
-          transition: background 0.2s, border-color 0.2s;
-          text-align: center; align-items: center;
-        }
-        .audience-card:hover { background: #f0f0ee; border-color: #ccc; }
-        .audience-title {
-          font-size: 11px; font-weight: 600; color: #111;
-          text-transform: uppercase; letter-spacing: 0.12em; font-family: system-ui;
-        }
-        .audience-text { font-size: 14px; line-height: 1.7; color: #555; font-family: system-ui; flex: 1; }
-        .audience-link-text {
-          font-size: 12px; color: #111; font-family: system-ui;
-          letter-spacing: 0.04em; border-bottom: 1px solid #ddd; padding-bottom: 1px;
-        }
         .cards-section { margin-bottom: 0; }
         .cards-label {
           font-size: 10px; font-weight: 600; color: #555;
           text-transform: uppercase; letter-spacing: 0.14em;
           font-family: system-ui; margin-bottom: 16px; text-align: center;
         }
-        .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; align-items: stretch; }
+        .cards {
+          display: grid; grid-template-columns: repeat(2, 1fr);
+          gap: 2px; align-items: stretch;
+        }
         .card-wrapper {
           text-decoration: none; display: flex; flex-direction: column;
           border: 1px solid #e8e8e8; padding: 22px 20px; background: #fafafa;
           transition: background 0.2s, border-color 0.2s; gap: 8px;
         }
         .card-wrapper:hover { background: #f0f0ee; border-color: #ccc; }
+        .card-tag {
+          font-size: 10px; font-weight: 600; color: #888;
+          font-family: system-ui; letter-spacing: 0.1em;
+          text-transform: uppercase; margin-bottom: 4px;
+        }
         .card-title {
-          font-size: 12px; font-weight: 600; color: #111;
+          font-size: 13px; font-weight: 600; color: #111;
           font-family: system-ui; line-height: 1.3;
           text-transform: uppercase; letter-spacing: 0.08em;
         }
@@ -161,7 +148,6 @@ export default function Home() {
           .header-inner { flex-direction: column; gap: 10px; padding: 12px 0; }
           main { padding-top: 100px; }
           .cards { grid-template-columns: 1fr; }
-          .audience-grid { grid-template-columns: 1fr; }
         }
       `}</style>
 
@@ -209,43 +195,34 @@ export default function Home() {
           </p>
         </div>
 
-        <div className="audience-grid">
-          <a href="/research-plan" className="audience-card">
-            <div className="audience-title">Neuroscience & Interoception</div>
-            <p className="audience-text">A formal coherence metric grounded in predictive processing, IIT, and HRV-indexed autonomic flexibility. Full protocol available upon request.</p>
-            <span className="audience-link-text">→ View protocol</span>
-          </a>
-          <a href="/the-paper" className="audience-card">
-            <div className="audience-title">AI & Human-Computer Interaction</div>
-            <p className="audience-text">AI optimized for engagement amplifies fragmentation. Root Knowledge proposes a coherence layer between information systems and the humans integrating them.</p>
-            <span className="audience-link-text">→ Read Root Knowledge</span>
-          </a>
-          <a href="/contact" className="audience-card">
-            <div className="audience-title">Clinical & Translational Research</div>
-            <p className="audience-text">Fragmentation as a measurable, pre-symptomatic variable. Root Extension is a prototype instrument for longitudinal coherence tracking.</p>
-            <span className="audience-link-text">→ Collaborate</span>
-          </a>
-        </div>
-
         <div className="section-divider" />
 
         <section className="cards-section">
           <div className="cards-label">Explore the framework</div>
           <div className="cards">
             <a href="/the-paper" className="card-wrapper">
+              <div className="card-tag">Framework</div>
               <div className="card-title">Root Frequency Theory</div>
               <p className="card-text">The foundational framework. C0–C4 nested architecture. Experiential continuity as a systemic property.</p>
               <div className="card-date">February 2026 · Published</div>
             </a>
             <a href="/research-plan" className="card-wrapper">
+              <div className="card-tag">Metric</div>
               <div className="card-title">M-RFT Coherence Metric</div>
               <p className="card-text">A formal index of cross-level coordination. Pre-empirical. Designed for lab validation with neuroimaging partners.</p>
               <div className="card-date">2026 · Embargoed preprint</div>
             </a>
             <a href="/expected-outcomes" className="card-wrapper">
+              <div className="card-tag">Human-AI</div>
               <div className="card-title">Root Knowledge</div>
               <p className="card-text">Human-AI interaction as coherence scaffolding. The integration layer between information systems and lived experience.</p>
               <div className="card-date">May 2026 · Published</div>
+            </a>
+            <a href="/contact" className="card-wrapper">
+              <div className="card-tag">Active Study</div>
+              <div className="card-title">Root Extension — N=1</div>
+              <p className="card-text">Longitudinal coherence tracking via Apple Watch HRV and interoceptive task. MVP in development. Data collection April–October 2026.</p>
+              <div className="card-date">2026 · Active</div>
             </a>
           </div>
         </section>
