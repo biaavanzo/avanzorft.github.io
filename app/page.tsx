@@ -3,14 +3,14 @@
 import React from "react"
 
 export default function Home() {
-    return (
-        <>
-            <link
-                rel="stylesheet"
-                href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500&display=swap"
-            />
+  return (
+    <>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500&display=swap"
+      />
 
-            <style>{`
+      <style>{`
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: system-ui, sans-serif; background: #fff; color: #111; }
         header {
@@ -55,6 +55,14 @@ export default function Home() {
           color: #555; text-transform: uppercase;
         }
         .hero-divider { width: 100%; height: 1px; background: #ddd; margin-top: 24px; }
+        .hero-root {
+          display: flex; justify-content: flex-start;
+          margin-top: 10px; padding-left: 4px;
+        }
+        .hero-root svg {
+          width: 36px; height: 28px; stroke: #bbb; stroke-width: 1.2;
+          fill: none; stroke-linecap: round; stroke-linejoin: round;
+        }
         .hero-desc {
           margin-top: 48px; color: #444; line-height: 1.85; text-align: center;
           width: 100%; max-width: 580px; margin-left: auto; margin-right: auto; padding: 0 24px;
@@ -65,8 +73,7 @@ export default function Home() {
           font-family: 'EB Garamond', Georgia, serif;
           font-size: clamp(28px, 4vw, 38px);
           font-weight: 500; color: #111; margin-bottom: 24px;
-          letter-spacing: -0.01em; line-height: 1.2;
-          text-align: center;
+          letter-spacing: -0.01em; line-height: 1.2; text-align: center;
         }
         .problem-block p {
           font-size: 17px; line-height: 1.9; color: #444;
@@ -91,9 +98,8 @@ export default function Home() {
         }
         .audience-text { font-size: 14px; line-height: 1.7; color: #555; font-family: system-ui; flex: 1; }
         .audience-link-text {
-          font-size: 12px; color: #111;
-          font-family: system-ui; letter-spacing: 0.04em;
-          border-bottom: 1px solid #ddd; padding-bottom: 1px;
+          font-size: 12px; color: #111; font-family: system-ui;
+          letter-spacing: 0.04em; border-bottom: 1px solid #ddd; padding-bottom: 1px;
         }
         .cards-section { margin-bottom: 0; }
         .cards-label {
@@ -145,6 +151,12 @@ export default function Home() {
         .status-row-left { display: flex; flex-direction: column; gap: 3px; flex: 1; }
         .status-title { font-size: 14px; color: #111; font-family: system-ui; font-weight: 700; }
         .status-desc { font-size: 13px; color: #666; font-family: system-ui; line-height: 1.5; }
+        .status-tag {
+          font-size: 10px; font-weight: 700; color: #111;
+          font-family: system-ui; letter-spacing: 0.1em;
+          text-transform: uppercase; white-space: nowrap;
+          flex-shrink: 0; margin-top: 2px;
+        }
         @media (max-width: 640px) {
           .header-inner { flex-direction: column; gap: 10px; padding: 12px 0; }
           main { padding-top: 100px; }
@@ -153,127 +165,137 @@ export default function Home() {
         }
       `}</style>
 
-            <header>
-                <div className="header-inner">
-                    <a href="/" className="header-name">Root Lab</a>
-                    <nav>
-                        <a href="/the-paper">About RFT</a>
-                        <a href="/about-the-author">About the Author</a>
-                        <a href="/contact">Contact</a>
-                    </nav>
-                </div>
-            </header>
+      <header>
+        <div className="header-inner">
+          <a href="/" className="header-name">Root Lab</a>
+          <nav>
+            <a href="/the-paper">About RFT</a>
+            <a href="/about-the-author">About the Author</a>
+            <a href="/contact">Contact</a>
+          </nav>
+        </div>
+      </header>
 
-            <main>
+      <main>
 
-                <section className="hero">
-                    <div className="hero-title-center">
-                        <h1 className="hero-title">Root Lab</h1>
-                        <div className="hero-subtitle-row">
-                            <span className="hero-subtitle">An Independent Research Program</span>
-                        </div>
-                        <div className="hero-divider" />
-                    </div>
-                    <p className="hero-desc" style={{ fontSize: 20, fontWeight: 400, color: "#555" }}>
-                        Investigating how biological regulation, neural dynamics, and self-narrative integrate to sustain a coherent sense of self — and what happens, across scales, when they don&apos;t.
-                    </p>
-                </section>
+        <section className="hero">
+          <div className="hero-title-center">
+            <h1 className="hero-title">Root Lab</h1>
+            <div className="hero-subtitle-row">
+              <span className="hero-subtitle">An Independent Research Program</span>
+            </div>
+            <div className="hero-divider" />
+            <div className="hero-root">
+              <svg viewBox="0 0 36 28" xmlns="http://www.w3.org/2000/svg">
+                <polyline points="2,26 18,4 34,26" />
+                <polyline points="10,26 18,12 26,26" />
+              </svg>
+            </div>
+          </div>
+          <p className="hero-desc" style={{ fontSize: 20, fontWeight: 400, color: "#555" }}>
+            Investigating how biological regulation, neural dynamics, and self-narrative integrate to sustain a coherent sense of self — and what happens, across scales, when they don&apos;t.
+          </p>
+        </section>
 
-                <div className="section-divider" />
+        <div className="section-divider" />
 
-                <div className="problem-block">
-                    <h2>The coherent self is not a given.</h2>
-                    <p>
-                        Modern systems optimize for output. Speed. Engagement. Accuracy. What they do not account for is the state of the human producing that output — or the cost of fragmentation across biological, neural, and narrative layers that precedes diagnosis, burnout, and the quiet erosion of self-continuity.
-                    </p>
-                    <p>
-                        Root Lab investigates whether coherence can be formally modeled, longitudinally tracked, and supported — through structured human-AI interaction and physiological measurement. The framework is pre-empirical and explicit about that.
-                    </p>
-                </div>
+        <div className="problem-block">
+          <h2>The coherent self is not a given.</h2>
+          <p>
+            Modern systems optimize for output. Speed. Engagement. Accuracy. What they do not account for is the state of the human producing that output — or the cost of fragmentation across biological, neural, and narrative layers that precedes diagnosis, burnout, and the quiet erosion of self-continuity.
+          </p>
+          <p>
+            Root Lab investigates whether coherence can be formally modeled, longitudinally tracked, and supported — through structured human-AI interaction and physiological measurement. The framework is pre-empirical and explicit about that.
+          </p>
+        </div>
 
-                <div className="audience-grid">
-                    <a href="/research-plan" className="audience-card">
-                        <div className="audience-title">Neuroscience & Interoception</div>
-                        <p className="audience-text">A formal coherence metric grounded in predictive processing, IIT, and HRV-indexed autonomic flexibility. Full protocol available upon request.</p>
-                        <span className="audience-link-text">→ View protocol</span>
-                    </a>
-                    <a href="/the-paper" className="audience-card">
-                        <div className="audience-title">AI & Human-Computer Interaction</div>
-                        <p className="audience-text">AI optimized for engagement amplifies fragmentation. Root Knowledge proposes a coherence layer between information systems and the humans integrating them.</p>
-                        <span className="audience-link-text">→ Read Root Knowledge</span>
-                    </a>
-                    <a href="/contact" className="audience-card">
-                        <div className="audience-title">Clinical & Translational Research</div>
-                        <p className="audience-text">Fragmentation as a measurable, pre-symptomatic variable. Root Extension is a prototype instrument for longitudinal coherence tracking.</p>
-                        <span className="audience-link-text">→ Collaborate</span>
-                    </a>
-                </div>
+        <div className="audience-grid">
+          <a href="/research-plan" className="audience-card">
+            <div className="audience-title">Neuroscience & Interoception</div>
+            <p className="audience-text">A formal coherence metric grounded in predictive processing, IIT, and HRV-indexed autonomic flexibility. Full protocol available upon request.</p>
+            <span className="audience-link-text">→ View protocol</span>
+          </a>
+          <a href="/the-paper" className="audience-card">
+            <div className="audience-title">AI & Human-Computer Interaction</div>
+            <p className="audience-text">AI optimized for engagement amplifies fragmentation. Root Knowledge proposes a coherence layer between information systems and the humans integrating them.</p>
+            <span className="audience-link-text">→ Read Root Knowledge</span>
+          </a>
+          <a href="/contact" className="audience-card">
+            <div className="audience-title">Clinical & Translational Research</div>
+            <p className="audience-text">Fragmentation as a measurable, pre-symptomatic variable. Root Extension is a prototype instrument for longitudinal coherence tracking.</p>
+            <span className="audience-link-text">→ Collaborate</span>
+          </a>
+        </div>
 
-                <div className="section-divider" />
+        <div className="section-divider" />
 
-                <section className="cards-section">
-                    <div className="cards-label">Explore the framework</div>
-                    <div className="cards">
-                        <a href="/the-paper" className="card-wrapper">
-                            <div className="card-title">Root Frequency Theory</div>
-                            <p className="card-text">The foundational framework. C0–C4 nested architecture. Experiential continuity as a systemic property.</p>
-                            <div className="card-date">February 2026 · Published</div>
-                        </a>
-                        <a href="/research-plan" className="card-wrapper">
-                            <div className="card-title">M-RFT Coherence Metric</div>
-                            <p className="card-text">A formal index of cross-level coordination. Pre-empirical. Designed for lab validation with neuroimaging partners.</p>
-                            <div className="card-date">2026 · Embargoed preprint</div>
-                        </a>
-                        <a href="/expected-outcomes" className="card-wrapper">
-                            <div className="card-title">Root Knowledge</div>
-                            <p className="card-text">Human-AI interaction as coherence scaffolding. The integration layer between information systems and lived experience.</p>
-                            <div className="card-date">May 2026 · Published</div>
-                        </a>
-                    </div>
-                </section>
+        <section className="cards-section">
+          <div className="cards-label">Explore the framework</div>
+          <div className="cards">
+            <a href="/the-paper" className="card-wrapper">
+              <div className="card-title">Root Frequency Theory</div>
+              <p className="card-text">The foundational framework. C0–C4 nested architecture. Experiential continuity as a systemic property.</p>
+              <div className="card-date">February 2026 · Published</div>
+            </a>
+            <a href="/research-plan" className="card-wrapper">
+              <div className="card-title">M-RFT Coherence Metric</div>
+              <p className="card-text">A formal index of cross-level coordination. Pre-empirical. Designed for lab validation with neuroimaging partners.</p>
+              <div className="card-date">2026 · Embargoed preprint</div>
+            </a>
+            <a href="/expected-outcomes" className="card-wrapper">
+              <div className="card-title">Root Knowledge</div>
+              <p className="card-text">Human-AI interaction as coherence scaffolding. The integration layer between information systems and lived experience.</p>
+              <div className="card-date">May 2026 · Published</div>
+            </a>
+          </div>
+        </section>
 
-                <div className="cta-row">
-                    <a href="https://doi.org/10.5281/zenodo.18905376" target="_blank" rel="noopener noreferrer" className="cta-link primary">Read the paper ↗</a>
-                    <a href="/contact" className="cta-link">Collaborate</a>
-                </div>
+        <div className="cta-row">
+          <a href="https://doi.org/10.5281/zenodo.18905376" target="_blank" rel="noopener noreferrer" className="cta-link primary">Read the paper ↗</a>
+          <a href="/contact" className="cta-link">Collaborate</a>
+        </div>
 
-                <div className="status-block">
-                    <div className="status-label">Active Research Program</div>
+        <div className="status-block">
+          <div className="status-label">Active Research Program</div>
 
-                    <div className="status-row">
-                        <span className="status-icon">✅</span>
-                        <div className="status-row-left">
-                            <span className="status-title">Root Frequency Theory</span>
-                            <span className="status-desc">Five nested layers. Coherence as the mechanism of self-continuity.</span>
-                        </div>
-                    </div>
+          <div className="status-row">
+            <span className="status-icon">✅</span>
+            <div className="status-row-left">
+              <span className="status-title">Root Frequency Theory</span>
+              <span className="status-desc">Five nested layers. Coherence as the mechanism of self-continuity.</span>
+            </div>
+            <span className="status-tag">Published</span>
+          </div>
 
-                    <div className="status-row">
-                        <span className="status-icon">🟡</span>
-                        <div className="status-row-left">
-                            <span className="status-title">M-RFT Coherence Metric</span>
-                            <span className="status-desc">A formal coherence index. Available to researchers upon request.</span>
-                        </div>
-                    </div>
+          <div className="status-row">
+            <span className="status-icon">🟡</span>
+            <div className="status-row-left">
+              <span className="status-title">M-RFT Coherence Metric</span>
+              <span className="status-desc">A formal coherence index. Available to researchers upon request.</span>
+            </div>
+            <span className="status-tag">Embargoed</span>
+          </div>
 
-                    <div className="status-row">
-                        <span className="status-icon">✅</span>
-                        <div className="status-row-left">
-                            <span className="status-title">Root Knowledge — Human-AI Coherence</span>
-                            <span className="status-desc">On AI as epistemic scaffold, not output generator.</span>
-                        </div>
-                    </div>
+          <div className="status-row">
+            <span className="status-icon">✅</span>
+            <div className="status-row-left">
+              <span className="status-title">Root Knowledge — Human-AI Coherence</span>
+              <span className="status-desc">On AI as epistemic scaffold, not output generator.</span>
+            </div>
+            <span className="status-tag">Published</span>
+          </div>
 
-                    <div className="status-row">
-                        <span className="status-icon">✅</span>
-                        <div className="status-row-left">
-                            <span className="status-title">Root Extension — N=1 Longitudinal Study</span>
-                            <span className="status-desc">Active data collection April–October 2026.</span>
-                        </div>
-                    </div>
-                </div>
+          <div className="status-row">
+            <span className="status-icon">✅</span>
+            <div className="status-row-left">
+              <span className="status-title">Root Extension — N=1 Longitudinal Study</span>
+              <span className="status-desc">Active data collection April–October 2026.</span>
+            </div>
+            <span className="status-tag">Active</span>
+          </div>
+        </div>
 
-            </main>
-        </>
-    )
+      </main>
+    </>
+  )
 }
