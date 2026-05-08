@@ -100,20 +100,6 @@ export default function Home() {
           font-size: 10px; color: #aaa; font-family: system-ui;
           vertical-align: super; line-height: 0; margin-left: 1px;
         }
-        .references {
-          border-top: 1px solid #eee; padding-top: 24px; margin-top: 40px;
-        }
-        .references-label {
-          font-size: 10px; font-weight: 600; color: #ccc;
-          text-transform: uppercase; letter-spacing: 0.14em;
-          font-family: system-ui; margin-bottom: 12px;
-        }
-        .ref-list { list-style: none; padding: 0; margin: 0; }
-        .ref-list li {
-          font-size: 11px; color: #bbb; font-family: system-ui;
-          line-height: 1.7; margin-bottom: 4px; padding-left: 20px;
-          text-indent: -20px;
-        }
         .cards-section { margin-bottom: 0; }
         .cards-label {
           font-size: 10px; font-weight: 600; color: #555;
@@ -155,9 +141,7 @@ export default function Home() {
           justify-content: space-between;
         }
         .paper-cta-card:hover { background: #f0f0ee; border-color: #ccc; }
-        .paper-cta-card.embargoed {
-          border-color: #e8d98a; background: #fdfbee;
-        }
+        .paper-cta-card.embargoed { border-color: #e8d98a; background: #fdfbee; }
         .paper-cta-card.embargoed:hover { background: #faf6d0; border-color: #c9a800; }
         .paper-cta-title {
           font-size: 14px; font-weight: 600; color: #111;
@@ -173,29 +157,48 @@ export default function Home() {
           letter-spacing: 0.02em; margin-top: 4px;
         }
         .paper-cta-card.embargoed .paper-cta-action { color: #a07800; }
-        .status-block {
+
+        /* IMPLICATIONS */
+        .implications-block {
           border: 1px solid #eee; background: #fafafa;
           padding: 28px 32px; margin: 48px 0 0;
         }
-        .status-label {
+        .implications-label {
           font-size: 10px; font-weight: 600; color: #555;
           text-transform: uppercase; letter-spacing: 0.14em;
           font-family: system-ui; margin-bottom: 20px;
         }
-        .status-row {
-          display: flex; align-items: flex-start;
-          padding: 14px 0; border-bottom: 1px solid #eee; gap: 14px;
+        .implications-intro {
+          font-size: 14px; color: #555; font-family: system-ui;
+          line-height: 1.7; margin-bottom: 20px; font-style: italic;
         }
-        .status-row:last-child { border-bottom: none; }
-        .status-icon { font-size: 15px; margin-top: 2px; flex-shrink: 0; }
-        .status-row-left { display: flex; flex-direction: column; gap: 3px; flex: 1; }
-        .status-title { font-size: 14px; color: #111; font-family: system-ui; font-weight: 700; }
-        .status-desc { font-size: 13px; color: #666; font-family: system-ui; line-height: 1.5; }
-        .status-tag {
-          font-size: 10px; font-weight: 700; color: #111;
-          font-family: system-ui; letter-spacing: 0.1em;
-          text-transform: uppercase; white-space: nowrap;
-          flex-shrink: 0; margin-top: 2px;
+        .implications-list { list-style: none; padding: 0; margin: 0; }
+        .implications-list li {
+          font-size: 14px; color: #444; font-family: system-ui;
+          line-height: 1.7; padding: 12px 0;
+          border-bottom: 1px solid #eee;
+          display: flex; gap: 12px; align-items: flex-start;
+        }
+        .implications-list li:last-child { border-bottom: none; }
+        .impl-dot {
+          width: 5px; height: 5px; border-radius: 50%;
+          background: #ccc; flex-shrink: 0; margin-top: 9px;
+        }
+
+        /* REFERENCES */
+        .references-section {
+          border-top: 1px solid #eee; padding-top: 24px; margin-top: 48px;
+        }
+        .references-label {
+          font-size: 10px; font-weight: 600; color: #ccc;
+          text-transform: uppercase; letter-spacing: 0.14em;
+          font-family: system-ui; margin-bottom: 12px;
+        }
+        .ref-list { list-style: none; padding: 0; margin: 0; }
+        .ref-list li {
+          font-size: 11px; color: #bbb; font-family: system-ui;
+          line-height: 1.7; margin-bottom: 4px; padding-left: 20px;
+          text-indent: -20px;
         }
         @media (max-width: 640px) {
           .header-inner { flex-direction: column; gap: 10px; padding: 12px 0; }
@@ -264,19 +267,6 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="references">
-            <div className="references-label">References</div>
-            <ol className="ref-list">
-              <li>1. GBD 2019 Mental Disorders Collaborators. (2022). Global, regional, and national burden of 12 mental disorders in 204 countries and territories, 1990–2019. <em>The Lancet Psychiatry, 9</em>(2), 137–150.</li>
-              <li>2. Northoff, G. (2016). Spatiotemporal psychopathology I: No rest for the brain&apos;s resting state activity in depression? <em>Journal of Affective Disorders, 190,</em> 854–866.</li>
-              <li>3. Critchley, H. D., &amp; Garfinkel, S. N. (2017). Interoception and emotion. <em>Current Opinion in Psychology, 17,</em> 7–14.</li>
-              <li>4. Seth, A. K., Suzuki, K., &amp; Critchley, H. D. (2012). An interoceptive predictive coding model of conscious presence. <em>Frontiers in Psychology, 2,</em> 395.</li>
-              <li>5. Garfinkel, S. N., Seth, A. K., Barrett, A. B., Suzuki, K., &amp; Critchley, H. D. (2015). Knowing your own heart: Distinguishing interoceptive accuracy from interoceptive awareness. <em>Biological Psychology, 104,</em> 65–74.</li>
-              <li>6. Thayer, J. F., &amp; Lane, R. D. (2000). A model of neurovisceral integration in emotion regulation and dysregulation. <em>Journal of Affective Disorders, 61</em>(3), 201–216.</li>
-              <li>7. Varela, F. J. (1996). Neurophenomenology: A methodological remedy for the hard problem. <em>Journal of Consciousness Studies, 3</em>(4), 330–349.</li>
-              <li>8. Avanzo, B. (2026). Root Knowledge: Embodied knowledge as a foundation for coherent human–AI interaction. Independent researcher.</li>
-            </ol>
-          </div>
         </div>
 
         <div className="section-divider" />
@@ -338,44 +328,31 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="status-block">
-          <div className="status-label">Active Research Program</div>
+        <div className="implications-block">
+          <div className="implications-label">Expected Outcomes</div>
+          <p className="implications-intro">If coherence can be formally measured, several things become possible:</p>
+          <ul className="implications-list">
+            <li><div className="impl-dot" />Detecting fragmentation before it becomes a diagnosable condition — intervening in the pre-symptomatic window rather than after clinical threshold.</li>
+            <li><div className="impl-dot" />A unified metric that allows comparison across studies currently siloed by modality — interoception, HRV, and narrative coherence measured together for the first time.</li>
+            <li><div className="impl-dot" />Testing whether structured epistemic scaffolding — not symptom suppression — can restore cross-level integration longitudinally.</li>
+            <li><div className="impl-dot" />Designing AI systems that calibrate their output to the coherence state of the person receiving it, rather than optimizing for engagement.</li>
+            <li><div className="impl-dot" />Providing researchers with ecological, longitudinal data on how autonomic flexibility, interoceptive accuracy, and narrative organization co-vary in real life outside the laboratory.</li>
+            <li><div className="impl-dot" />Advancing a privacy-preserving architecture for personal health AI — where raw data stays on-device and inference happens locally.</li>
+          </ul>
+        </div>
 
-          <div className="status-row">
-            <span className="status-icon">✅</span>
-            <div className="status-row-left">
-              <span className="status-title">Root Frequency Theory</span>
-              <span className="status-desc">Five nested layers. Coherence as the mechanism of self-continuity.</span>
-            </div>
-            <span className="status-tag">Published</span>
-          </div>
-
-          <div className="status-row">
-            <span className="status-icon">🟡</span>
-            <div className="status-row-left">
-              <span className="status-title">M-RFT Coherence Metric</span>
-              <span className="status-desc">A formal coherence index. Available to researchers upon request.</span>
-            </div>
-            <span className="status-tag">Embargoed</span>
-          </div>
-
-          <div className="status-row">
-            <span className="status-icon">✅</span>
-            <div className="status-row-left">
-              <span className="status-title">Root Knowledge — Human-AI Coherence</span>
-              <span className="status-desc">On AI as epistemic scaffold, not output generator.</span>
-            </div>
-            <span className="status-tag">Published</span>
-          </div>
-
-          <div className="status-row">
-            <span className="status-icon">✅</span>
-            <div className="status-row-left">
-              <span className="status-title">Root Extension — N=1 Longitudinal Study</span>
-              <span className="status-desc">Active data collection April–October 2026.</span>
-            </div>
-            <span className="status-tag">Active</span>
-          </div>
+        <div className="references-section">
+          <div className="references-label">References</div>
+          <ol className="ref-list">
+            <li>1. GBD 2019 Mental Disorders Collaborators. (2022). Global, regional, and national burden of 12 mental disorders in 204 countries and territories, 1990–2019. <em>The Lancet Psychiatry, 9</em>(2), 137–150.</li>
+            <li>2. Northoff, G. (2016). Spatiotemporal psychopathology I: No rest for the brain&apos;s resting state activity in depression? <em>Journal of Affective Disorders, 190,</em> 854–866.</li>
+            <li>3. Critchley, H. D., &amp; Garfinkel, S. N. (2017). Interoception and emotion. <em>Current Opinion in Psychology, 17,</em> 7–14.</li>
+            <li>4. Seth, A. K., Suzuki, K., &amp; Critchley, H. D. (2012). An interoceptive predictive coding model of conscious presence. <em>Frontiers in Psychology, 2,</em> 395.</li>
+            <li>5. Garfinkel, S. N., Seth, A. K., Barrett, A. B., Suzuki, K., &amp; Critchley, H. D. (2015). Knowing your own heart: Distinguishing interoceptive accuracy from interoceptive awareness. <em>Biological Psychology, 104,</em> 65–74.</li>
+            <li>6. Thayer, J. F., &amp; Lane, R. D. (2000). A model of neurovisceral integration in emotion regulation and dysregulation. <em>Journal of Affective Disorders, 61</em>(3), 201–216.</li>
+            <li>7. Varela, F. J. (1996). Neurophenomenology: A methodological remedy for the hard problem. <em>Journal of Consciousness Studies, 3</em>(4), 330–349.</li>
+            <li>8. Avanzo, B. (2026). Root Knowledge: Embodied knowledge as a foundation for coherent human–AI interaction. Independent researcher.</li>
+          </ol>
         </div>
 
       </main>
