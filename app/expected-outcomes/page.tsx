@@ -1,38 +1,8 @@
 'use client'
 
-import React, { useState } from "react"
+import React from "react"
 
-export default function ExpectedOutcomes() {
-  const [open, setOpen] = useState<number | null>(null)
-  const toggle = (i: number) => setOpen(open === i ? null : i)
-
-  const implications = [
-    {
-      num: "01",
-      area: "Clinical Studies of Human Experience",
-      title: "From symptom clusters to systemic signatures",
-      body: "Contemporary psychiatric diagnosis relies predominantly on symptom inventories — categorical descriptions of behavioral and phenomenological states. A validated M-RFT could offer a complementary dimensional measure that characterizes mental states by the degree of cross-scale coherence underlying them. Conditions currently classified as distinct disorders may share measurable reductions in systemic integration that precede or accompany symptom expression. This would support longitudinal tracking alongside existing diagnostic frameworks, rather than replacing them.",
-    },
-    {
-      num: "02",
-      area: "Psychopathology Research",
-      title: "A transdiagnostic variable worth investigating",
-      body: "Neuroimaging consistently demonstrates that psychiatric conditions manifest as distributed, overlapping alterations in large-scale network dynamics. M-RFT proposes that these complex patterns could be signatures of a singular underlying mechanism: variations in cross-scale alignment. If empirically supported, this positioning would establish M-RFT as a metric capable of tracking the integrity of mental architecture regardless of the specific clinical label. While the framework provides the theoretical roadmap, systematic investigation is now required to determine if this variable carries universal predictive value or functions within specific population contexts. The hypothesis is established; empirical validation is the necessary next step.",
-    },
-    {
-      num: "03",
-      area: "Preventive Mental Health",
-      title: "Detecting reduced coherence before clinical threshold",
-      body: "If M-RFT is sensitive to early reductions in systemic alignment — before experiential fragmentation becomes clinically significant — it may be useful as a monitoring tool in preventive contexts. The introduction of Kₑ as a manipulable variable suggests that structured epistemic scaffolding could be deployed in response to measurable changes rather than only in response to crisis. Whether this sensitivity is achievable at practical resolution, and in what populations, is a question the proposed experimental protocol is designed to address.",
-    },
-    {
-      num: "04",
-      area: "Individual Coherence & Collective Noise",
-      title: "A speculative extension worth naming",
-      body: "The C0–C4 architecture describes a nested system in which each layer operates within broader environmental and informational constraints. From this perspective, environments characterized by high informational entropy, symbolic instability, or narrative fragmentation act as external sources of noise, placing increased regulatory demands on the individuals within them. Over time, such conditions may strain shared meaning-making processes in ways that parallel the fragmentation dynamics observed at the individual level. This suggests that the stability of a person's internal alignment is inherently tied to the 'signal-to-noise' ratio of their broader social and narrative environment. This proposition remains explicitly hypothetical, included here as a logical extension of the framework's architecture rather than an empirical claim. Determining whether patterns of individual coherence scale to collective systems would require dedicated multi-level methodologies and a broader empirical scope than the current project.",
-    },
-  ]
-
+export default function RootKnowledge() {
   return (
     <>
       <link
@@ -43,7 +13,6 @@ export default function ExpectedOutcomes() {
       <style>{`
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: system-ui, sans-serif; background: #fff; color: #111; }
-
         header {
           position: fixed; top: 0; left: 0; right: 0; z-index: 100;
           background: #fff; border-bottom: 1px solid #eee; padding: 0 32px;
@@ -63,118 +32,128 @@ export default function ExpectedOutcomes() {
           font-family: system-ui; white-space: nowrap; transition: color 0.15s;
         }
         nav a:hover { color: #111; }
-
         main {
           padding-top: 100px; padding-bottom: 100px;
           padding-left: 24px; padding-right: 24px;
-          max-width: 680px; margin: 0 auto;
+          max-width: 760px; margin: 0 auto;
         }
+        .back { font-size: 13px; color: #999; text-decoration: none; display: inline-block; margin-bottom: 48px; }
+        .back:hover { color: #111; }
 
-        .page-nav {
-          display: flex; align-items: center;
-          justify-content: space-between; margin-bottom: 56px;
+        /* HERO */
+        .hero { margin-bottom: 56px; }
+        .hero-label {
+          font-size: 10px; font-weight: 600; color: #888;
+          text-transform: uppercase; letter-spacing: 0.14em;
+          font-family: system-ui; margin-bottom: 16px;
         }
-        .page-nav-back { font-size: 13px; color: #999; text-decoration: none; }
-        .page-nav-links { display: flex; gap: 20px; }
-        .page-nav-links a { font-size: 15px; text-decoration: none; color: #555; }
-        .page-nav-links a.active {
-          color: #111; border-bottom: 1px solid #111;
-          padding-bottom: 2px; font-weight: 500;
-        }
-
-        .page-title {
+        .hero-title {
           font-family: 'EB Garamond', Georgia, serif;
-          font-size: clamp(28px, 5vw, 42px);
-          font-weight: 500; color: #111;
-          text-align: center; margin-bottom: 12px; line-height: 1.2;
+          font-size: clamp(32px, 5vw, 52px);
+          font-weight: 500; color: #111; line-height: 1.15;
+          margin-bottom: 16px;
         }
-        .page-subtitle {
-          text-align: center; font-size: 13px; color: #555;
-          letter-spacing: 0.06em; text-transform: uppercase;
-          font-family: system-ui; margin-bottom: 56px;
+        .hero-subtitle {
+          font-family: 'EB Garamond', Georgia, serif;
+          font-size: clamp(16px, 2vw, 20px);
+          font-weight: 400; color: #555; line-height: 1.6;
+          margin-bottom: 24px;
+        }
+        .hero-meta {
+          display: flex; gap: 24px; flex-wrap: wrap; align-items: center;
+          font-size: 12px; color: #888; font-family: system-ui;
+        }
+        .hero-meta a { color: #888; text-decoration: none; border-bottom: 1px solid #ddd; }
+        .hero-meta a:hover { color: #111; border-color: #111; }
+        .hero-divider { width: 100%; height: 1px; background: #eee; margin: 40px 0; }
+
+        /* ABSTRACT */
+        .abstract-block {
+          background: #fafafa; border: 1px solid #eee;
+          padding: 28px 32px; margin-bottom: 56px;
+        }
+        .abstract-label {
+          font-size: 10px; font-weight: 600; color: #888;
+          text-transform: uppercase; letter-spacing: 0.14em;
+          font-family: system-ui; margin-bottom: 14px;
+        }
+        .abstract-text {
+          font-size: 15px; line-height: 1.85; color: #444;
+          font-family: system-ui; text-align: justify; hyphens: auto;
         }
 
-        .section { margin-bottom: 52px; }
+        /* SECTIONS */
+        .section { margin-bottom: 56px; }
+        .section-label {
+          font-size: 10px; font-weight: 600; color: #888;
+          text-transform: uppercase; letter-spacing: 0.14em;
+          font-family: system-ui; margin-bottom: 12px;
+        }
         .section-title {
-          font-size: 13px; font-weight: 600; color: #555;
-          text-transform: uppercase; letter-spacing: 0.12em;
-          font-family: system-ui; margin-bottom: 18px;
+          font-family: 'EB Garamond', Georgia, serif;
+          font-size: clamp(22px, 3vw, 28px);
+          font-weight: 500; color: #111; line-height: 1.2;
+          margin-bottom: 20px;
         }
         .section p {
-          font-size: 17px; line-height: 1.9; color: #444;
-          font-family: system-ui; margin-bottom: 14px;
-          text-indent: 2em; text-align: justify; hyphens: auto;
+          font-size: 16px; line-height: 1.9; color: #444;
+          font-family: system-ui; margin-bottom: 16px;
+          text-align: justify; hyphens: auto;
         }
         .section p:last-child { margin-bottom: 0; }
 
-        .divider { width: 100%; height: 1px; background: #eee; margin: 48px 0; }
-
-        .impl-label {
-          font-size: 13px; font-weight: 600; color: #555;
-          text-transform: uppercase; letter-spacing: 0.12em;
-          font-family: system-ui; margin-bottom: 24px;
+        /* FIGURES */
+        .figure { margin: 40px 0; }
+        .figure img {
+          width: 100%; display: block;
+          border: 1px solid #eee;
         }
-        .impl-list { display: flex; flex-direction: column; gap: 2px; margin-bottom: 52px; }
-
-        .impl-row {
-          border: 1px solid #eee; background: #fafafa; cursor: pointer;
-          transition: background 0.15s, border-color 0.15s; overflow: hidden;
+        .figure-caption {
+          font-size: 12px; color: #888; font-family: system-ui;
+          line-height: 1.6; margin-top: 10px; font-style: italic;
+          padding: 0 4px;
         }
-        .impl-row:hover { background: #f4f4f4; border-color: #ddd; }
+        .figure-caption strong { color: #555; font-style: normal; }
 
-        .impl-header {
-          display: grid; grid-template-columns: 52px 1fr 24px; align-items: stretch;
+        /* FIGURE PAIR */
+        .figure-pair {
+          display: grid; grid-template-columns: 1fr 1fr;
+          gap: 12px; margin: 40px 0;
         }
-        .impl-num {
-          background: #111; color: #fff;
-          display: flex; align-items: center; justify-content: center;
+        .figure-pair .figure { margin: 0; }
+
+        /* DIVIDER */
+        .section-divider { width: 100%; height: 1px; background: #eee; margin: 48px 0; }
+
+        /* KEY CLAIM */
+        .key-claim {
           font-family: 'EB Garamond', Georgia, serif;
-          font-size: 13px; min-height: 72px; flex-shrink: 0;
-        }
-        .impl-body { padding: 16px 20px; }
-        .impl-area {
-          font-size: 10px; font-weight: 600; color: #555;
-          text-transform: uppercase; letter-spacing: 0.1em;
-          font-family: system-ui; margin-bottom: 4px;
-        }
-        .impl-title {
-          font-size: 14px; font-weight: 500; color: #111; font-family: system-ui;
-        }
-        .impl-chevron {
-          display: flex; align-items: center; justify-content: center;
-          padding-right: 16px; color: #666; font-size: 12px;
-          transition: transform 0.2s; user-select: none;
-        }
-        .impl-chevron.open { transform: rotate(180deg); }
-
-        .impl-expansion {
-          padding: 16px 20px 20px 72px;
-          font-size: 14px; line-height: 1.85; color: #555;
-          font-family: system-ui; text-align: justify; hyphens: auto;
-          border-top: 1px solid #eee;
-          animation: fadeIn 0.2s ease;
+          font-size: clamp(18px, 2.4vw, 24px);
+          font-weight: 400; color: #111; line-height: 1.65;
+          border-left: 2px solid #ddd; padding-left: 24px;
+          margin: 32px 0; font-style: italic;
         }
 
-        @keyframes fadeIn {
-          from { opacity: 0; transform: translateY(-4px); }
-          to   { opacity: 1; transform: translateY(0); }
+        /* CTA */
+        .cta-block {
+          border-top: 1px solid #eee; padding-top: 32px; margin-top: 56px;
+          display: flex; gap: 12px; flex-wrap: wrap; align-items: center;
         }
-
-        .contact-block {
-          border-top: 1px solid #eee; padding-top: 28px; text-align: center;
+        .cta-link {
+          font-size: 13px; color: #111; text-decoration: none;
+          border: 1px solid #ddd; padding: 9px 20px;
+          font-family: system-ui; letter-spacing: 0.04em;
+          transition: border-color 0.15s, background 0.15s;
         }
-        .contact-label {
-          font-size: 12px; color: #555; font-family: system-ui;
-          text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 12px;
-        }
-        .contact-text {
-          font-size: 14px; color: #555; font-family: system-ui; line-height: 1.7;
-        }
-        .contact-text a { color: #111; text-decoration: underline; }
+        .cta-link:hover { border-color: #111; background: #f7f7f7; }
+        .cta-link.primary { background: #111; color: #fff; border-color: #111; }
+        .cta-link.primary:hover { background: #333; }
 
         @media (max-width: 640px) {
-          .page-nav-links { display: none; }
-          .impl-expansion { padding-left: 20px; }
+          .header-inner { flex-direction: column; gap: 10px; padding: 12px 0; }
+          main { padding-top: 80px; }
+          .figure-pair { grid-template-columns: 1fr; }
+          .abstract-block { padding: 20px; }
         }
       `}</style>
 
@@ -190,78 +169,158 @@ export default function ExpectedOutcomes() {
       </header>
 
       <main>
-        <div className="page-nav">
-          <a href="/" className="page-nav-back">← Back</a>
-          <div className="page-nav-links">
-            <a href="/the-paper">The Paper</a>
-            <a href="/research-plan">M-RFT Coherence Metric</a>
-            <a href="/expected-outcomes" className="active">Expected Outcomes</a>
+        <a href="/" className="back">← Back</a>
+
+        {/* HERO */}
+        <div className="hero">
+          <div className="hero-label">Published · May 2026</div>
+          <h1 className="hero-title">Root Knowledge</h1>
+          <p className="hero-subtitle">
+            Embodied Knowledge as a Foundation for Coherent Human–AI Interaction
+          </p>
+          <div className="hero-meta">
+            <span>Bianca Avanzo · Independent Researcher</span>
+            <a href="https://doi.org/10.5281/zenodo.20060589" target="_blank" rel="noopener noreferrer">
+              DOI: 10.5281/zenodo.20060589 ↗
+            </a>
+            <a href="https://zenodo.org/records/20060589" target="_blank" rel="noopener noreferrer">
+              Read full paper on Zenodo ↗
+            </a>
           </div>
         </div>
 
-        <h1 className="page-title">Expected Outcomes</h1>
-        <p className="page-subtitle">Potential Implications of a Validated M-RFT Metric</p>
+        {/* ABSTRACT */}
+        <div className="abstract-block">
+          <div className="abstract-label">Abstract</div>
+          <p className="abstract-text">
+            Neuroscience increasingly explains the body, brain, and self through interoception, prediction, embodiment, and spatiotemporal accounts of psychopathology — yet it remains unclear how these layers interact to produce a coherent self-narrative. In parallel, artificial intelligence has advanced to large-scale generative systems capable of organizing information and producing precise outputs, but remains largely disconnected from how such outputs are integrated by the human system. This paper proposes a coherence-centered model of human-AI interaction in which AI is designed not only to generate faster or smarter output, but to scaffold information in ways that support meaning-making, self-narrative continuity, and integration across physical, biological, neural, and symbolic layers.
+          </p>
+        </div>
 
+        <div className="section-divider" />
+
+        {/* SECTION 1 */}
         <div className="section">
-          <div className="section-title">A note on scope</div>
+          <div className="section-label">The Starting Point</div>
+          <h2 className="section-title">Intelligence begins in the body</h2>
           <p>
-            The following outcomes represent the theoretical and practical utility of a validated M-RFT metric. Such validation would provide a formal language for measuring systemic integration. The value of this work lies in its ability to transform qualitative phenomenological shifts into a quantifiable variable, opening new avenues for understanding how mental states maintain—or lose—their cross-scale coherence.
+            Before modern computation, intelligence was already functioning as prediction through structure. Humans observed recurring patterns in the world and translated them into symbolic systems: numbers, geometry, calendars, maps, music, written language. Friston later formalized this as a unifying principle — that perception, action, learning, and biological self-organization may all be understood as continuous prediction error minimization across hierarchical levels of the nervous system.
           </p>
+          <p>
+            Yet a central gap remains: how information becomes meaningful, integrated across time, or experienced as a coherent lived reality is not fully explained by output-level models. The body is not a passive receiver. Interoceptive signals — heartbeat, breath, visceral tension — actively shape emotion, decision-making, and self-awareness. The self is not a fixed internal object but a temporally organized process shaped by prediction, bodily regulation, and ongoing interaction with the environment.
+          </p>
+
+          <div className="figure">
+            <img src="/root-of-knowledge.png" alt="Root of Knowledge — A Limbic-Interoceptive-Foundational Framework" />
+            <p className="figure-caption">
+              <strong>Figure 1.</strong> The Root of Knowledge: A Limbic-Interoceptive-Foundational Framework. A layered view of embodied knowing, moving from bodily grounding and interoceptive signaling to emotional filtering and meaning-making. Adapted from original artwork by Avanzo (2026).
+            </p>
+          </div>
         </div>
 
-        <div className="divider" />
+        <div className="section-divider" />
 
-        <div className="impl-label">
-          Potential research implications <span style={{ fontWeight: 400, fontSize: 11, letterSpacing: "0.04em" }}>(click to expand)</span>
-        </div>
-        <div className="impl-list">
-          {implications.map((item, i) => {
-            const isOpen = open === i
-            return (
-              <React.Fragment key={i}>
-                <div
-                  className={`impl-row${isOpen ? " open" : ""}`}
-                  onClick={() => toggle(i)}
-                >
-                  <div className="impl-header">
-                    <div className="impl-num">{item.num}</div>
-                    <div className="impl-body">
-                      <div className="impl-area">{item.area}</div>
-                      <div className="impl-title">{item.title}</div>
-                    </div>
-                    <div className={`impl-chevron${isOpen ? " open" : ""}`}>▾</div>
-                  </div>
-                  {isOpen && (
-                    <div className="impl-expansion">{item.body}</div>
-                  )}
-                </div>
-                {i < implications.length - 1 && (
-                  <div style={{ width: 1, height: 14, background: "#ddd", marginLeft: 26 }} />
-                )}
-              </React.Fragment>
-            )
-          })}
-        </div>
-
-        <div className="divider" />
-
+        {/* SECTION 2 */}
         <div className="section">
-          <div className="section-title">Invitation for collaboration</div>
+          <div className="section-label">The Problem</div>
+          <h2 className="section-title">Fragmentation as cross-layer misalignment</h2>
           <p>
-            Further empirical investigation and interdisciplinary collaboration will be necessary to evaluate the scope, limitations, and potential applicability of this framework. Whether M-RFT can function as a reliable measure of cross-scale alignment — and whether variations in that alignment predict patterns of experiential disruption — are questions this project is not yet in a position to answer. They are, however, questions that are worth asking.
+            Modern conditions amplify fragmentation. Information overload, digital saturation, sleep disruption, and chronic uncertainty place sustained pressure on regulatory systems. Research increasingly suggests that many mental health conditions involve disturbances in large-scale brain dynamics, interoceptive processing, temporal continuity, and self-modeling rather than isolated cognitive deficits.
           </p>
           <p>
-            Researchers interested in the full technical specification, methodological details, or collaborative exploration are welcome to reach out directly.
+            From this perspective, fragmentation reflects dysregulation across multiple interacting layers of the human system — not a failure of thought, but a failure of coordination across body, neural dynamics, and self-narrative. The felt sense of "me" depends less on static identity and more on successful cross-level coordination.
+          </p>
+
+          <div className="figure">
+            <img src="/fragmented-brain.jpg" alt="Sleep as a System Update — Fragmented Brain Before Restoration" />
+            <p className="figure-caption">
+              <strong>Figure 2.</strong> Sleep as a System Update: The Fragmented Brain Before Restoration. A fragmented state in which salience processing becomes threat-biased, executive control is strained, default mode activity becomes ruminative, and interoceptive signals are harder to interpret. Adapted from original artwork by Avanzo (2026).
+            </p>
+          </div>
+        </div>
+
+        <div className="section-divider" />
+
+        {/* SECTION 3 */}
+        <div className="section">
+          <div className="section-label">The Diagnosis</div>
+          <h2 className="section-title">Current AI amplifies what it should reduce</h2>
+          <p>
+            Current human-AI interaction is largely organized around efficiency metrics: faster answers, task completion, personalization, and output optimization. These advances are valuable, yet they primarily treat intelligence as production rather than integration. AI systems are not typically designed to support how information is interpreted, embodied, and integrated into lived experience.
+          </p>
+
+          <div className="key-claim">
+            When an already overloaded human system interacts with an AI architecture optimized primarily for engagement, the interaction may amplify fragmentation rather than support integration.
+          </div>
+
+          <p>
+            Biased training data, opaque algorithmic processes, and limited access to embodied or contextual meaning can produce outputs that reinforce existing prediction errors, stabilize maladaptive patterns, or increase attentional load without resolution. The system lacks a meaningful feedback loop through which human state, context, and integration needs can inform the structure of the output.
+          </p>
+
+          <div className="figure-pair">
+            <div className="figure">
+              <img src="/root-knowledge-fragmented.png" alt="Current Human-AI Interaction — Epistemic Misalignment" />
+              <p className="figure-caption">
+                <strong>Current model.</strong> Epistemic misalignment and amplified fragmentation. No feedback loop. No learning about the human receiving the output.
+              </p>
+            </div>
+            <div className="figure">
+              <img src="/root-knowledge-coherent.png" alt="Root Knowledge Architecture — Coherence-Centered Human-AI" />
+              <p className="figure-caption">
+                <strong>Proposed model.</strong> Root Knowledge architecture. An intermediate integration layer that prioritizes epistemic alignment over engagement.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div className="section-divider" />
+
+        {/* SECTION 4 */}
+        <div className="section">
+          <div className="section-label">The Proposal</div>
+          <h2 className="section-title">AI as epistemic scaffold, not output generator</h2>
+          <p>
+            This paper introduces an intermediate integration layer that functions as an informational scaffold between the human user and large-scale data systems. Rather than relying on continuous extraction of personal data or optimizing primarily for engagement, this layer prioritizes epistemic alignment: the fit between incoming information, contextual relevance, and the user&apos;s current goals, state, and meaning structures.
+          </p>
+          <p>
+            In predictive processing terms, such a system attempts to reduce unnecessary uncertainty at the level of interaction by organizing information in ways that are more interpretable, relevant, and temporally sequenced for the human user. When the integration layer is designed for coherence rather than engagement, prediction error decreases — not only in machine outputs, but in the cognitive load placed on the human receiving them.
+          </p>
+          <p>
+            Acting as an external scaffold, the system may help users recognize patterns, clarify goals, and transform fragmented inputs into coherent action — not by replacing intelligence, but by supporting the organization of intelligence already present within the human system.
+          </p>
+
+          <div className="key-claim">
+            The next frontier of human-AI interaction may not be faster output, but deeper integration. The call is not simply to build smarter machines, but to design tools that help humans become more coherent, more aware, and more capable of transforming information into meaning.
+          </div>
+        </div>
+
+        <div className="section-divider" />
+
+        {/* SECTION 5 */}
+        <div className="section">
+          <div className="section-label">Limitations</div>
+          <h2 className="section-title">What this work does not claim</h2>
+          <p>
+            This framework remains in its early conceptual stages. The theoretical architecture and design principles proposed here have not yet been empirically validated, and claims about effectiveness — in reducing prediction error, supporting coherence, or improving mental health outcomes — await systematic testing. What is offered here is not a finished system, but a structured proposal: grounded in established research, internally consistent, and designed to generate testable predictions.
+          </p>
+          <p>
+            A companion paper introduces the M-RFT metric — a preliminary mathematical index designed to estimate coherence across layers of the human system. That manuscript is currently under embargo and available upon request for academic or research purposes. Empirical validation requires multimodal data collection combining physiological, neuroimaging, and narrative measures.
           </p>
         </div>
 
-        <div className="contact-block">
-          <div className="contact-label">Collaboration & Inquiry</div>
-          <p className="contact-text">
-            Interested in collaborating or learning more about the project?{" "}
-            <a href="/contact">Get in touch →</a>
-          </p>
+        {/* CTA */}
+        <div className="cta-block">
+          <a href="https://doi.org/10.5281/zenodo.20060589" target="_blank" rel="noopener noreferrer" className="cta-link primary">
+            Read full paper on Zenodo ↗
+          </a>
+          <a href="/contact" className="cta-link">
+            Request M-RFT metric →
+          </a>
+          <a href="/" className="cta-link">
+            ← Back to Root Lab
+          </a>
         </div>
+
       </main>
     </>
   )
