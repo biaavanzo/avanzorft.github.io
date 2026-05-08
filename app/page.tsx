@@ -83,7 +83,7 @@ export default function Home() {
         .problem-closing {
           font-family: 'EB Garamond', Georgia, serif;
           font-size: clamp(17px, 2.2vw, 21px);
-          font-weight: 500; color: #111; line-height: 1.6;
+          font-weight: 400; color: #111; line-height: 1.6;
           margin: 32px 0 40px; padding: 24px 0;
           border-top: 1px solid #eee; border-bottom: 1px solid #eee;
         }
