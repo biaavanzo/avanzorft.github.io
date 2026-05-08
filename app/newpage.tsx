@@ -55,6 +55,12 @@ export default function Home() {
           color: #555; text-transform: uppercase;
         }
         .hero-divider { width: 100%; height: 1px; background: #ddd; margin-top: 24px; }
+        .hero-root {
+          text-align: center; margin-top: 12px;
+          font-family: 'EB Garamond', Georgia, serif;
+          font-size: clamp(11px, 1.2vw, 13px);
+          color: #bbb; letter-spacing: 0.2em; text-transform: uppercase;
+        }
         .hero-desc {
           margin-top: 48px; color: #444; line-height: 1.85; text-align: center;
           width: 100%; max-width: 580px; margin-left: auto; margin-right: auto; padding: 0 24px;
@@ -66,6 +72,7 @@ export default function Home() {
           font-size: clamp(28px, 4vw, 38px);
           font-weight: 500; color: #111; margin-bottom: 24px;
           letter-spacing: -0.01em; line-height: 1.2;
+          text-align: center;
         }
         .problem-block p {
           font-size: 17px; line-height: 1.9; color: #444;
@@ -134,22 +141,23 @@ export default function Home() {
           font-family: system-ui; margin-bottom: 20px;
         }
         .status-row {
-          display: grid; grid-template-columns: 1fr auto;
-          align-items: start; padding: 16px 0;
-          border-bottom: 1px solid #eee; gap: 24px;
+          display: flex; align-items: flex-start;
+          padding: 14px 0; border-bottom: 1px solid #eee; gap: 14px;
         }
         .status-row:last-child { border-bottom: none; }
-        .status-row-left { display: flex; flex-direction: column; gap: 4px; }
+        .status-icon { font-size: 15px; margin-top: 1px; flex-shrink: 0; }
+        .status-row-left { display: flex; flex-direction: column; gap: 3px; flex: 1; }
+        .status-right { display: flex; flex-direction: column; align-items: flex-end; gap: 4px; flex-shrink: 0; }
         .status-title { font-size: 14px; color: #111; font-family: system-ui; font-weight: 500; }
         .status-desc { font-size: 13px; color: #888; font-family: system-ui; line-height: 1.5; }
         .status-badge {
           font-size: 10px; font-weight: 600; letter-spacing: 0.1em;
           text-transform: uppercase; font-family: system-ui;
-          padding: 3px 8px; border: 1px solid; white-space: nowrap; margin-top: 2px;
+          padding: 3px 8px; border: 1px solid; white-space: nowrap;
         }
-        .badge-published { color: #111; border-color: #111; }
-        .badge-embargoed { color: #888; border-color: #ccc; }
-        .badge-active { color: #2d6a4f; border-color: #2d6a4f; }
+        .badge-published { color: #2d6a4f; border-color: #2d6a4f; background: #f0faf5; }
+        .badge-embargoed { color: #7a6000; border-color: #c9a800; background: #fffbea; }
+        .badge-active { color: #2d6a4f; border-color: #2d6a4f; background: #f0faf5; }
         @media (max-width: 640px) {
           .header-inner { flex-direction: column; gap: 10px; padding: 12px 0; }
           main { padding-top: 100px; }
@@ -178,6 +186,7 @@ export default function Home() {
                             <span className="hero-subtitle">An Independent Research Program</span>
                         </div>
                         <div className="hero-divider" />
+                        <p className="hero-root">avanzorft.com · Bay Area · 2026</p>
                     </div>
                     <p className="hero-desc" style={{ fontSize: 20, fontWeight: 400, color: "#555" }}>
                         Investigating how biological regulation, neural dynamics, and self-narrative integrate to sustain a coherent sense of self — and what happens, across scales, when they don&apos;t.
@@ -244,33 +253,49 @@ export default function Home() {
 
                 <div className="status-block">
                     <div className="status-label">Active Research Program</div>
+
                     <div className="status-row">
+                        <span className="status-icon">✅</span>
                         <div className="status-row-left">
                             <span className="status-title">Root Frequency Theory</span>
                             <span className="status-desc">Five nested layers. Coherence as the mechanism of self-continuity.</span>
                         </div>
-                        <span className="status-badge badge-published">Published</span>
+                        <div className="status-right">
+                            <span className="status-badge badge-published">Published</span>
+                        </div>
                     </div>
+
                     <div className="status-row">
+                        <span className="status-icon">🟡</span>
                         <div className="status-row-left">
                             <span className="status-title">M-RFT Coherence Metric</span>
                             <span className="status-desc">A formal coherence index. Available to researchers upon request.</span>
                         </div>
-                        <span className="status-badge badge-embargoed">Embargoed</span>
+                        <div className="status-right">
+                            <span className="status-badge badge-embargoed">Embargoed</span>
+                        </div>
                     </div>
+
                     <div className="status-row">
+                        <span className="status-icon">✅</span>
                         <div className="status-row-left">
                             <span className="status-title">Root Knowledge — Human-AI Coherence</span>
                             <span className="status-desc">On AI as epistemic scaffold, not output generator.</span>
                         </div>
-                        <span className="status-badge badge-published">Published</span>
+                        <div className="status-right">
+                            <span className="status-badge badge-published">Published</span>
+                        </div>
                     </div>
+
                     <div className="status-row">
+                        <span className="status-icon">✅</span>
                         <div className="status-row-left">
                             <span className="status-title">Root Extension — N=1 Longitudinal Study</span>
                             <span className="status-desc">Active data collection April–October 2026.</span>
                         </div>
-                        <span className="status-badge badge-active">Active</span>
+                        <div className="status-right">
+                            <span className="status-badge badge-active">Active</span>
+                        </div>
                     </div>
                 </div>
 
