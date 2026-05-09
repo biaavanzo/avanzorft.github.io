@@ -89,6 +89,27 @@ export default function Home() {
           border-left: 2px solid #ddd; padding-left: 20px;
           font-style: italic;
         }
+
+        /* CURRENT GOALS */
+        .goals-block { margin-top: 40px; padding-top: 32px; border-top: 1px solid #eee; }
+        .goals-label {
+          font-size: 10px; font-weight: 600; color: #555;
+          text-transform: uppercase; letter-spacing: 0.14em;
+          font-family: system-ui; margin-bottom: 20px;
+        }
+        .goals-list { list-style: none; padding: 0; margin: 0; }
+        .goals-list li {
+          font-size: 15px; color: #444; font-family: system-ui;
+          line-height: 1.7; padding: 11px 0;
+          border-bottom: 1px solid #eee;
+          display: flex; gap: 14px; align-items: flex-start;
+        }
+        .goals-list li:last-child { border-bottom: none; }
+        .goal-dot {
+          width: 5px; height: 5px; border-radius: 50%;
+          background: #ccc; flex-shrink: 0; margin-top: 9px;
+        }
+
         sup {
           font-size: 10px; color: #aaa; font-family: system-ui;
           vertical-align: super; line-height: 0; margin-left: 1px;
@@ -247,6 +268,32 @@ export default function Home() {
             <p className="investigate-question">
               Can cross-level coherence — the alignment between physiological regulation, neural dynamics, and self-representation — be formally measured, tracked over time, and supported through coherence-centered human-AI interaction?
             </p>
+          </div>
+
+          <div className="goals-block">
+            <div className="goals-label">Current research priorities</div>
+            <ul className="goals-list">
+              <li>
+                <div className="goal-dot" />
+                Securing an industrial PhD position with a research group working on interoception, computational psychiatry, or neuroscience-AI — to bring the empirical infrastructure this work requires.
+              </li>
+              <li>
+                <div className="goal-dot" />
+                Validating the M-RFT coherence metric through multimodal lab protocols combining HRV, interoceptive accuracy tasks, and neuroimaging.
+              </li>
+              <li>
+                <div className="goal-dot" />
+                Longitudinal tracking of coherence disruption in clinical populations — panic disorder, addiction, ADHD, and anxiety — conditions characterized by spatiotemporal misalignment, distorted self-narrative, and ruminative thought patterns.
+              </li>
+              <li>
+                <div className="goal-dot" />
+                Expanding the current N=1 ecological study toward a formal clinical validation trial with N=20–40 participants.
+              </li>
+              <li>
+                <div className="goal-dot" />
+                Investigating whether coherence in human-AI interaction is measurable and whether AI-mediated epistemic scaffolding produces detectable changes in inner coherence — not just behavioral outcomes.
+              </li>
+            </ul>
           </div>
 
         </div>
