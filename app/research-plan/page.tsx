@@ -42,29 +42,8 @@ export default function FormalizationPathway() {
           max-width: 680px; margin: 0 auto;
         }
 
-        .page-nav {
-          display: flex; align-items: center;
-          justify-content: space-between; margin-bottom: 56px;
-        }
-        .page-nav-back { font-size: 13px; color: #999; text-decoration: none; }
-        .page-nav-links { display: flex; gap: 20px; }
-        .page-nav-links a { font-size: 15px; text-decoration: none; color: #555; }
-        .page-nav-links a.active {
-          color: #111; border-bottom: 1px solid #111;
-          padding-bottom: 2px; font-weight: 500;
-        }
-
-        .page-title {
-          font-family: 'EB Garamond', Georgia, serif;
-          font-size: clamp(28px, 5vw, 42px);
-          font-weight: 500; color: #111;
-          text-align: center; margin-bottom: 12px; line-height: 1.2;
-        }
-        .page-subtitle {
-          text-align: center; font-size: 13px; color: #555;
-          letter-spacing: 0.06em; text-transform: uppercase;
-          font-family: system-ui; margin-bottom: 56px;
-        }
+        .back { font-size: 13px; color: #999; text-decoration: none; display: inline-block; margin-bottom: 48px; }
+        .back:hover { color: #111; }
 
         .section { margin-bottom: 52px; }
         .section-title {
@@ -144,6 +123,12 @@ export default function FormalizationPathway() {
           font-size: 13px; line-height: 1.65; color: #666; font-family: system-ui;
         }
 
+        .cta-block { border-top: 1px solid #eee; padding-top: 32px; margin-top: 56px; display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+        .cta-link { font-size: 13px; color: #111; text-decoration: none; border: 1px solid #ddd; padding: 9px 20px; font-family: system-ui; letter-spacing: 0.04em; transition: border-color 0.15s, background 0.15s; }
+        .cta-link:hover { border-color: #111; background: #f7f7f7; }
+        .cta-link.primary { background: #111; color: #fff; border-color: #111; }
+        .cta-link.primary:hover { background: #333; }
+
         .references {
           border-top: 1px solid #eee; padding-top: 28px; margin-top: 48px;
         }
@@ -177,17 +162,17 @@ export default function FormalizationPathway() {
 
             <main>
 
-                <div className="page-nav">
-                    <a href="/" className="page-nav-back">← Back</a>
-                    <div className="page-nav-links">
-                        <a href="/the-paper">The Paper</a>
-                        <a href="/research-plan" className="active">M-RFT Coherence Metric</a>
-                        <a href="/expected-outcomes">Expected Outcomes</a>
+                <a href="/" className="back">← Back</a>
+
+                <div style={{ marginBottom: 56 }}>
+                    <div style={{ fontSize: 10, fontWeight: 600, color: "#888", textTransform: "uppercase" as const, letterSpacing: "0.14em", fontFamily: "system-ui", marginBottom: 16 }}>Embargoed · 2026</div>
+                    <h1 style={{ fontFamily: "'EB Garamond', Georgia, serif", fontSize: "clamp(32px, 5vw, 52px)", fontWeight: 500, color: "#111", lineHeight: 1.15, marginBottom: 16 }}>M-RFT Coherence Metric</h1>
+                    <p style={{ fontFamily: "'EB Garamond', Georgia, serif", fontSize: "clamp(16px, 2vw, 20px)", fontWeight: 400, color: "#555", lineHeight: 1.6, marginBottom: 24 }}>Operational Proxy for Multiscale Integration</p>
+                    <div style={{ display: "flex", gap: 24, flexWrap: "wrap" as const, alignItems: "center", fontSize: 12, color: "#888", fontFamily: "system-ui" }}>
+                        <span>Bianca Avanzo · Independent Researcher</span>
+                        <a href="/contact" style={{ color: "#888", textDecoration: "none", borderBottom: "1px solid #ddd" }}>Available upon request →</a>
                     </div>
                 </div>
-
-                <h1 className="page-title">M-RFT Coherence Metric</h1>
-                <p className="page-subtitle">Operational Proxy for Multiscale Integration</p>
 
                 <div className="section">
                     <div className="section-title">Abstract</div>
@@ -337,23 +322,9 @@ export default function FormalizationPathway() {
                     </p>
                 </div>
 
-                <div style={{
-                    display: "flex", justifyContent: "space-between", alignItems: "center",
-                    borderTop: "1px solid #eee", marginTop: 48, paddingTop: 28,
-                    fontFamily: "system-ui",
-                }}>
-                    <a href="/the-paper" style={{
-                        fontSize: 14, color: "#555", textDecoration: "none",
-                        display: "flex", alignItems: "center", gap: 8,
-                    }}>
-                        <span style={{ fontSize: 16 }}>←</span> The Paper
-                    </a>
-                    <a href="/expected-outcomes" style={{
-                        fontSize: 14, color: "#555", textDecoration: "none",
-                        display: "flex", alignItems: "center", gap: 8,
-                    }}>
-                        Expected Outcomes <span style={{ fontSize: 16 }}>→</span>
-                    </a>
+                <div className="cta-block">
+                    <a href="/contact" className="cta-link primary">Request full paper →</a>
+                    <a href="/" className="cta-link">← Back to Root Lab</a>
                 </div>
 
                 <section className="references">
