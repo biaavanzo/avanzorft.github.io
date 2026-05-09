@@ -54,6 +54,13 @@ export default function Home() {
           font-weight: 400; letter-spacing: 0.45em;
           color: #555; text-transform: uppercase;
         }
+        .hero-collab {
+          font-family: 'EB Garamond', Georgia, serif;
+          font-size: clamp(11px, 1.2vw, 14px);
+          font-weight: 400; letter-spacing: 0.3em;
+          color: #999; text-transform: uppercase;
+          text-align: center; margin-top: 14px;
+        }
         .hero-divider { width: 100%; height: 1px; background: #ddd; margin-top: 24px; }
         .hero-root {
           display: flex; justify-content: flex-start;
@@ -89,8 +96,6 @@ export default function Home() {
           border-left: 2px solid #ddd; padding-left: 20px;
           font-style: italic;
         }
-
-        /* CURRENT GOALS */
         .goals-block { margin-top: 40px; padding-top: 32px; border-top: 1px solid #eee; }
         .goals-label {
           font-size: 10px; font-weight: 600; color: #555;
@@ -109,7 +114,6 @@ export default function Home() {
           width: 5px; height: 5px; border-radius: 50%;
           background: #ccc; flex-shrink: 0; margin-top: 9px;
         }
-
         sup {
           font-size: 10px; color: #aaa; font-family: system-ui;
           vertical-align: super; line-height: 0; margin-left: 1px;
@@ -235,6 +239,7 @@ export default function Home() {
             <div className="hero-subtitle-row">
               <span className="hero-subtitle">An Independent Research Program</span>
             </div>
+            <p className="hero-collab">A call for integrative collaboration</p>
             <div className="hero-divider" />
             <div className="hero-root">
               <svg viewBox="0 0 36 28" xmlns="http://www.w3.org/2000/svg">
