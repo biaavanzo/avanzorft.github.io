@@ -3,52 +3,31 @@
 export default function AboutTheAuthor() {
   return (
     <>
-      <link
-        rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500&display=swap"
-      />
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500&display=swap" />
 
-      <header style={{
-        position: "fixed", top: 0, left: 0, right: 0, zIndex: 100,
-        background: "#fff", borderBottom: "1px solid #eee", padding: "0 32px",
-      }}>
-        <div style={{
-          maxWidth: 900, margin: "0 auto", display: "flex",
-          alignItems: "center", justifyContent: "center", gap: 40, padding: "14px 0",
-        }}>
+      <header style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 100, background: "#fff", borderBottom: "1px solid #eee", padding: "0 32px" }}>
+        <div style={{ maxWidth: 900, margin: "0 auto", display: "flex", alignItems: "center", justifyContent: "center", gap: 40, padding: "14px 0" }}>
           <a href="/" style={{ fontSize: 16, fontWeight: 500, color: "#111", fontFamily: "system-ui", whiteSpace: "nowrap", textDecoration: "none" }}>
             Root Lab
           </a>
           <nav style={{ display: "flex", gap: 24 }}>
-            <a href="/the-paper" style={{ fontSize: 15, color: "#555", textDecoration: "none", fontFamily: "system-ui", whiteSpace: "nowrap" }}>About RFT</a>
-            <a href="/about-the-author" style={{ fontSize: 15, color: "#555", textDecoration: "none", fontFamily: "system-ui", whiteSpace: "nowrap" }}>About the Author</a>
+            <a href="/n-of-1" style={{ fontSize: 15, color: "#555", textDecoration: "none", fontFamily: "system-ui", whiteSpace: "nowrap" }}>N=1 Study</a>
+            <a href="/about-the-author" style={{ fontSize: 15, color: "#111", fontWeight: 500, textDecoration: "none", fontFamily: "system-ui", whiteSpace: "nowrap" }}>About the Author</a>
             <a href="/contact" style={{ fontSize: 15, color: "#555", textDecoration: "none", fontFamily: "system-ui", whiteSpace: "nowrap" }}>Contact</a>
           </nav>
         </div>
       </header>
 
-      <main style={{
-        paddingTop: 100, paddingBottom: 100, paddingLeft: 24, paddingRight: 24,
-        fontFamily: "system-ui", maxWidth: 680, margin: "0 auto",
-      }}>
+      <main style={{ paddingTop: 100, paddingBottom: 100, paddingLeft: 24, paddingRight: 24, fontFamily: "system-ui", maxWidth: 680, margin: "0 auto" }}>
         <a href="/" style={{ display: "inline-block", fontSize: 13, color: "#777", textDecoration: "none", marginBottom: 48, letterSpacing: "0.02em" }}>
           ← Back
         </a>
 
-        {/* Name + avatar */}
         <div style={{ textAlign: "center", marginBottom: 56 }}>
-          <div style={{
-            width: 80, height: 80, borderRadius: "50%",
-            overflow: "hidden", margin: "0 auto 24px",
-            border: "1px solid #ddd", flexShrink: 0,
-          }}>
+          <div style={{ width: 80, height: 80, borderRadius: "50%", overflow: "hidden", margin: "0 auto 24px", border: "1px solid #ddd", flexShrink: 0 }}>
             <img src="/bianca.jpg" alt="Bianca Avanzo" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top", display: "block", pointerEvents: "none" as const }} />
           </div>
-          <h1 style={{
-            fontFamily: "'EB Garamond', Georgia, serif",
-            fontSize: "clamp(28px, 5vw, 44px)",
-            fontWeight: 500, color: "#111", marginBottom: 8, lineHeight: 1.2,
-          }}>
+          <h1 style={{ fontFamily: "'EB Garamond', Georgia, serif", fontSize: "clamp(28px, 5vw, 44px)", fontWeight: 500, color: "#111", marginBottom: 8, lineHeight: 1.2 }}>
             Bianca Avanzo
           </h1>
           <p style={{ fontSize: 13, color: "#777", letterSpacing: "0.1em", textTransform: "uppercase", margin: 0 }}>
@@ -56,11 +35,8 @@ export default function AboutTheAuthor() {
           </p>
         </div>
 
-        {/* BACKGROUND */}
         <section style={{ marginBottom: 52 }}>
-          <h2 style={{ fontSize: 17, fontWeight: 700, color: "#111", textAlign: "center", marginBottom: 20, fontFamily: "system-ui" }}>
-            Background
-          </h2>
+          <h2 style={{ fontSize: 17, fontWeight: 700, color: "#111", textAlign: "center", marginBottom: 20, fontFamily: "system-ui" }}>Background</h2>
           <div style={{ fontSize: 17, lineHeight: 1.9, color: "#444" }}>
             <p style={{ marginBottom: 20, textIndent: '2em', textAlign: 'justify' as const, hyphens: 'auto' as const }}>
               I am an independent researcher working at the intersection of cognitive science, neurophenomenology, and the science of self. My work investigates how a coherent sense of self is maintained, and how it becomes vulnerable to fragmentation, across biological, neural, and symbolic scales of organization.
@@ -83,11 +59,8 @@ export default function AboutTheAuthor() {
           </div>
         </section>
 
-        {/* RESEARCH INTERESTS */}
         <section style={{ marginBottom: 52 }}>
-          <h2 style={{ fontSize: 17, fontWeight: 700, color: "#111", textAlign: "center", marginBottom: 20, fontFamily: "system-ui" }}>
-            Research Interests
-          </h2>
+          <h2 style={{ fontSize: 17, fontWeight: 700, color: "#111", textAlign: "center", marginBottom: 20, fontFamily: "system-ui" }}>Research Interests</h2>
           <div style={{ display: "flex", flexDirection: "column" as const, gap: 10 }}>
             {[
               "Consciousness and experiential continuity across time;",
@@ -105,11 +78,8 @@ export default function AboutTheAuthor() {
           </div>
         </section>
 
-        {/* CURRENT WORK */}
         <section style={{ marginBottom: 52 }}>
-          <h2 style={{ fontSize: 17, fontWeight: 700, color: "#111", textAlign: "center", marginBottom: 20, fontFamily: "system-ui" }}>
-            Current Work
-          </h2>
+          <h2 style={{ fontSize: 17, fontWeight: 700, color: "#111", textAlign: "center", marginBottom: 20, fontFamily: "system-ui" }}>Current Work</h2>
           <div style={{ fontSize: 17, lineHeight: 1.9, color: "#444" }}>
             <p style={{ marginBottom: 14, textIndent: '2em', textAlign: 'justify' as const, hyphens: 'auto' as const }}>
               The Root Frequency Theory framework and its associated operational tools are currently under active development, including the M-RFT metric—a proposed measure of cross-scale alignment designed to track the precision of internal models—and the development of computational scaffolds to support systemic integration.
@@ -117,33 +87,16 @@ export default function AboutTheAuthor() {
             <p style={{ marginBottom: 32, textIndent: '2em', textAlign: 'justify' as const, hyphens: 'auto' as const }}>
               Efforts are also directed toward establishing R&D partnerships, academic–industry mentorship, and access to multimodal neurophysiological environments to rigorously examine the framework's core predictions and explore its potential computational translation into scalable health-technology contexts.
             </p>
-
-            {/* CTA */}
-            <div style={{
-              padding: "32px 28px",
-              border: "1px solid #eee",
-              background: "#fafafa", textAlign: "center",
-            }}>
-              <p style={{
-                margin: "0 0 20px 0",
-                fontFamily: "'EB Garamond', Georgia, serif",
-                fontSize: 19, color: "#111", lineHeight: 1.5,
-              }}>
+            <div style={{ padding: "32px 28px", border: "1px solid #eee", background: "#fafafa", textAlign: "center" }}>
+              <p style={{ margin: "0 0 20px 0", fontFamily: "'EB Garamond', Georgia, serif", fontSize: 19, color: "#111", lineHeight: 1.5 }}>
                 Interested in collaborating or learning more about the project?
               </p>
-              <a href="/contact" style={{
-                display: "inline-block", fontSize: 13, color: "#fff",
-                background: "#111", padding: "10px 28px",
-                border: "none", letterSpacing: "0.06em",
-                fontFamily: "system-ui", cursor: "pointer",
-                textDecoration: "none",
-              }}>
+              <a href="/contact" style={{ display: "inline-block", fontSize: 13, color: "#fff", background: "#111", padding: "10px 28px", border: "none", letterSpacing: "0.06em", fontFamily: "system-ui", cursor: "pointer", textDecoration: "none" }}>
                 Get in touch
               </a>
             </div>
           </div>
         </section>
-
       </main>
     </>
   )

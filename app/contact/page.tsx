@@ -41,18 +41,11 @@ export default function Contact() {
         e.preventDefault()
         setStatus("sending")
         try {
-            await emailjs.send(
-                SERVICE_ID,
-                TEMPLATE_ID,
-                {
-                    name: form.name,
-                    email: form.email,
-                    subject: form.subject,
-                    message: form.message,
-                    time: new Date().toLocaleString(),
-                },
-                PUBLIC_KEY
-            )
+            await emailjs.send(SERVICE_ID, TEMPLATE_ID, {
+                name: form.name, email: form.email,
+                subject: form.subject, message: form.message,
+                time: new Date().toLocaleString(),
+            }, PUBLIC_KEY)
             setStatus("sent")
             setForm({ name: "", email: "", subject: "", message: "" })
         } catch {
@@ -64,14 +57,13 @@ export default function Contact() {
         <>
             <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500&display=swap" />
 
-            {/* TOP BAR */}
             <header style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 100, background: "#fff", borderBottom: "1px solid #eee", padding: "0 32px" }}>
                 <div style={{ maxWidth: 900, margin: "0 auto", display: "flex", alignItems: "center", justifyContent: "center", gap: 40, padding: "14px 0" }}>
                     <a href="/" style={{ fontSize: 16, fontWeight: 500, color: "#111", fontFamily: "system-ui", whiteSpace: "nowrap", textDecoration: "none" }}>
                         Root Lab
                     </a>
                     <nav style={{ display: "flex", gap: 24 }}>
-                        <a href="/the-paper" style={navLink}>About RFT</a>
+                        <a href="/n-of-1" style={navLink}>N=1 Study</a>
                         <a href="/about-the-author" style={navLink}>About the Author</a>
                         <a href="/contact" style={{ ...navLink, color: "#111", fontWeight: 500 }}>Contact</a>
                     </nav>
@@ -91,23 +83,15 @@ export default function Contact() {
                 </p>
 
                 <div style={{ display: "grid", gridTemplateColumns: "1fr 1.6fr", gap: 48 }}>
-
-                    {/* Left — info */}
                     <div style={{ display: "flex", flexDirection: "column", gap: 28 }}>
                         <div>
                             <p style={labelStyle}>Email</p>
-                            <a href="mailto:avanzzorft@outlook.com" style={contactLink}>
-                                avanzzorft@outlook.com
-                            </a>
+                            <a href="mailto:avanzzorft@outlook.com" style={contactLink}>avanzzorft@outlook.com</a>
                         </div>
-
                         <div>
                             <p style={labelStyle}>LinkedIn</p>
-                            <a href="https://www.linkedin.com/in/bianca-avanzo-b1b5231a9/" target="_blank" rel="noopener noreferrer" style={contactLink}>
-                                Bianca Avanzo
-                            </a>
+                            <a href="https://www.linkedin.com/in/bianca-avanzo-b1b5231a9/" target="_blank" rel="noopener noreferrer" style={contactLink}>Bianca Avanzo</a>
                         </div>
-
                         <div>
                             <p style={labelStyle}>Topics</p>
                             <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
@@ -116,7 +100,6 @@ export default function Contact() {
                                 ))}
                             </div>
                         </div>
-
                         <div style={{ borderTop: "1px solid #eee", paddingTop: 20 }}>
                             <p style={{ fontSize: 13, color: "#aaa", lineHeight: 1.7, fontStyle: "italic" }}>
                                 To request the M-RFT technical paper, select that subject or include it in your message.
@@ -124,33 +107,25 @@ export default function Contact() {
                         </div>
                     </div>
 
-                    {/* Right — form */}
                     <div>
                         {status === "sent" ? (
                             <div style={{ border: "1px solid #eee", borderRadius: 10, padding: "36px 28px", textAlign: "center", background: "#fafafa" }}>
-                                <p style={{ fontFamily: "'EB Garamond', Georgia, serif", fontSize: 22, color: "#111", marginBottom: 10 }}>
-                                    Message sent.
-                                </p>
-                                <p style={{ fontSize: 14, color: "#888", lineHeight: 1.7, marginBottom: 24 }}>
-                                    Thank you — I will get back to you as soon as possible.
-                                </p>
+                                <p style={{ fontFamily: "'EB Garamond', Georgia, serif", fontSize: 22, color: "#111", marginBottom: 10 }}>Message sent.</p>
+                                <p style={{ fontSize: 14, color: "#888", lineHeight: 1.7, marginBottom: 24 }}>Thank you — I will get back to you as soon as possible.</p>
                                 <button onClick={() => setStatus("idle")} style={{ fontSize: 12, color: "#aaa", background: "none", border: "none", cursor: "pointer", textDecoration: "underline" }}>
                                     Send another message
                                 </button>
                             </div>
                         ) : (
                             <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: 18 }}>
-
                                 <div>
                                     <label style={labelStyle} htmlFor="name">Name</label>
                                     <input id="name" name="name" type="text" required placeholder="Your name" value={form.name} onChange={handleChange} style={inputStyle} />
                                 </div>
-
                                 <div>
                                     <label style={labelStyle} htmlFor="email">Email</label>
                                     <input id="email" name="email" type="email" required placeholder="your@email.com" value={form.email} onChange={handleChange} style={inputStyle} />
                                 </div>
-
                                 <div>
                                     <label style={labelStyle} htmlFor="subject">Subject</label>
                                     <select id="subject" name="subject" value={form.subject} onChange={handleChange} style={{ ...inputStyle, color: form.subject ? "#111" : "#aaa" }}>
@@ -162,35 +137,23 @@ export default function Contact() {
                                         <option value="Other">Other</option>
                                     </select>
                                 </div>
-
                                 <div>
                                     <label style={labelStyle} htmlFor="message">Message</label>
                                     <textarea id="message" name="message" required rows={5} placeholder="Your message..." value={form.message} onChange={handleChange} style={{ ...inputStyle, resize: "vertical", minHeight: 120 }} />
                                 </div>
-
                                 {status === "error" && (
-                                    <p style={{ fontSize: 13, color: "#c0392b", margin: 0 }}>
-                                        Something went wrong. Please try again or email directly at avanzzorft@outlook.com
-                                    </p>
+                                    <p style={{ fontSize: 13, color: "#c0392b", margin: 0 }}>Something went wrong. Please try again or email directly at avanzzorft@outlook.com</p>
                                 )}
-
-                                <button
-                                    type="submit"
-                                    disabled={status === "sending"}
-                                    style={{
-                                        alignSelf: "flex-start", padding: "10px 24px",
-                                        background: status === "sending" ? "#aaa" : "#111",
-                                        color: "#fff", border: "none", fontSize: 13,
-                                        letterSpacing: "0.04em", cursor: status === "sending" ? "not-allowed" : "pointer",
-                                        transition: "background 0.2s",
-                                    }}
-                                >
+                                <button type="submit" disabled={status === "sending"} style={{
+                                    alignSelf: "flex-start", padding: "10px 24px",
+                                    background: status === "sending" ? "#aaa" : "#111",
+                                    color: "#fff", border: "none", fontSize: 13,
+                                    letterSpacing: "0.04em", cursor: status === "sending" ? "not-allowed" : "pointer",
+                                    transition: "background 0.2s",
+                                }}>
                                     {status === "sending" ? "Sending..." : "Send Message"}
                                 </button>
-
-                                <p style={{ fontSize: 12, color: "#bbb", marginTop: -8 }}>
-                                    Message sent directly to inbox — no mail client needed.
-                                </p>
+                                <p style={{ fontSize: 12, color: "#bbb", marginTop: -8 }}>Message sent directly to inbox — no mail client needed.</p>
                             </form>
                         )}
                     </div>
@@ -199,4 +162,3 @@ export default function Contact() {
         </>
     )
 }
-
