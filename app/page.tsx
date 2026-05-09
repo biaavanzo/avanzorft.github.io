@@ -1,223 +1,119 @@
 'use client'
 
-import React from "react"
+import React, { useState } from "react"
 
-export default function Home() {
+const layers = [
+  {
+    code: "C0",
+    name: "Cosmological Layer",
+    title: "Physical Order & Boundary Conditions",
+    refs: "Bohm (1980); Aghanim et al. (2020)",
+    explanation: "Before the emergence of life, cellular organization, or cognition, the universe evolved within a structured set of physical constraints. Cosmic evolution proceeded under invariant regularities, thermodynamic gradients, and relational order — ideas explored, for example, in Bohm's distinction between implicate and explicate order (Bohm, 1980). These boundary conditions remain empirically accessible through observations such as measurements of the cosmic microwave background (Aghanim et al., 2020) and can be understood as part of the constraint landscape within which subsequent biological and cognitive complexity became possible. Within RFT, C0 designates this foundational constraint regime that enables higher-order organization.",
+  },
+  {
+    code: "C1",
+    name: "Biological Layer",
+    title: "Autopoiesis, Homeostasis & Structural Coupling",
+    refs: "Darwin (1859); Maturana & Varela (1980)",
+    explanation: "Within these physical constraints, certain self-organizing biological systems developed the capacity for self-maintenance. Maturana and Varela (1980) described this property as autopoiesis: the ability of living systems to continuously regenerate their own components while preserving organizational integrity. Such systems actively regulate internal states in the face of environmental perturbations, maintaining viability through homeostasis and ongoing structural coupling with the environment (Maturana & Varela, 1987). In the RFT framework, C1 marks the transition from predominantly passive physical processes to biologically regulated systems capable of adaptive self-maintenance.",
+  },
+  {
+    code: "C2",
+    name: "Neural Layer",
+    title: "Large-Scale Network Coordination & Self-Related Processing",
+    refs: "Friston (2010); Menon (2011); Northoff (2014, 2016)",
+    explanation: "As organisms increased in complexity and environmental unpredictability intensified, adaptive success increasingly depended on the capacity to anticipate and regulate uncertainty. Contemporary theoretical neuroscience characterizes this pressure in terms of predictive regulation and variational free-energy minimization (Friston, 2010). At the systems level, the Triple Network Model describes how large-scale brain systems — including the default mode network, salience network, and central executive network — dynamically coordinate flexible cognition and behavioral adaptation (Menon, 2011). Converging work further indicates that self-related processing is closely intertwined with the brain's intrinsic activity, particularly within cortical midline structures (Northoff et al., 2006; Northoff, 2016). Within RFT, C2 refers to this regime in which biological regulation becomes increasingly mediated by large-scale predictive and self-related neural dynamics.",
+  },
+  {
+    code: "C3",
+    name: "Symbolic Layer",
+    title: "Meaning-Making, Narrative Structure & Epistemic Organization",
+    refs: "Jung (1959/1968); Cleeremans (2011)",
+    explanation: "With the expansion of human social complexity, adaptive regulation increasingly involved not only physical uncertainty but also interpretive and socially mediated forms of uncertainty. Symbolic communication, shared norms, and reputational dynamics introduced additional regulatory demands on cognitive systems. From a psychological perspective, Jung (1968) emphasized the role of symbolic processes in organizing subjective experience, while computational approaches have proposed that conscious access may function as a higher-order representational model of the system's own states (Cleeremans, 2011). Within RFT, C3 designates the level at which neural dynamics become progressively structured into narrative identity, symbolic organization, and higher-order epistemic models that may contribute to the stabilization of self-related processing under increasing socio-environmental complexity.",
+  },
+  {
+    code: "C4",
+    name: "Experiential Layer",
+    title: "The Continuity of Lived Experience — The Subjective Present",
+    refs: "Varela (1996); Northoff (2020)",
+    explanation: "C4 refers to the phenomenological level at which interactions across physical, biological, neural, and symbolic processes are experienced as a relatively continuous sense of self over time. When cross-scale coordination is maintained, experience tends to exhibit temporal continuity, narrative coherence, and a stable sense of agency (Northoff, 2016; Seth, 2013). Under conditions of sustained stress or regulatory overload, however, disruptions in large-scale integration have been associated with forms of experiential fragmentation observed across multiple psychopathologies (Menon, 2011; Friston et al., 2016). Within RFT, C4 is therefore not treated as the apex of a simple hierarchy but as an emergent outcome of ongoing multiscale coordination across the nested system.",
+  },
+]
+
+export default function ThePaper() {
+  const [openIndex, setOpenIndex] = useState<number | null>(null)
+  const toggle = (i: number) => setOpenIndex(openIndex === i ? null : i)
+
   return (
     <>
-      <link
-        rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500&display=swap"
-      />
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500&display=swap" />
 
       <style>{`
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * { box-sizing: border-box; }
         body { font-family: system-ui, sans-serif; background: #fff; color: #111; }
-        header {
-          position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-          background: #fff; border-bottom: 1px solid #eee; padding: 0 32px;
-        }
-        .header-inner {
-          max-width: 900px; margin: 0 auto;
-          display: flex; align-items: center; justify-content: center;
-          gap: 40px; padding: 14px 0;
-        }
-        .header-name {
-          font-size: 16px; font-weight: 500; color: #111;
-          font-family: system-ui; white-space: nowrap; text-decoration: none;
-        }
+
+        header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: #fff; border-bottom: 1px solid #eee; padding: 0 32px; }
+        .header-inner { max-width: 900px; margin: 0 auto; display: flex; align-items: center; justify-content: center; gap: 40px; padding: 14px 0; }
+        .header-name { font-size: 16px; font-weight: 500; color: #111; font-family: system-ui; white-space: nowrap; text-decoration: none; }
         nav { display: flex; gap: 24px; }
-        nav a {
-          font-size: 15px; color: #555; text-decoration: none;
-          font-family: system-ui; white-space: nowrap; transition: color 0.15s;
-        }
+        nav a { font-size: 15px; color: #555; text-decoration: none; font-family: system-ui; white-space: nowrap; transition: color 0.15s; }
         nav a:hover { color: #111; }
-        main {
-          padding-top: 120px; padding-bottom: 80px;
-          padding-left: 24px; padding-right: 24px;
-          max-width: 900px; margin: 0 auto;
-        }
-        .hero { margin-bottom: 48px; display: flex; flex-direction: column; align-items: stretch; }
-        .hero-title-center { display: flex; flex-direction: column; align-items: center; }
-        .hero-title {
-          font-family: 'EB Garamond', Georgia, serif;
-          font-size: clamp(64px, 10vw, 104px);
-          font-weight: 500; letter-spacing: -0.01em;
-          color: #111; margin: 0; line-height: 1;
-        }
-        .hero-subtitle-row {
-          width: 100%; display: flex; justify-content: center; margin-top: 18px;
-        }
-        .hero-subtitle {
-          font-family: 'EB Garamond', Georgia, serif;
-          font-size: clamp(11px, 1.4vw, 15px);
-          font-weight: 400; letter-spacing: 0.45em;
-          color: #555; text-transform: uppercase;
-        }
-        .hero-collab {
-          font-family: 'EB Garamond', Georgia, serif;
-          font-size: clamp(11px, 1.2vw, 14px);
-          font-weight: 400; letter-spacing: 0.3em;
-          color: #999; text-transform: uppercase;
-          text-align: center; margin-top: 14px;
-        }
-        .hero-divider { width: 100%; height: 1px; background: #ddd; margin-top: 24px; }
-        .hero-root {
-          display: flex; justify-content: flex-start;
-          margin-top: 10px; padding-left: 4px;
-        }
-        .hero-root svg {
-          width: 36px; height: 28px; stroke: #bbb; stroke-width: 1.2;
-          fill: none; stroke-linecap: round; stroke-linejoin: round;
-        }
-        .hero-desc {
-          margin-top: 48px; color: #444; line-height: 1.85; text-align: center;
-          width: 100%; max-width: 580px; margin-left: auto; margin-right: auto; padding: 0 24px;
-        }
-        .section-divider { width: 100%; height: 1px; background: #eee; margin: 48px 0; }
-        .problem-block { margin-bottom: 48px; }
-        .problem-block h2 {
-          font-family: 'EB Garamond', Georgia, serif;
-          font-size: clamp(20px, 2.8vw, 26px);
-          font-weight: 500; color: #111; margin-bottom: 16px;
-          letter-spacing: -0.01em; line-height: 1.2;
-        }
-        .problem-block p {
-          font-size: 16px; line-height: 1.9; color: #444;
-          font-family: system-ui; margin-bottom: 20px;
-          text-align: justify; hyphens: auto;
-        }
-        .investigate-block { margin-top: 40px; }
-        .investigate-question {
-          font-family: 'EB Garamond', Georgia, serif;
-          font-size: clamp(16px, 2vw, 20px);
-          font-weight: 400; color: #333; line-height: 1.7;
-          margin-top: 14px;
-          border-left: 2px solid #ddd; padding-left: 20px;
-          font-style: italic;
-        }
-        .goals-block { margin-top: 40px; padding-top: 32px; border-top: 1px solid #eee; }
-        .goals-label {
-          font-size: 10px; font-weight: 600; color: #555;
-          text-transform: uppercase; letter-spacing: 0.14em;
-          font-family: system-ui; margin-bottom: 20px;
-        }
-        .goals-list { list-style: none; padding: 0; margin: 0; }
-        .goals-list li {
-          font-size: 15px; color: #444; font-family: system-ui;
-          line-height: 1.7; padding: 11px 0;
-          border-bottom: 1px solid #eee;
-          display: flex; gap: 14px; align-items: flex-start;
-        }
-        .goals-list li:last-child { border-bottom: none; }
-        .goal-dot {
-          width: 5px; height: 5px; border-radius: 50%;
-          background: #ccc; flex-shrink: 0; margin-top: 9px;
-        }
-        sup {
-          font-size: 10px; color: #aaa; font-family: system-ui;
-          vertical-align: super; line-height: 0; margin-left: 1px;
-        }
-        .cards-section { margin-bottom: 0; }
-        .cards-label {
-          font-size: 10px; font-weight: 600; color: #555;
-          text-transform: uppercase; letter-spacing: 0.14em;
-          font-family: system-ui; margin-bottom: 16px; text-align: center;
-        }
-        .cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2px; align-items: stretch; }
-        .card-wrapper {
-          text-decoration: none; display: flex; flex-direction: column;
-          border: 1px solid #e8e8e8; padding: 22px 20px; background: #fafafa;
-          transition: background 0.2s, border-color 0.2s; gap: 8px;
-        }
-        .card-wrapper:hover { background: #f0f0ee; border-color: #ccc; }
-        .card-tag {
-          font-size: 10px; font-weight: 600; color: #888;
-          font-family: system-ui; letter-spacing: 0.1em;
-          text-transform: uppercase; margin-bottom: 4px;
-        }
-        .card-title {
-          font-size: 13px; font-weight: 600; color: #111;
-          font-family: system-ui; line-height: 1.3;
-          text-transform: uppercase; letter-spacing: 0.08em;
-        }
-        .card-text { font-size: 14px; line-height: 1.7; color: #555; font-family: system-ui; flex: 1; }
-        .card-date { font-size: 12px; color: #aaa; font-family: system-ui; margin-top: auto; padding-top: 12px; }
-        .paper-cta-section { margin-top: 48px; }
-        .paper-cta-label {
-          font-size: 10px; font-weight: 600; color: #555;
-          text-transform: uppercase; letter-spacing: 0.14em;
-          font-family: system-ui; margin-bottom: 16px; text-align: center;
-        }
-        .paper-cta-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
-        .paper-cta-card {
-          text-decoration: none; display: flex; flex-direction: column;
-          border: 1px solid #e8e8e8; padding: 20px; background: #fafafa;
-          transition: background 0.2s, border-color 0.2s; gap: 6px;
-          justify-content: space-between;
-        }
-        .paper-cta-card:hover { background: #f0f0ee; border-color: #ccc; }
-        .paper-cta-card.embargoed { border-color: #e8d98a; background: #fdfbee; }
-        .paper-cta-card.embargoed:hover { background: #faf6d0; border-color: #c9a800; }
-        .paper-cta-title {
-          font-size: 14px; font-weight: 600; color: #111;
-          font-family: system-ui; line-height: 1.4;
-        }
-        .paper-cta-doi {
-          font-size: 11px; color: #aaa; font-family: system-ui;
-          letter-spacing: 0.01em; word-break: break-all;
-        }
-        .paper-cta-card.embargoed .paper-cta-doi { color: #c9a800; }
-        .paper-cta-action {
-          font-size: 12px; color: #888; font-family: system-ui;
-          letter-spacing: 0.02em; margin-top: 4px;
-        }
-        .paper-cta-card.embargoed .paper-cta-action { color: #a07800; }
-        .implications-block {
-          border: 1px solid #eee; background: #fafafa;
-          padding: 28px 32px; margin: 48px 0 0;
-        }
-        .implications-label {
-          font-size: 10px; font-weight: 600; color: #555;
-          text-transform: uppercase; letter-spacing: 0.14em;
-          font-family: system-ui; margin-bottom: 20px;
-        }
-        .implications-intro {
-          font-size: 14px; color: #555; font-family: system-ui;
-          line-height: 1.7; margin-bottom: 20px; font-style: italic;
-        }
-        .implications-list { list-style: none; padding: 0; margin: 0; }
-        .implications-list li {
-          font-size: 14px; color: #444; font-family: system-ui;
-          line-height: 1.7; padding: 12px 0;
-          border-bottom: 1px solid #eee;
-          display: flex; gap: 12px; align-items: flex-start;
-        }
-        .implications-list li:last-child { border-bottom: none; }
-        .impl-dot {
-          width: 5px; height: 5px; border-radius: 50%;
-          background: #ccc; flex-shrink: 0; margin-top: 9px;
-        }
-        .references-section {
-          border-top: 1px solid #eee; padding-top: 24px; margin-top: 48px;
-        }
-        .references-label {
-          font-size: 10px; font-weight: 600; color: #ccc;
-          text-transform: uppercase; letter-spacing: 0.14em;
-          font-family: system-ui; margin-bottom: 12px;
-        }
-        .ref-list { list-style: none; padding: 0; margin: 0; }
-        .ref-list li {
-          font-size: 11px; color: #bbb; font-family: system-ui;
-          line-height: 1.7; margin-bottom: 4px; padding-left: 20px;
-          text-indent: -20px;
-        }
-        @media (max-width: 640px) {
-          .header-inner { flex-direction: column; gap: 10px; padding: 12px 0; }
-          main { padding-top: 100px; }
-          .cards { grid-template-columns: 1fr; }
-          .paper-cta-grid { grid-template-columns: 1fr; }
-        }
+
+
+        main { padding-top: 100px; padding-bottom: 100px; padding-left: 24px; padding-right: 24px; max-width: 680px; margin: 0 auto; }
+
+        .back { font-size: 13px; color: #999; text-decoration: none; display: inline-block; margin-bottom: 48px; }
+        .back:hover { color: #111; }
+
+        .page-title { font-family: 'EB Garamond', Georgia, serif; font-size: clamp(32px, 5vw, 48px); font-weight: 500; color: #111; text-align: center; margin-bottom: 12px; line-height: 1.2; }
+        .page-subtitle { text-align: center; font-size: 13px; color: #555; letter-spacing: 0.06em; text-transform: uppercase; font-family: system-ui; margin-bottom: 56px; }
+
+        .section { margin-bottom: 52px; }
+        .section-title { font-size: 13px; font-weight: 600; color: #555; text-transform: uppercase; letter-spacing: 0.12em; font-family: system-ui; margin-bottom: 18px; }
+        .section p { font-size: 17px; line-height: 1.9; color: #444; font-family: system-ui; margin-bottom: 14px; text-indent: 2em; text-align: justify; hyphens: auto; }
+        .section p:last-child { margin-bottom: 0; }
+        .section ol { margin: 8px 0 14px 0; padding-left: 24px; }
+        .section ol li { margin-bottom: 8px; font-size: 15px; line-height: 1.7; color: #444; font-family: system-ui; }
+
+        .divider { width: 100%; height: 1px; background: #eee; margin: 48px 0; }
+
+        .timeline-label { font-size: 13px; font-weight: 600; color: #555; text-transform: uppercase; letter-spacing: 0.12em; font-family: system-ui; margin-bottom: 24px; }
+        .timeline { display: flex; flex-direction: column; gap: 2px; margin-bottom: 52px; }
+
+        .timeline-row { border: 1px solid #eee; background: #fafafa; cursor: pointer; transition: background 0.15s, border-color 0.15s; overflow: hidden; }
+        .timeline-row:hover { background: #f4f4f4; border-color: #ddd; }
+        .timeline-row.open { background: #f7f7f7; border-color: #ddd; }
+
+        .timeline-header { display: grid; grid-template-columns: 52px 1fr 24px; align-items: stretch; }
+        .timeline-code { color: #fff; display: flex; align-items: center; justify-content: center; font-family: 'EB Garamond', Georgia, serif; font-size: 16px; font-weight: 500; flex-shrink: 0; min-height: 64px; }
+        .timeline-body { padding: 16px 20px; }
+        .timeline-name { font-size: 11px; font-weight: 600; color: #555; text-transform: uppercase; letter-spacing: 0.1em; font-family: system-ui; margin-bottom: 3px; }
+        .timeline-title { font-size: 16px; font-weight: 500; color: #111; font-family: system-ui; margin-bottom: 4px; }
+        .timeline-refs { font-size: 13px; color: #555; font-family: system-ui; font-style: italic; }
+
+        .timeline-chevron { display: flex; align-items: center; justify-content: center; padding-right: 16px; color: #666; font-size: 12px; transition: transform 0.2s; user-select: none; }
+        .timeline-chevron.open { transform: rotate(180deg); }
+
+        .timeline-explanation { padding: 14px 20px 18px 72px; font-size: 15px; line-height: 1.85; color: #555; font-family: system-ui; text-align: justify; hyphens: auto; text-indent: 2em; border-top: 1px solid #eee; animation: fadeIn 0.2s ease; }
+        .timeline-connector { width: 1px; height: 14px; background: #ddd; margin-left: 26px; }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: translateY(0); } }
+
+        .cite { font-size: 12px; color: #555; font-style: italic; white-space: nowrap; }
+
+        .cta-block { border-top: 1px solid #eee; padding-top: 32px; margin-top: 56px; display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+        .cta-link { font-size: 13px; color: #111; text-decoration: none; border: 1px solid #ddd; padding: 9px 20px; font-family: system-ui; letter-spacing: 0.04em; transition: border-color 0.15s, background 0.15s; }
+        .cta-link:hover { border-color: #111; background: #f7f7f7; }
+        .cta-link.primary { background: #111; color: #fff; border-color: #111; }
+        .cta-link.primary:hover { background: #333; }
+
+        .references { border-top: 1px solid #eee; padding-top: 28px; margin-top: 48px; }
+        .references h3 { font-size: 12px; font-weight: 600; color: #555; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 20px; font-family: system-ui; }
+        .references ol { margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 10px; list-style-type: decimal; }
+        .references li { font-size: 12px; line-height: 1.7; color: #666; font-family: system-ui; }
+        .references a { color: #666; text-decoration: underline; }
+
+        @media (max-width: 640px) { .timeline-explanation { padding-left: 20px; } }
       `}</style>
 
       <header>
@@ -232,162 +128,229 @@ export default function Home() {
       </header>
 
       <main>
+        <a href="/" className="back">← Back</a>
 
-        <section className="hero">
-          <div className="hero-title-center">
-            <h1 className="hero-title">Root Lab</h1>
-            <div className="hero-subtitle-row">
-              <span className="hero-subtitle">An Independent Research Program</span>
+        <div style={{ marginBottom: 56 }}>
+          <div style={{ fontSize: 10, fontWeight: 600, color: "#888", textTransform: "uppercase" as const, letterSpacing: "0.14em", fontFamily: "system-ui", marginBottom: 16 }}>Published · February 2026</div>
+          <h1 style={{ fontFamily: "'EB Garamond', Georgia, serif", fontSize: "clamp(32px, 5vw, 52px)", fontWeight: 500, color: "#111", lineHeight: 1.15, marginBottom: 16 }}>Root Frequency Theory</h1>
+          <p style={{ fontFamily: "'EB Garamond', Georgia, serif", fontSize: "clamp(16px, 2vw, 20px)", fontWeight: 400, color: "#555", lineHeight: 1.6, marginBottom: 24 }}>An Integrative Framework for the Continuity of Lived Experience</p>
+          <div style={{ display: "flex", gap: 24, flexWrap: "wrap" as const, alignItems: "center", fontSize: 12, color: "#888", fontFamily: "system-ui" }}>
+            <span>Bianca Avanzo · Independent Researcher</span>
+            <a href="https://doi.org/10.5281/zenodo.18905376" target="_blank" rel="noopener noreferrer" style={{ color: "#888", textDecoration: "none", borderBottom: "1px solid #ddd" }}>DOI: 10.5281/zenodo.18905376 ↗</a>
+            <a href="https://zenodo.org/records/18905376" target="_blank" rel="noopener noreferrer" style={{ color: "#888", textDecoration: "none", borderBottom: "1px solid #ddd" }}>Full paper on Zenodo ↗</a>
+          </div>
+        </div>
+
+        {/* ABSTRACT */}
+        <div className="section">
+          <div className="section-title">Abstract</div>
+          <p>Contemporary neuroscience has mapped the architecture of the brain in considerable detail, yet a central question remains open: how is a coherent sense of self maintained across time, and under what conditions does it become vulnerable to disruption? Root Frequency Theory (RFT) proposes that experiential continuity may be better understood as an emergent property of cross-scale coordination across five nested layers (C0–C4). Within this view, systemic noise and sustained regulatory load may progressively weaken cross-layer alignment, increasing the risk of fragmentation in self-experience. The M-RFT coherence metric is introduced as a preliminary heuristic tool intended to render these multiscale dynamics empirically investigable.</p>
+        </div>
+
+        <div className="divider" />
+
+        {/* INTRODUCTION */}
+        <div className="section">
+          <div className="section-title">Introduction</div>
+          <p>The Triple Network Model <span className="cite">(Menon, 2011)</span>, the free-energy principle <span className="cite">(Friston, 2010)</span>, and work on self-related processing <span className="cite">(Northoff, 2014, 2016)</span> have each advanced our understanding of how the brain supports cognition and self-experience. However, these frameworks are often used separately, leaving only partially specified how processes of physiological regulation, large-scale network coordination, and self-related dynamics jointly contribute to the longitudinal continuity of the self over time.</p>
+          <p>RFT suggests that part of this difficulty may reflect the tendency to examine neural components in relative isolation, highlighting the importance of a more integrative analytic perspective.</p>
+          <p>From this standpoint, the present framework begins not with the brain alone but with a nested hierarchy of constraints — physical (C0), biological (C1), neural (C2), and symbolic (C3) — within which both the brain and self emerge. Each layer in this C0–C4 architecture is a distinct organizational level that both influences and is influenced by the others. The dynamic interplay between these layers is explored in the following expandable cards.</p>
+        </div>
+
+        <div className="divider" />
+
+        {/* EXPANDABLE LAYERS */}
+        <div className="timeline-label">
+          The Layered Architecture — C0 → C4{" "}
+          <span style={{ fontWeight: 400, fontSize: 11, letterSpacing: "0.04em" }}>(click to expand)</span>
+        </div>
+        <div className="timeline">
+          {layers.map((layer, i) => {
+            const isOpen = openIndex === i
+            const grays = ["#111", "#222", "#333", "#444", "#666"]
+            return (
+              <React.Fragment key={layer.code}>
+                <div className={`timeline-row${isOpen ? " open" : ""}`} onClick={() => toggle(i)}>
+                  <div className="timeline-header">
+                    <div className="timeline-code" style={{ background: grays[i] }}>{layer.code}</div>
+                    <div className="timeline-body">
+                      <div className="timeline-name">{layer.name}</div>
+                      <div className="timeline-title">{layer.title}</div>
+                      <div className="timeline-refs">{layer.refs}</div>
+                    </div>
+                    <div className={`timeline-chevron${isOpen ? " open" : ""}`}>▾</div>
+                  </div>
+                  {isOpen && (
+                    <div className="timeline-explanation">{layer.explanation}</div>
+                  )}
+                </div>
+                {i < layers.length - 1 && <div className="timeline-connector" />}
+              </React.Fragment>
+            )
+          })}
+        </div>
+
+        {/* FRAGMENTATION */}
+        <div className="section">
+          <div className="section-title">Noise & the Fragmentation Loop</div>
+          <p>Within this nested architecture, chronic stress, environmental volatility, and informational overload may function not only as psychological burdens but also as potential sources of systemic noise that increase regulatory load across multiple levels of the hierarchy. Sustained stress exposure has been associated with alterations in hormonal and epigenetic regulation, with downstream effects on large-scale network dynamics <span className="cite">(Sapolsky, 2004; Yehuda et al., 2015)</span>.</p>
+          <p>As regulatory demands accumulate, the mechanisms responsible for distinguishing relevant signals from background fluctuation may become increasingly strained. Within predictive processing accounts, this condition can be described as an increase in variational free energy <span className="cite">(Friston, 2010)</span>, potentially accompanied by reduced capacity to sustain unified informational structures over time <span className="cite">(Tononi, 2004; Tononi et al., 2016)</span>.</p>
+          <p>Under such conditions, large-scale network coordination — including the salience network and default mode network — may become less stable, while symbolic processes may lose some of their capacity to anchor coherent self-narrative.</p>
+          <p>RFT refers to this proposed cascade as <em>fragmentation</em>: a self-reinforcing dynamic in which cross-scale misalignment at the symbolic level (C3) may propagate across neural (C2) and biological (C1) regulation, ultimately manifesting as experiential discontinuity at the phenomenological level (C4). Converging neuroimaging findings across multiple psychiatric conditions — where alterations tend to appear distributed rather than focal — are broadly consistent with system-level models of dysregulation <span className="cite">(Menon, 2011)</span>.</p>
+          <p>To clarify how these multiscale pressures may interact over time, the following figure presents a conceptual model of the proposed cycle of integrative instability.</p>
+        </div>
+
+        {/* INTEGRATIVE INSTABILITY CYCLE DIAGRAM */}
+        <div style={{ margin: "0 0 52px 0" }}>
+          <div style={{ fontSize: 10, fontWeight: 600, color: "#666", textTransform: "uppercase" as const, letterSpacing: "0.16em", fontFamily: "system-ui", marginBottom: 40, textAlign: "center" as const }}>
+            Integrative Instability
+          </div>
+          <div style={{ display: "flex", gap: 0 }}>
+            <div style={{ display: "flex", flexDirection: "column" as const, alignItems: "center", width: 28, flexShrink: 0, paddingTop: 20 }}>
+              {([true, false, false, false, false] as boolean[]).map((filled, i) => (
+                <div key={i} style={{ display: "flex", flexDirection: "column" as const, alignItems: "center" }}>
+                  <div style={{ width: 14, height: 14, borderRadius: "50%", background: filled ? "#111" : "#fff", border: "2px solid #111", zIndex: 1, flexShrink: 0 }} />
+                  {i < 4 && <div style={{ width: 2, height: 52, background: "#111" }} />}
+                </div>
+              ))}
+              <div style={{ width: 0, height: 0, borderLeft: "5px solid transparent", borderRight: "5px solid transparent", borderTop: "7px solid #111", marginTop: -1 }} />
             </div>
-            <p className="hero-collab">A call for integrative collaboration</p>
-            <div className="hero-divider" />
-            <div className="hero-root">
-              <svg viewBox="0 0 36 28" xmlns="http://www.w3.org/2000/svg">
-                <polyline points="2,26 18,4 34,26" />
-                <polyline points="10,26 18,12 26,26" />
-              </svg>
+            <div style={{ display: "flex", flexDirection: "column" as const, flex: 1, paddingLeft: 20 }}>
+              {([
+                { code: "C0", sub: "Cosmological", label: "Increasing Environmental Stress" },
+                { code: "C1", sub: "Biological", label: "Greater Regulatory Effort Required" },
+                { code: "C2", sub: "Neural", label: "↑ Uncertainty · Difficulty Filtering Signals" },
+                { code: "C3", sub: "Symbolic", label: "↓ Coherent Structures · Reduced Integration" },
+                { code: "C4", sub: "Experiential", label: "Hypervigilance · Heightened Reactivity" },
+              ] as { code: string; sub: string; label: string }[]).map((row, i) => (
+                <div key={i} style={{ height: i < 4 ? 66 : "auto", display: "flex", flexDirection: "column" as const, justifyContent: "flex-start" }}>
+                  <div style={{ display: "flex", alignItems: "baseline", gap: 8, marginBottom: 2 }}>
+                    <span style={{ fontFamily: "'EB Garamond', Georgia, serif", fontSize: 18, fontWeight: 500, color: "#111", lineHeight: 1 }}>{row.code}</span>
+                    <span style={{ fontSize: 11, color: "#666", fontFamily: "system-ui", letterSpacing: "0.04em" }}>{row.sub}</span>
+                  </div>
+                  <div style={{ fontSize: 13, color: "#555", fontFamily: "system-ui", lineHeight: 1.4 }}>{row.label}</div>
+                </div>
+              ))}
             </div>
           </div>
-          <p className="hero-desc" style={{ fontSize: 20, fontWeight: 400, color: "#555" }}>
-            Investigating how biological regulation, neural dynamics, and self-narrative integrate to sustain a coherent sense of self — and what happens, across scales, when they don&apos;t.
-          </p>
-        </section>
-
-        <div className="section-divider" />
-
-        <div className="problem-block">
-
-          <h2>The Problem</h2>
-
-          <p>
-            More than one billion people are living with a mental health condition,<sup>1</sup> yet the gap between what science understands about the breakdown of mind-body regulation and what clinical tools can actually measure continues to widen. Across anxiety, depression, dissociation, and chronic stress, a common pattern is emerging: fragmentation. Not simply distress, but a loss of coordination between physiological regulation, neural dynamics, and self-narrative.<sup>2,3</sup> This breakdown may begin before symptoms become clinically visible.<sup>4</sup>
-          </p>
-
-          <p>
-            Current tools remain siloed. Interoceptive accuracy is measured in the lab.<sup>5</sup> HRV is tracked in clinical or consumer health settings.<sup>6</sup> Narrative coherence is studied through phenomenology and psychology.<sup>7</sup> But no system integrates these layers longitudinally, outside the scanner, in the actual flow of a person&apos;s life. At the same time, AI systems are becoming embedded in that life. Most are optimized for speed, personalization, and engagement. But from a predictive processing perspective, engagement is not the same as coherence. In many cases, it may amplify prediction error, attention fragmentation, and narrative instability.<sup>8</sup>
-          </p>
-
-          <div className="investigate-block">
-            <h2>What this program investigates</h2>
-            <p>Root Lab is an independent research program organized around one central question:</p>
-            <p className="investigate-question">
-              Can cross-level coherence — the alignment between physiological regulation, neural dynamics, and self-representation — be formally measured, tracked over time, and supported through coherence-centered human-AI interaction?
-            </p>
+          <div style={{ position: "relative" as const, height: 0, marginTop: -330 }}>
+            <div style={{ position: "absolute" as const, right: 0, top: -18, fontSize: 10, color: "#777", fontFamily: "system-ui", letterSpacing: "0.14em", fontStyle: "italic" as const, whiteSpace: "nowrap" as const }}>LOOP ▲</div>
+            <div style={{ position: "absolute" as const, right: 10, top: 0, width: 0, height: 330, borderRight: "1.5px dashed #ccc" }} />
           </div>
-
-          <div className="goals-block">
-            <div className="goals-label">Current research priorities</div>
-            <ul className="goals-list">
-              <li>
-                <div className="goal-dot" />
-                Securing an industrial PhD position with a research group working on interoception, computational psychiatry, or neuroscience-AI — to bring the empirical infrastructure this work requires.
-              </li>
-              <li>
-                <div className="goal-dot" />
-                Validating the M-RFT coherence metric through multimodal lab protocols combining HRV, interoceptive accuracy tasks, and neuroimaging.
-              </li>
-              <li>
-                <div className="goal-dot" />
-                Longitudinal tracking of coherence disruption in clinical populations — panic disorder, addiction, ADHD, and anxiety — conditions characterized by spatiotemporal misalignment, distorted self-narrative, and ruminative thought patterns.
-              </li>
-              <li>
-                <div className="goal-dot" />
-                Expanding the current N=1 ecological study toward a formal clinical validation trial with N=20–40 participants.
-              </li>
-              <li>
-                <div className="goal-dot" />
-                Investigating whether coherence in human-AI interaction is measurable and whether AI-mediated epistemic scaffolding produces detectable changes in inner coherence — not just behavioral outcomes.
-              </li>
-            </ul>
-          </div>
-
+          <div style={{ height: 330 }} />
+          <p style={{ fontSize: 12, color: "#666", fontFamily: "system-ui", fontStyle: "italic" as const, lineHeight: 1.7, marginTop: 20 }}>
+            <em>Note.</em> Sustained regulatory load may impair signal filtering across layers, reinforcing a self-amplifying noise cascade from C0 through C4.
+          </p>
         </div>
 
-        <div className="section-divider" />
+        <div className="divider" />
 
-        <section className="cards-section">
-          <div className="cards-label">Explore the framework</div>
-          <div className="cards">
-            <a href="/the-paper" className="card-wrapper">
-              <div className="card-tag">Framework</div>
-              <div className="card-title">Root Frequency Theory</div>
-              <p className="card-text">The foundational framework. C0–C4 nested architecture. Experiential continuity as a systemic property.</p>
-              <div className="card-date">February 2026 · Published</div>
-            </a>
-            <a href="/research-plan" className="card-wrapper">
-              <div className="card-tag">Metric</div>
-              <div className="card-title">M-RFT Coherence Metric</div>
-              <p className="card-text">A formal index of cross-level coordination. Pre-empirical. Designed for lab validation with neuroimaging partners.</p>
-              <div className="card-date">2026 · Embargoed preprint</div>
-            </a>
-            <a href="/expected-outcomes" className="card-wrapper">
-              <div className="card-tag">Human-AI</div>
-              <div className="card-title">Root Knowledge</div>
-              <p className="card-text">Human-AI interaction as coherence scaffolding. The integration layer between information systems and lived experience.</p>
-              <div className="card-date">May 2026 · Published</div>
-            </a>
-            <a href="/contact" className="card-wrapper">
-              <div className="card-tag">Active Study</div>
-              <div className="card-title">Root Extension — N=1</div>
-              <p className="card-text">Longitudinal coherence tracking via Apple Watch HRV and interoceptive task. MVP in development. Data collection April–October 2026.</p>
-              <div className="card-date">2026 · Active</div>
-            </a>
-          </div>
-        </section>
-
-        <div className="paper-cta-section">
-          <div className="paper-cta-label">Read the full papers</div>
-          <div className="paper-cta-grid">
-            <a href="https://doi.org/10.5281/zenodo.18905376" target="_blank" rel="noopener noreferrer" className="paper-cta-card">
-              <div>
-                <div className="paper-cta-title">Root Frequency Theory</div>
-                <div className="paper-cta-doi">10.5281/zenodo.18905376</div>
-              </div>
-              <div className="paper-cta-action">Read on Zenodo ↗</div>
-            </a>
-            <a href="https://doi.org/10.5281/zenodo.20060589" target="_blank" rel="noopener noreferrer" className="paper-cta-card">
-              <div>
-                <div className="paper-cta-title">Root Knowledge — Embodied Knowledge & Human–AI Coherence</div>
-                <div className="paper-cta-doi">10.5281/zenodo.20060589</div>
-              </div>
-              <div className="paper-cta-action">Read on Zenodo ↗</div>
-            </a>
-            <a href="/contact" className="paper-cta-card embargoed">
-              <div>
-                <div className="paper-cta-title">M-RFT Coherence Metric</div>
-                <div className="paper-cta-doi">Registered preprint · embargo Dec 2026</div>
-              </div>
-              <div className="paper-cta-action">Request access →</div>
-            </a>
-          </div>
-        </div>
-
-        <div className="implications-block">
-          <div className="implications-label">Expected Outcomes</div>
-          <p className="implications-intro">If coherence can be formally measured, several things become possible:</p>
-          <ul className="implications-list">
-            <li><div className="impl-dot" />Detecting fragmentation before it becomes a diagnosable condition — intervening in the pre-symptomatic window rather than after clinical threshold.</li>
-            <li><div className="impl-dot" />A unified metric that allows comparison across studies currently siloed by modality — interoception, HRV, and narrative coherence measured together for the first time.</li>
-            <li><div className="impl-dot" />Testing whether structured epistemic scaffolding — not symptom suppression — can restore cross-level integration longitudinally.</li>
-            <li><div className="impl-dot" />Designing AI systems that calibrate their output to the coherence state of the person receiving it, rather than optimizing for engagement.</li>
-            <li><div className="impl-dot" />Providing researchers with ecological, longitudinal data on how autonomic flexibility, interoceptive accuracy, and narrative organization co-vary in real life outside the laboratory.</li>
-            <li><div className="impl-dot" />Advancing a privacy-preserving architecture for personal health AI — where raw data stays on-device and inference happens locally.</li>
-          </ul>
-        </div>
-
-        <div className="references-section">
-          <div className="references-label">References</div>
-          <ol className="ref-list">
-            <li>1. GBD 2019 Mental Disorders Collaborators. (2022). Global, regional, and national burden of 12 mental disorders in 204 countries and territories, 1990–2019. <em>The Lancet Psychiatry, 9</em>(2), 137–150.</li>
-            <li>2. Northoff, G. (2016). Spatiotemporal psychopathology I: No rest for the brain&apos;s resting state activity in depression? <em>Journal of Affective Disorders, 190,</em> 854–866.</li>
-            <li>3. Critchley, H. D., &amp; Garfinkel, S. N. (2017). Interoception and emotion. <em>Current Opinion in Psychology, 17,</em> 7–14.</li>
-            <li>4. Seth, A. K., Suzuki, K., &amp; Critchley, H. D. (2012). An interoceptive predictive coding model of conscious presence. <em>Frontiers in Psychology, 2,</em> 395.</li>
-            <li>5. Garfinkel, S. N., Seth, A. K., Barrett, A. B., Suzuki, K., &amp; Critchley, H. D. (2015). Knowing your own heart: Distinguishing interoceptive accuracy from interoceptive awareness. <em>Biological Psychology, 104,</em> 65–74.</li>
-            <li>6. Thayer, J. F., &amp; Lane, R. D. (2000). A model of neurovisceral integration in emotion regulation and dysregulation. <em>Journal of Affective Disorders, 61</em>(3), 201–216.</li>
-            <li>7. Varela, F. J. (1996). Neurophenomenology: A methodological remedy for the hard problem. <em>Journal of Consciousness Studies, 3</em>(4), 330–349.</li>
-            <li>8. Avanzo, B. (2026). Root Knowledge: Embodied knowledge as a foundation for coherent human–AI interaction. Independent researcher.</li>
+        {/* KNOWLEDGE */}
+        <div className="section">
+          <div className="section-title">Knowledge as an Epistemic Alignment Mechanism</div>
+          <p>If fragmentation reflects a disruption of cross-scale coherence, restoration may, in principle, be initiated from within the system itself. This possibility is supported by three converging lines of evidence suggesting that meaning-related processing may influence physiological regulation:</p>
+          <ol style={{ listStyleType: "decimal", paddingLeft: 24, margin: "0 0 14px 0" }}>
+            <li style={{ fontSize: 15, lineHeight: 1.85, color: "#444", fontFamily: "system-ui", marginBottom: 8 }}>Self-related information preferentially engages intrinsic DMN dynamics <span className="cite">(Northoff, 2014, 2016)</span>.</li>
+            <li style={{ fontSize: 15, lineHeight: 1.85, color: "#444", fontFamily: "system-ui", marginBottom: 8 }}>The interpretation of a stressor, not only its intensity, can shape its physiological impact <span className="cite">(Sapolsky, 2004)</span>.</li>
+            <li style={{ fontSize: 15, lineHeight: 1.85, color: "#444", fontFamily: "system-ui", marginBottom: 8 }}>Conscious awareness has been proposed to function as a representational resource through which the brain models and helps regulate its own states <span className="cite">(Cleeremans, 2011)</span>.</li>
           </ol>
+          <p>Taken together, these findings suggest a potential pathway through which structured knowledge may contribute to system-level regulation.</p>
+          <p>RFT formalizes this proposal as <em>Epistemic Synchrony</em> (Kₑ): defined as the degree to which structured self-knowledge at the symbolic layer (C3) provides stable reference points for the system's predictive processes. As Kₑ increases, reflecting greater coherence and explanatory adequacy at the symbolic level, variational free energy at C2 may decrease <span className="cite">(Friston, 2010)</span>. In turn, regulatory load at C1 may stabilize, and experiential continuity at C4 may be more stably maintained. This proposed top-down regulatory dynamic is schematically illustrated in the following figure.</p>
         </div>
+
+        {/* EPISTEMIC SYNCHRONY DIAGRAM */}
+        <div style={{ margin: "0 0 52px 0" }}>
+          <div style={{ fontSize: 10, fontWeight: 600, color: "#666", textTransform: "uppercase" as const, letterSpacing: "0.16em", fontFamily: "system-ui", marginBottom: 40, textAlign: "center" as const }}>
+            Epistemic Synchrony Pathway
+          </div>
+          <div style={{ display: "flex", gap: 0 }}>
+            <div style={{ display: "flex", flexDirection: "column" as const, alignItems: "center", width: 28, flexShrink: 0, paddingTop: 20 }}>
+              {([true, false, false, false] as boolean[]).map((filled, i) => (
+                <div key={i} style={{ display: "flex", flexDirection: "column" as const, alignItems: "center" }}>
+                  <div style={{ width: 14, height: 14, borderRadius: "50%", background: filled ? "#111" : "#fff", border: "2px solid #111", zIndex: 1, flexShrink: 0 }} />
+                  {i < 3 && <div style={{ width: 2, height: 52, background: "#111" }} />}
+                </div>
+              ))}
+              <div style={{ width: 2, height: 20, borderLeft: "2px dashed #ccc" }} />
+              <div style={{ display: "flex", flexDirection: "column" as const, alignItems: "center" }}>
+                <div style={{ width: 14, height: 14, borderRadius: "50%", background: "#fff", border: "2px solid #111", zIndex: 1, flexShrink: 0 }} />
+              </div>
+              <div style={{ width: 0, height: 0, borderLeft: "5px solid transparent", borderRight: "5px solid transparent", borderTop: "7px solid #111", marginTop: -1 }} />
+            </div>
+            <div style={{ display: "flex", flexDirection: "column" as const, flex: 1, paddingLeft: 20 }}>
+              {([
+                { code: "C3", sub: "Symbolic", label: "Structured Self-Knowledge introduced", bold: true },
+                { code: "C2", sub: "Neural", label: "Improved Neural Coordination", bold: false },
+                { code: "C1", sub: "Biological", label: "Biological & Behavioral Regulation", bold: false },
+                { code: "C0", sub: "Cosmological", label: "Reduced Perceived Uncertainty", bold: false },
+              ] as { code: string; sub: string; label: string; bold: boolean }[]).map((row, i) => (
+                <div key={i} style={{ height: 66, display: "flex", flexDirection: "column" as const, justifyContent: "flex-start" }}>
+                  <div style={{ display: "flex", alignItems: "baseline", gap: 8, marginBottom: 2 }}>
+                    <span style={{ fontFamily: "'EB Garamond', Georgia, serif", fontSize: 18, fontWeight: 500, color: "#111", lineHeight: 1 }}>{row.code}</span>
+                    <span style={{ fontSize: 11, color: "#666", fontFamily: "system-ui", letterSpacing: "0.04em" }}>{row.sub}</span>
+                  </div>
+                  <div style={{ fontSize: 13, color: "#555", fontFamily: "system-ui", lineHeight: 1.4, fontWeight: row.bold ? 600 : 400 }}>{row.label}</div>
+                </div>
+              ))}
+              <div style={{ paddingTop: 8 }}>
+                <div style={{ fontSize: 12, color: "#666", fontFamily: "system-ui", fontStyle: "italic" as const, marginBottom: 8 }}>cascade</div>
+                <div style={{ display: "flex", alignItems: "baseline", gap: 8, marginBottom: 2 }}>
+                  <span style={{ fontFamily: "'EB Garamond', Georgia, serif", fontSize: 18, fontWeight: 500, color: "#111", lineHeight: 1 }}>C4</span>
+                  <span style={{ fontSize: 11, color: "#666", fontFamily: "system-ui", letterSpacing: "0.04em" }}>Experiential</span>
+                </div>
+                <div style={{ fontSize: 13, color: "#555", fontFamily: "system-ui", lineHeight: 1.4 }}>Enhanced Experiential Continuity</div>
+              </div>
+            </div>
+          </div>
+          <div style={{ position: "relative" as const, height: 0, marginTop: -370 }}>
+            <div style={{ position: "absolute" as const, right: 0, top: -18, fontSize: 10, color: "#777", fontFamily: "system-ui", letterSpacing: "0.14em", fontStyle: "italic" as const, whiteSpace: "nowrap" as const }}>REINFORCES ▲</div>
+            <div style={{ position: "absolute" as const, right: 10, top: 0, width: 0, height: 370, borderRight: "1.5px dashed #ccc" }} />
+          </div>
+          <div style={{ height: 370 }} />
+          <p style={{ fontSize: 12, color: "#666", fontFamily: "system-ui", fontStyle: "italic" as const, lineHeight: 1.7, marginTop: 20 }}>
+            <em>Note.</em> Introduction of structured self-knowledge at C3 is hypothesized to cascade toward improved neural coordination (C2), biological regulation (C1), reduced perceived uncertainty (C0), and greater experiential continuity (C4) — which may in turn reinforce the stability of the symbolic layer.
+          </p>
+        </div>
+
+        <div className="divider" />
+
+        {/* CONCLUSION */}
+        <div className="section">
+          <div className="section-title">Toward an Investigable Framework</div>
+          <p>RFT does not claim to resolve the hard problem of consciousness. Instead, it proposes a structural reframing: that the stability of the lived self may be better understood as a systemic property rather than a localized one, and that its disruption may follow partially predictable patterns of cross-scale misalignment.</p>
+          <p>Within this view, the C0–C4 architecture provides the conceptual scaffold. The fragmentation loop outlines a potential mechanism of breakdown. Epistemic Synchrony points toward a possible pathway of restoration.</p>
+          <p>What remains is measurement. The M-RFT coherence metric, introduced in the next section, represents an initial attempt to operationalize these dynamics and to examine whether variations in cross-scale alignment covary with patterns of experiential disruption across both clinical and everyday contexts.</p>
+        </div>
+
+        {/* CTA BLOCK */}
+        <div className="cta-block">
+          <a href="https://doi.org/10.5281/zenodo.18905376" target="_blank" rel="noopener noreferrer" className="cta-link primary">Read full paper on Zenodo ↗</a>
+          <a href="/contact" className="cta-link">Request M-RFT metric →</a>
+          <a href="/" className="cta-link">← Back to Root Lab</a>
+        </div>
+
+        {/* REFERENCES */}
+        <section className="references">
+          <h3>References</h3>
+          <ol>
+            <li>Aghanim, N., et al. (Planck Collaboration). (2020). Planck 2018 results: VI. Cosmological parameters. <em>Astronomy &amp; Astrophysics, 641</em>, A6. <a href="https://doi.org/10.1051/0004-6361/201833910" target="_blank" rel="noopener">https://doi.org/10.1051/0004-6361/201833910</a></li>
+            <li>Bohm, D. (1980). <em>Wholeness and the implicate order.</em> Routledge.</li>
+            <li>Cleeremans, A. (2011). The radical plasticity thesis: How the brain learns to be conscious. <em>Frontiers in Psychology, 2</em>, 86. <a href="https://doi.org/10.3389/fpsyg.2011.00086" target="_blank" rel="noopener">https://doi.org/10.3389/fpsyg.2011.00086</a></li>
+            <li>Darwin, C. (1859). <em>On the origin of species.</em> John Murray.</li>
+            <li>Friston, K. (2010). The free-energy principle: A unified brain theory? <em>Nature Reviews Neuroscience, 11</em>(2), 127–138. <a href="https://doi.org/10.1038/nrn2787" target="_blank" rel="noopener">https://doi.org/10.1038/nrn2787</a></li>
+            <li>Jung, C. G. (1968). <em>The archetypes and the collective unconscious</em> (R. F. C. Hull, Trans.; 2nd ed.). Princeton University Press.</li>
+            <li>Maturana, H. R., &amp; Varela, F. J. (1980). <em>Autopoiesis and cognition: The realization of the living.</em> D. Reidel.</li>
+            <li>Menon, V. (2011). Large-scale brain networks and psychopathology: A unifying triple network model. <em>Trends in Cognitive Sciences, 15</em>(10), 483–506. <a href="https://doi.org/10.1016/j.tics.2011.08.003" target="_blank" rel="noopener">https://doi.org/10.1016/j.tics.2011.08.003</a></li>
+            <li>Northoff, G. (2014). <em>Unlocking the brain: Volume II. Consciousness.</em> Oxford University Press.</li>
+            <li>Northoff, G. (2016). <em>Neuro-philosophy and the healthy mind.</em> W. W. Norton &amp; Company.</li>
+            <li>Northoff, G. (2020). <em>The spontaneous brain.</em> MIT Press.</li>
+            <li>Sapolsky, R. M. (2004). <em>Why zebras don't get ulcers</em> (3rd ed.). Henry Holt.</li>
+            <li>Tononi, G. (2004). An information integration theory of consciousness. <em>BMC Neuroscience, 5</em>, 42. <a href="https://doi.org/10.1186/1471-2202-5-42" target="_blank" rel="noopener">https://doi.org/10.1186/1471-2202-5-42</a></li>
+            <li>Tononi, G., Boly, M., Massimini, M., &amp; Koch, C. (2016). Integrated information theory: From consciousness to its physical substrate. <em>Nature Reviews Neuroscience, 17</em>, 450–461. <a href="https://doi.org/10.1038/nrn.2016.44" target="_blank" rel="noopener">https://doi.org/10.1038/nrn.2016.44</a></li>
+            <li>Varela, F. J. (1996). Neurophenomenology: A methodological remedy for the hard problem. <em>Journal of Consciousness Studies, 3</em>(4), 330–349.</li>
+            <li>Yehuda, R., et al. (2015). Post-traumatic stress disorder. <em>Nature Reviews Disease Primers, 1</em>, 15057. <a href="https://doi.org/10.1038/nrdp.2015.57" target="_blank" rel="noopener">https://doi.org/10.1038/nrdp.2015.57</a></li>
+          </ol>
+        </section>
 
       </main>
     </>
