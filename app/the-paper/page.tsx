@@ -61,11 +61,8 @@ export default function ThePaper() {
 
         main { padding-top: 100px; padding-bottom: 100px; padding-left: 24px; padding-right: 24px; max-width: 680px; margin: 0 auto; }
 
-        .page-nav { display: flex; align-items: center; justify-content: space-between; margin-bottom: 56px; }
-        .page-nav-back { font-size: 13px; color: #777; text-decoration: none; letter-spacing: 0.02em; }
-        .page-nav-links { display: flex; gap: 20px; }
-        .page-nav-links a { font-size: 15px; text-decoration: none; color: #555; }
-        .page-nav-links a.active { color: #111; border-bottom: 1px solid #111; padding-bottom: 2px; font-weight: 500; }
+        .back { font-size: 13px; color: #999; text-decoration: none; display: inline-block; margin-bottom: 48px; }
+        .back:hover { color: #111; }
 
         .page-title { font-family: 'EB Garamond', Georgia, serif; font-size: clamp(32px, 5vw, 48px); font-weight: 500; color: #111; text-align: center; margin-bottom: 12px; line-height: 1.2; }
         .page-subtitle { text-align: center; font-size: 13px; color: #555; letter-spacing: 0.06em; text-transform: uppercase; font-family: system-ui; margin-bottom: 56px; }
@@ -103,13 +100,19 @@ export default function ThePaper() {
 
         .cite { font-size: 12px; color: #555; font-style: italic; white-space: nowrap; }
 
+        .cta-block { border-top: 1px solid #eee; padding-top: 32px; margin-top: 56px; display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+        .cta-link { font-size: 13px; color: #111; text-decoration: none; border: 1px solid #ddd; padding: 9px 20px; font-family: system-ui; letter-spacing: 0.04em; transition: border-color 0.15s, background 0.15s; }
+        .cta-link:hover { border-color: #111; background: #f7f7f7; }
+        .cta-link.primary { background: #111; color: #fff; border-color: #111; }
+        .cta-link.primary:hover { background: #333; }
+
         .references { border-top: 1px solid #eee; padding-top: 28px; margin-top: 48px; }
         .references h3 { font-size: 12px; font-weight: 600; color: #555; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 20px; font-family: system-ui; }
         .references ol { margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 10px; list-style-type: decimal; }
         .references li { font-size: 12px; line-height: 1.7; color: #666; font-family: system-ui; }
         .references a { color: #666; text-decoration: underline; }
 
-        @media (max-width: 640px) { .page-nav-links { display: none; } .timeline-explanation { padding-left: 20px; } }
+        @media (max-width: 640px) { .timeline-explanation { padding-left: 20px; } }
       `}</style>
 
             <header>
@@ -124,17 +127,18 @@ export default function ThePaper() {
             </header>
 
             <main>
-                <div className="page-nav">
-                    <a href="/" className="page-nav-back">← Back</a>
-                    <div className="page-nav-links">
-                        <a href="/the-paper" className="active">The Paper</a>
-                        <a href="/research-plan">M-RFT Coherence Metric</a>
-                        <a href="/expected-outcomes">Expected Outcomes</a>
+                <a href="/" className="back">← Back</a>
+
+                <div style={{ marginBottom: 56 }}>
+                    <div style={{ fontSize: 10, fontWeight: 600, color: "#888", textTransform: "uppercase" as const, letterSpacing: "0.14em", fontFamily: "system-ui", marginBottom: 16 }}>Published · February 2026</div>
+                    <h1 style={{ fontFamily: "'EB Garamond', Georgia, serif", fontSize: "clamp(32px, 5vw, 52px)", fontWeight: 500, color: "#111", lineHeight: 1.15, marginBottom: 16 }}>Root Frequency Theory</h1>
+                    <p style={{ fontFamily: "'EB Garamond', Georgia, serif", fontSize: "clamp(16px, 2vw, 20px)", fontWeight: 400, color: "#555", lineHeight: 1.6, marginBottom: 24 }}>An Integrative Framework for the Continuity of Lived Experience</p>
+                    <div style={{ display: "flex", gap: 24, flexWrap: "wrap" as const, alignItems: "center", fontSize: 12, color: "#888", fontFamily: "system-ui" }}>
+                        <span>Bianca Avanzo · Independent Researcher</span>
+                        <a href="https://doi.org/10.5281/zenodo.18905376" target="_blank" rel="noopener noreferrer" style={{ color: "#888", textDecoration: "none", borderBottom: "1px solid #ddd" }}>DOI: 10.5281/zenodo.18905376 ↗</a>
+                        <a href="https://zenodo.org/records/18905376" target="_blank" rel="noopener noreferrer" style={{ color: "#888", textDecoration: "none", borderBottom: "1px solid #ddd" }}>Full paper on Zenodo ↗</a>
                     </div>
                 </div>
-
-                <h1 className="page-title">Root Frequency Theory</h1>
-                <p className="page-subtitle">An Integrative Framework for the Continuity of Lived Experience</p>
 
                 {/* ABSTRACT */}
                 <div className="section">
@@ -317,20 +321,11 @@ export default function ThePaper() {
                     <p>What remains is measurement. The M-RFT coherence metric, introduced in the next section, represents an initial attempt to operationalize these dynamics and to examine whether variations in cross-scale alignment covary with patterns of experiential disruption across both clinical and everyday contexts.</p>
                 </div>
 
-
-                {/* BOTTOM NAV */}
-                <div style={{
-                    display: "flex", justifyContent: "space-between", alignItems: "center",
-                    borderTop: "1px solid #eee", marginTop: 48, paddingTop: 28,
-                    fontFamily: "system-ui",
-                }}>
-                    <div style={{ fontSize: 13, color: "#ccc" }}>—</div>
-                    <a href="/research-plan" style={{
-                        fontSize: 14, color: "#555", textDecoration: "none",
-                        display: "flex", alignItems: "center", gap: 8,
-                    }}>
-                        M-RFT Coherence Metric <span style={{ fontSize: 16 }}>→</span>
-                    </a>
+                {/* CTA BLOCK */}
+                <div className="cta-block">
+                    <a href="https://doi.org/10.5281/zenodo.18905376" target="_blank" rel="noopener noreferrer" className="cta-link primary">Read full paper on Zenodo ↗</a>
+                    <a href="/contact" className="cta-link">Request M-RFT metric →</a>
+                    <a href="/" className="cta-link">← Back to Root Lab</a>
                 </div>
 
                 {/* REFERENCES */}
