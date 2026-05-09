@@ -265,7 +265,7 @@ export default function RootKnowledge() {
               </p>
             </div>
             <div className="figure">
-              <img src="/root-knowledge-coherent.png" alt="Root Knowledge Architecture — Coherence-Centered Human-AI" />
+              <img src="/root-knowledge-coherent.jpg" alt="Root Knowledge Architecture — Coherence-Centered Human-AI" />
               <p className="figure-caption">
                 <strong>Proposed model.</strong> Root Knowledge architecture. An intermediate integration layer that prioritizes epistemic alignment over engagement.
               </p>
