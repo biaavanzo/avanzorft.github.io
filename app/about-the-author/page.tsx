@@ -8,10 +8,19 @@ export default function AboutTheAuthor() {
       <header style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 100, background: "#fff", borderBottom: "1px solid #eee", padding: "0 32px" }}>
         <div style={{ maxWidth: 900, margin: "0 auto", display: "flex", alignItems: "center", justifyContent: "center", gap: 40, padding: "14px 0" }}>
           <a href="/" style={{ fontSize: 16, fontWeight: 500, color: "#111", fontFamily: "system-ui", whiteSpace: "nowrap", textDecoration: "none" }}>Root Lab</a>
-          <nav style={{ display: "flex", gap: 24 }}>
+          <nav style={{ display: "flex", gap: 24, alignItems: "center" }}>
             <a href="/n-of-1" style={{ fontSize: 15, color: "#555", textDecoration: "none", fontFamily: "system-ui", whiteSpace: "nowrap" }}>N=1 Study</a>
             <a href="/about-the-author" style={{ fontSize: 15, color: "#111", fontWeight: 500, textDecoration: "none", fontFamily: "system-ui", whiteSpace: "nowrap" }}>About the Author</a>
             <a href="/contact" style={{ fontSize: 15, color: "#555", textDecoration: "none", fontFamily: "system-ui", whiteSpace: "nowrap" }}>Contact</a>
+            <a href="https://www.linkedin.com/in/bianca-avanzo-b1b5231a9" target="_blank" rel="noopener noreferrer" style={{ color: "#555", display: "flex", alignItems: "center" }} aria-label="LinkedIn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="3" />
+                <line x1="8" y1="11" x2="8" y2="17" />
+                <line x1="8" y1="7" x2="8" y2="8" />
+                <line x1="12" y1="17" x2="12" y2="11" />
+                <path d="M12 14a3 3 0 0 1 6 0v3" />
+              </svg>
+            </a>
           </nav>
         </div>
       </header>
@@ -27,7 +36,7 @@ export default function AboutTheAuthor() {
             Bianca Avanzo
           </h1>
           <p style={{ fontSize: 13, color: "#888", letterSpacing: "0.1em", textTransform: "uppercase" as const, margin: "0 0 6px" }}>
-            Independent Researcher · Bay Area
+            Independent Researcher
           </p>
           <p style={{ fontSize: 13, color: "#bbb", letterSpacing: "0.04em", margin: 0 }}>
             avanzorft.com

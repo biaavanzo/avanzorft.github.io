@@ -296,6 +296,15 @@ export default function NOf1() {
                         <a href="/n-of-1" className="active">N=1 Study</a>
                         <a href="/about-the-author">About the Author</a>
                         <a href="/contact">Contact</a>
+                        <a href="https://www.linkedin.com/in/bianca-avanzo-b1b5231a9" target="_blank" rel="noopener noreferrer" style={{ color: "#555", display: "flex", alignItems: "center" }} aria-label="LinkedIn">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                <rect x="2" y="2" width="20" height="20" rx="3" />
+                                <line x1="8" y1="11" x2="8" y2="17" />
+                                <line x1="8" y1="7" x2="8" y2="8" />
+                                <line x1="12" y1="17" x2="12" y2="11" />
+                                <path d="M12 14a3 3 0 0 1 6 0v3" />
+                            </svg>
+                        </a>
                     </nav>
                 </div>
             </header>
