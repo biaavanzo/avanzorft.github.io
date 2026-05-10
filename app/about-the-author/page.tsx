@@ -7,9 +7,7 @@ export default function AboutTheAuthor() {
 
       <header style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 100, background: "#fff", borderBottom: "1px solid #eee", padding: "0 32px" }}>
         <div style={{ maxWidth: 900, margin: "0 auto", display: "flex", alignItems: "center", justifyContent: "center", gap: 40, padding: "14px 0" }}>
-          <a href="/" style={{ fontSize: 16, fontWeight: 500, color: "#111", fontFamily: "system-ui", whiteSpace: "nowrap", textDecoration: "none" }}>
-            Root Lab
-          </a>
+          <a href="/" style={{ fontSize: 16, fontWeight: 500, color: "#111", fontFamily: "system-ui", whiteSpace: "nowrap", textDecoration: "none" }}>Root Lab</a>
           <nav style={{ display: "flex", gap: 24 }}>
             <a href="/n-of-1" style={{ fontSize: 15, color: "#555", textDecoration: "none", fontFamily: "system-ui", whiteSpace: "nowrap" }}>N=1 Study</a>
             <a href="/about-the-author" style={{ fontSize: 15, color: "#111", fontWeight: 500, textDecoration: "none", fontFamily: "system-ui", whiteSpace: "nowrap" }}>About the Author</a>
@@ -19,84 +17,94 @@ export default function AboutTheAuthor() {
       </header>
 
       <main style={{ paddingTop: 100, paddingBottom: 100, paddingLeft: 24, paddingRight: 24, fontFamily: "system-ui", maxWidth: 680, margin: "0 auto" }}>
-        <a href="/" style={{ display: "inline-block", fontSize: 13, color: "#777", textDecoration: "none", marginBottom: 48, letterSpacing: "0.02em" }}>
-          ← Back
-        </a>
+        <a href="/" style={{ display: "inline-block", fontSize: 13, color: "#777", textDecoration: "none", marginBottom: 48, letterSpacing: "0.02em" }}>← Back</a>
 
-        <div style={{ textAlign: "center", marginBottom: 56 }}>
-          <div style={{ width: 80, height: 80, borderRadius: "50%", overflow: "hidden", margin: "0 auto 24px", border: "1px solid #ddd", flexShrink: 0 }}>
+        <div style={{ textAlign: "center", marginBottom: 52 }}>
+          <div style={{ width: 88, height: 88, borderRadius: "50%", overflow: "hidden", margin: "0 auto 20px", border: "1px solid #ddd" }}>
             <img src="/bianca.jpg" alt="Bianca Avanzo" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top", display: "block", pointerEvents: "none" as const }} />
           </div>
           <h1 style={{ fontFamily: "'EB Garamond', Georgia, serif", fontSize: "clamp(28px, 5vw, 44px)", fontWeight: 500, color: "#111", marginBottom: 8, lineHeight: 1.2 }}>
             Bianca Avanzo
           </h1>
-          <p style={{ fontSize: 13, color: "#777", letterSpacing: "0.1em", textTransform: "uppercase", margin: 0 }}>
-            Independent Researcher
+          <p style={{ fontSize: 13, color: "#888", letterSpacing: "0.1em", textTransform: "uppercase" as const, margin: "0 0 6px" }}>
+            Independent Researcher · Bay Area
+          </p>
+          <p style={{ fontSize: 13, color: "#bbb", letterSpacing: "0.04em", margin: 0 }}>
+            avanzorft.com
           </p>
         </div>
 
-        <section style={{ marginBottom: 52 }}>
-          <h2 style={{ fontSize: 17, fontWeight: 700, color: "#111", textAlign: "center", marginBottom: 20, fontFamily: "system-ui" }}>Background</h2>
-          <div style={{ fontSize: 17, lineHeight: 1.9, color: "#444" }}>
-            <p style={{ marginBottom: 20, textIndent: '2em', textAlign: 'justify' as const, hyphens: 'auto' as const }}>
-              I am an independent researcher working at the intersection of cognitive science, neurophenomenology, and the science of self. My work investigates how a coherent sense of self is maintained, and how it becomes vulnerable to fragmentation, across biological, neural, and symbolic scales of organization.
-            </p>
-            <p style={{ marginBottom: 12, fontWeight: 500, color: "#111", fontSize: 17 }}>My Approach</p>
-            <div style={{ display: "flex", flexDirection: "column" as const, gap: 14 }}>
-              {[
-                { label: "Analytical Autoethnography", text: "Root Frequency Theory (RFT) emerged from a sustained period of longitudinal first-person inquiry. I treat structured subjective observation as a rigorous source of scientific constraint to guide hypothesis formation." },
-                { label: "Transdisciplinary Modeling", text: "The framework is developed in active dialogue with contemporary neuroscience, particularly the Free Energy Principle (FEP), Integrated Information Theory (IIT), and Menon's Triple Network Model." },
-                { label: "The Goal", text: "To translate phenomenological insights into a formally investigable architecture, clarifying how experiential organization may relate to underlying mechanisms through operational tools such as the M-RFT metric." },
-              ].map(({ label, text }) => (
-                <div key={label} style={{ display: "flex", gap: 12, alignItems: "flex-start" }}>
-                  <span style={{ color: "#666", flexShrink: 0, paddingTop: 4, fontSize: 17 }}>·</span>
-                  <p style={{ margin: 0, fontSize: 17, lineHeight: 1.9, color: "#444" }}>
-                    <span style={{ fontWeight: 500, color: "#111" }}>{label}:</span>{" "}{text}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
+        <div style={{ marginBottom: 48 }}>
+          <p style={{ fontSize: 17, lineHeight: 1.9, color: "#444", marginBottom: 16, textAlign: "justify" as const, hyphens: "auto" as const }}>
+            Root Frequency Theory did not begin as a theory. It began as a practice — sustained neurophenomenological observation, longitudinal self-tracking, and deep inner work, starting in December 2024. The observation came first. The framework followed the pattern.
+          </p>
+          <p style={{ fontSize: 17, lineHeight: 1.9, color: "#444", marginBottom: 16, textAlign: "justify" as const, hyphens: "auto" as const }}>
+            The central question that emerged: how does a coherent sense of self maintain itself across time, and what exactly fails when it doesn't? Not at the level of diagnosis — at the level of mechanism, across biological, neural, and symbolic scales simultaneously.
+          </p>
+          <p style={{ fontSize: 17, lineHeight: 1.9, color: "#444", textAlign: "justify" as const, hyphens: "auto" as const }}>
+            That question produced three papers, a coherence metric, and an iOS app built to measure what no existing tool was measuring: cross-scale alignment in real time, in ecological conditions, outside the scanner.
+          </p>
+        </div>
 
-        <section style={{ marginBottom: 52 }}>
-          <h2 style={{ fontSize: 17, fontWeight: 700, color: "#111", textAlign: "center", marginBottom: 20, fontFamily: "system-ui" }}>Research Interests</h2>
-          <div style={{ display: "flex", flexDirection: "column" as const, gap: 10 }}>
+        <div style={{ width: "100%", height: 1, background: "#eee", margin: "0 0 48px" }} />
+
+        <div style={{ marginBottom: 48 }}>
+          <div style={{ fontSize: 10, fontWeight: 600, color: "#888", textTransform: "uppercase" as const, letterSpacing: "0.14em", marginBottom: 20 }}>Theoretical grounding</div>
+          <div style={{ display: "flex", flexDirection: "column" as const, gap: 14 }}>
             {[
-              "Consciousness and experiential continuity across time;",
-              "Large-scale brain network dynamics (DMN, salience, executive networks);",
-              "Predictive processing and active inference;",
-              "Neurophenomenology and first-person methodology;",
-              "Stress, psychopathology, and multiscale dysalignment;",
-              "Coherence metrics and health-technology scaffolds.",
-            ].map((item) => (
-              <div key={item} style={{ display: "flex", gap: 12, alignItems: "flex-start" }}>
-                <span style={{ color: "#666", flexShrink: 0, paddingTop: 4, fontSize: 17 }}>·</span>
-                <span style={{ fontSize: 17, lineHeight: 1.9, color: "#444" }}>{item}</span>
+              { label: "Free Energy Principle", text: "Friston's active inference framework provides the mechanistic backbone — fragmentation as increased variational free energy, coherence as prediction error minimization across interoceptive hierarchies." },
+              { label: "Interoceptive predictive coding", text: "Garfinkel & Seth's work on interoceptive accuracy and awareness grounds the measurement approach. The heartbeat detection task is drawn directly from Garfinkel et al. (2015)." },
+              { label: "Integrated Information Theory", text: "Tononi's Φ as a formal proxy for cross-scale integration, adapted as the physiological coherence component of the metric." },
+              { label: "Spatiotemporal neuroscience", text: "Northoff's work on self-related processing and large-scale network dynamics — particularly the role of the DMN in maintaining narrative continuity across time." },
+            ].map(({ label, text }) => (
+              <div key={label} style={{ display: "flex", gap: 14, alignItems: "flex-start" }}>
+                <span style={{ color: "#ccc", flexShrink: 0, paddingTop: 6, fontSize: 14 }}>·</span>
+                <p style={{ margin: 0, fontSize: 15, lineHeight: 1.85, color: "#444" }}>
+                  <span style={{ fontWeight: 500, color: "#111" }}>{label} — </span>{text}
+                </p>
               </div>
             ))}
           </div>
-        </section>
+        </div>
 
-        <section style={{ marginBottom: 52 }}>
-          <h2 style={{ fontSize: 17, fontWeight: 700, color: "#111", textAlign: "center", marginBottom: 20, fontFamily: "system-ui" }}>Current Work</h2>
-          <div style={{ fontSize: 17, lineHeight: 1.9, color: "#444" }}>
-            <p style={{ marginBottom: 14, textIndent: '2em', textAlign: 'justify' as const, hyphens: 'auto' as const }}>
-              The Root Frequency Theory framework and its associated operational tools are currently under active development, including the M-RFT metric—a proposed measure of cross-scale alignment designed to track the precision of internal models—and the development of computational scaffolds to support systemic integration.
-            </p>
-            <p style={{ marginBottom: 32, textIndent: '2em', textAlign: 'justify' as const, hyphens: 'auto' as const }}>
-              Efforts are also directed toward establishing R&D partnerships, academic–industry mentorship, and access to multimodal neurophysiological environments to rigorously examine the framework's core predictions and explore its potential computational translation into scalable health-technology contexts.
-            </p>
-            <div style={{ padding: "32px 28px", border: "1px solid #eee", background: "#fafafa", textAlign: "center" }}>
-              <p style={{ margin: "0 0 20px 0", fontFamily: "'EB Garamond', Georgia, serif", fontSize: 19, color: "#111", lineHeight: 1.5 }}>
-                Interested in collaborating or learning more about the project?
-              </p>
-              <a href="/contact" style={{ display: "inline-block", fontSize: 13, color: "#fff", background: "#111", padding: "10px 28px", border: "none", letterSpacing: "0.06em", fontFamily: "system-ui", cursor: "pointer", textDecoration: "none" }}>
-                Get in touch
-              </a>
-            </div>
+        <div style={{ width: "100%", height: 1, background: "#eee", margin: "0 0 48px" }} />
+
+        <div style={{ marginBottom: 48 }}>
+          <div style={{ fontSize: 10, fontWeight: 600, color: "#888", textTransform: "uppercase" as const, letterSpacing: "0.14em", marginBottom: 20 }}>Current status</div>
+          <div style={{ display: "flex", flexDirection: "column" as const }}>
+            {[
+              { date: "Active", text: "N=1 longitudinal study — Root Extension app running on iPhone + Apple Watch, daily sessions April–October 2026." },
+              { date: "Embargoed", text: "M-RFT coherence metric — registered preprint, available to academic collaborators upon request. Lifts December 2026." },
+              { date: "Published", text: "Root Frequency Theory — Zenodo, February 2026. DOI: 10.5281/zenodo.18905376." },
+              { date: "Published", text: "Root Knowledge — Embodied knowledge as a foundation for coherent human–AI interaction. Zenodo, May 2026. DOI: 10.5281/zenodo.20060589." },
+              { date: "Targeting", text: "Industrial PhD — interoception, computational psychiatry, or neuroscience-AI. Applications September 2026. Start January 2027." },
+            ].map(({ date, text }) => (
+              <div key={text} style={{ display: "flex", gap: 16, alignItems: "flex-start", padding: "12px 0", borderBottom: "1px solid #f0f0f0" }}>
+                <span style={{ fontSize: 10, fontWeight: 600, color: "#aaa", letterSpacing: "0.08em", textTransform: "uppercase" as const, flexShrink: 0, paddingTop: 3, minWidth: 72 }}>{date}</span>
+                <span style={{ fontSize: 14, lineHeight: 1.7, color: "#444" }}>{text}</span>
+              </div>
+            ))}
           </div>
-        </section>
+        </div>
+
+        <div style={{ width: "100%", height: 1, background: "#eee", margin: "0 0 48px" }} />
+
+        <div style={{ marginBottom: 48 }}>
+          <div style={{ fontSize: 10, fontWeight: 600, color: "#888", textTransform: "uppercase" as const, letterSpacing: "0.14em", marginBottom: 16 }}>Background</div>
+          <p style={{ fontSize: 15, lineHeight: 1.85, color: "#444", textAlign: "justify" as const, hyphens: "auto" as const }}>
+            Undergraduate training in integrated design, Universidade do Sagrado Coração (USC), Brazil. Longitudinal neurodevelopmental observation conducted informally through several years of caregiving work with children with special needs in the Bay Area — a context that provided sustained, ecologically valid access to regulatory dysregulation, interoceptive disruption, and the conditions under which self-continuity breaks down across development. That observational ground preceded and shaped the theoretical framework. No institutional affiliation — which has meant no IRB access, no neuroimaging equipment, no co-investigators. It has also meant no committee approval needed to ask the questions that matter, no external timeline, and no pressure to fit the theory to an existing lab's agenda. The framework was built from first principles, in the conditions of real life.
+          </p>
+        </div>
+
+        <div style={{ border: "1px solid #eee", background: "#fafafa", padding: "28px", textAlign: "center" as const }}>
+          <p style={{ margin: "0 0 20px", fontFamily: "'EB Garamond', Georgia, serif", fontSize: 20, color: "#111", lineHeight: 1.5 }}>
+            If this work resonates — or if you see a gap it might close — I'd like to hear from you.
+          </p>
+          <a href="/contact" style={{ display: "inline-block", fontSize: 13, color: "#fff", background: "#111", padding: "10px 28px", letterSpacing: "0.06em", fontFamily: "system-ui", textDecoration: "none" }}>
+            Get in touch
+          </a>
+        </div>
+
       </main>
     </>
   )
