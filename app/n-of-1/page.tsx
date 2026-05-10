@@ -58,6 +58,177 @@ const stateLabel: Record<string, string> = {
     FRAGMENTED: "Fragmented",
 }
 
+function AppPrototype() {
+    const [step, setStep] = useState(0)
+    const [timer, setTimer] = useState<number | null>(null)
+    const [secs, setSecs] = useState(15)
+    const [running, setRunning] = useState(false)
+    const [conf, setConf] = useState("Very sure")
+    const [coherence, setCoherence] = useState(10)
+    const intervalRef = React.useRef<ReturnType<typeof setInterval> | null>(null)
+
+    const startTimer = () => {
+        if (running) return
+        setRunning(true)
+        setSecs(15)
+        intervalRef.current = setInterval(() => {
+            setSecs(s => {
+                if (s <= 1) {
+                    clearInterval(intervalRef.current!)
+                    setRunning(false)
+                    return 0
+                }
+                return s - 1
+            })
+        }, 1000)
+    }
+
+    const slides = [
+        // Step 1 — narrative
+        <div key="s1" style={{ display: "flex", flexDirection: "column" as const, height: "100%" }}>
+            <div style={{ fontSize: 9, fontWeight: 700, color: "#888", letterSpacing: "0.1em", textTransform: "uppercase" as const, marginBottom: 4, fontFamily: "system-ui" }}>Step 1 of 3</div>
+            <div style={{ fontSize: 17, fontWeight: 700, color: "#111", lineHeight: 1.2, marginBottom: 4, fontFamily: "system-ui" }}>What's happening in your body right now?</div>
+            <div style={{ fontSize: 12, color: "#aaa", marginBottom: 12, fontFamily: "system-ui" }}>Write anything — sensations, feelings, what you notice. There's no right answer.</div>
+            <div style={{ background: "#f8f8f6", border: "1px solid #e8e8e3", borderRadius: 10, padding: "10px 12px", fontSize: 12, color: "#555", lineHeight: 1.6, marginBottom: 14, flex: 1, fontFamily: "system-ui" }}>
+                It's been a few days since my last log. I feel so present — spiritually, mentally, emotionally. Sleeping feels like being embraced by pure calm. I wake up grateful, refreshed.
+            </div>
+            <button onClick={() => setStep(1)} style={{ background: "#2563eb", color: "#fff", border: "none", borderRadius: 14, padding: "13px", fontSize: 15, fontWeight: 600, cursor: "pointer", fontFamily: "system-ui" }}>Next →</button>
+        </div>,
+
+        // Step 2 — heartbeat
+        <div key="s2" style={{ display: "flex", flexDirection: "column" as const, height: "100%", alignItems: "stretch" }}>
+            <div style={{ fontSize: 9, fontWeight: 700, color: "#888", letterSpacing: "0.1em", textTransform: "uppercase" as const, marginBottom: 4, fontFamily: "system-ui" }}>Step 2 of 3</div>
+            <div style={{ fontSize: 17, fontWeight: 700, color: "#111", marginBottom: 4, fontFamily: "system-ui" }}>Sense your heartbeat.</div>
+            <div style={{ fontSize: 12, color: "#aaa", marginBottom: 16, fontFamily: "system-ui" }}>Without touching your body, notice your heartbeat from the inside. Count each pulse you sense for 15 seconds.</div>
+            <div style={{ display: "flex", justifyContent: "center", marginBottom: 16 }}>
+                <button onClick={startTimer} style={{
+                    width: 100, height: 100, borderRadius: "50%",
+                    border: `3px solid ${running ? "#1d4ed8" : "#2563eb"}`,
+                    background: running ? "#eff6ff" : "#fff",
+                    display: "flex", alignItems: "center", justifyContent: "center",
+                    cursor: running ? "default" : "pointer", transition: "all .2s",
+                }}>
+                    <span style={{ fontSize: 18, fontWeight: 700, color: "#111", fontFamily: "system-ui" }}>
+                        {secs === 0 ? "Done" : running ? `${secs}s` : "Start"}
+                    </span>
+                </button>
+            </div>
+            <div style={{ fontSize: 13, color: "#333", marginBottom: 6, fontFamily: "system-ui" }}>How many beats did you sense?</div>
+            <input defaultValue="23" style={{ border: "1px solid #e0e0d8", borderRadius: 8, padding: "8px 10px", fontSize: 14, marginBottom: 10, fontFamily: "system-ui", width: "100%", boxSizing: "border-box" as const }} />
+            <div style={{ fontSize: 13, color: "#333", marginBottom: 8, fontFamily: "system-ui" }}>How confident are you?</div>
+            <div style={{ display: "flex", gap: 6, marginBottom: 14 }}>
+                {["Not sure", "Somewhat", "Very sure"].map(c => (
+                    <button key={c} onClick={() => setConf(c)} style={{
+                        flex: 1, padding: "7px 4px", borderRadius: 20,
+                        border: `1px solid ${conf === c ? "#999" : "#e0e0d8"}`,
+                        background: conf === c ? "#f0f0ec" : "#fff",
+                        fontSize: 11, color: conf === c ? "#111" : "#666",
+                        fontWeight: conf === c ? 600 : 400, cursor: "pointer", fontFamily: "system-ui",
+                    }}>{c}</button>
+                ))}
+            </div>
+            <button onClick={() => setStep(2)} style={{ background: "#2563eb", color: "#fff", border: "none", borderRadius: 14, padding: "13px", fontSize: 15, fontWeight: 600, cursor: "pointer", fontFamily: "system-ui" }}>Next →</button>
+        </div>,
+
+        // Step 3 — trigger + coherence
+        <div key="s3" style={{ display: "flex", flexDirection: "column" as const, height: "100%" }}>
+            <div style={{ fontSize: 9, fontWeight: 700, color: "#888", letterSpacing: "0.1em", textTransform: "uppercase" as const, marginBottom: 4, fontFamily: "system-ui" }}>Step 3 of 3</div>
+            <div style={{ fontSize: 17, fontWeight: 700, color: "#111", marginBottom: 14, fontFamily: "system-ui" }}>Almost done.</div>
+            <div style={{ fontSize: 13, fontWeight: 500, color: "#111", marginBottom: 3, fontFamily: "system-ui" }}>What triggered this state, if anything?</div>
+            <div style={{ fontSize: 11, color: "#aaa", marginBottom: 6, fontFamily: "system-ui" }}>Optional — a situation, thought, or event.</div>
+            <input defaultValue="Life is good again" style={{ border: "1px solid #2563eb", borderRadius: 8, padding: "8px 10px", fontSize: 13, marginBottom: 14, fontFamily: "system-ui", width: "100%", boxSizing: "border-box" as const }} />
+            <div style={{ fontSize: 13, fontWeight: 500, color: "#111", marginBottom: 6, fontFamily: "system-ui" }}>How coherent do you feel right now? <strong>{coherence}/10</strong></div>
+            <input type="range" min={1} max={10} value={coherence} onChange={e => setCoherence(Number(e.target.value))}
+                style={{ width: "100%", accentColor: "#2563eb", marginBottom: 4 }} />
+            <div style={{ display: "flex", justifyContent: "space-between", fontSize: 10, color: "#aaa", marginBottom: 14, fontFamily: "system-ui" }}>
+                <span>Scattered</span><span>Fully here</span>
+            </div>
+            <button onClick={() => setStep(3)} style={{ background: "#16a34a", color: "#fff", border: "none", borderRadius: 14, padding: "13px", fontSize: 15, fontWeight: 600, cursor: "pointer", fontFamily: "system-ui" }}>Calculate M →</button>
+        </div>,
+
+        // Result
+        <div key="s4" style={{ display: "flex", flexDirection: "column" as const, height: "100%" }}>
+            <div style={{ background: "#f0fdf4", borderRadius: 16, padding: "16px 14px", marginBottom: 12, textAlign: "center" as const }}>
+                <div style={{ fontSize: 11, fontWeight: 600, color: "#888", letterSpacing: "0.1em", textTransform: "uppercase" as const, marginBottom: 4, fontFamily: "system-ui" }}>Session Result</div>
+                <div style={{ fontSize: 60, fontWeight: 800, color: "#16a34a", lineHeight: 1, fontFamily: "system-ui" }}>3.51</div>
+                <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.12em", color: "#16a34a", marginBottom: 12, fontFamily: "system-ui" }}>RESILIENT</div>
+                <div style={{ display: "flex", gap: 6 }}>
+                    {[["Φ", "1.00"], ["Kₑ", "0.61"], ["F", "0.08"]].map(([sym, val]) => (
+                        <div key={sym} style={{ flex: 1, background: "#fff", borderRadius: 10, padding: "8px 4px", textAlign: "center" as const, border: "1px solid #e8e8e3" }}>
+                            <div style={{ fontSize: 10, color: "#aaa", fontFamily: "system-ui" }}>{sym}</div>
+                            <div style={{ fontSize: 15, fontWeight: 700, color: "#111", fontFamily: "system-ui" }}>{val}</div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+            <div style={{ background: "#f1f0f0", borderRadius: 12, padding: "12px", flex: 1, marginBottom: 12 }}>
+                <div style={{ fontSize: 9, color: "#aaa", letterSpacing: "0.1em", textTransform: "uppercase" as const, marginBottom: 6, fontFamily: "system-ui" }}>⌁ Epistemic scaffolding</div>
+                <div style={{ fontSize: 12, color: "#333", lineHeight: 1.6, fontFamily: "system-ui" }}>Your nervous system has shifted into a high-coherence, low-load state (Φ=1.00, F=0.08) — interoceptive alignment is bridging prediction and sensation cleanly. The blank-mind clarity is your dopaminergic system stabilizing after rapid narrative restructuring.</div>
+            </div>
+            <button onClick={() => setStep(4)} style={{ background: "#444", color: "#fff", border: "none", borderRadius: 14, padding: "11px", fontSize: 13, fontWeight: 600, cursor: "pointer", fontFamily: "system-ui" }}>View detail →</button>
+        </div>,
+
+        // Detail
+        <div key="s5" style={{ display: "flex", flexDirection: "column" as const, height: "100%", overflowY: "auto" as const }}>
+            <div style={{ fontSize: 9, color: "#aaa", letterSpacing: "0.1em", textTransform: "uppercase" as const, marginBottom: 10, fontFamily: "system-ui" }}>What was measured</div>
+            {[
+                { sym: "Φ", name: "Body integration", val: "1.00", desc: "Your nervous system was operating as a unified system. HRV at full baseline." },
+                { sym: "IA", name: "Heartbeat accuracy", val: "1.00", desc: "Your heartbeat count matched Apple Watch ground truth exactly." },
+                { sym: "NC", name: "Narrative coherence", val: "1.00", desc: "Your entry was fully time-anchored, semantically connected, and causally integrated." },
+                { sym: "Kₑ", name: "Mind-body alignment", val: "0.61", desc: "IA × NC — how well your internal signals and your narrative about them matched." },
+                { sym: "F", name: "Nervous system load", val: "0.08", desc: "Minimal regulatory burden relative to your 30-day baseline. System operating with ease." },
+            ].map(({ sym, name, val, desc }) => (
+                <div key={sym} style={{ background: "#fff", borderRadius: 10, padding: "10px 12px", marginBottom: 8, border: "1px solid #eee" }}>
+                    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 3 }}>
+                        <span style={{ fontSize: 13, fontWeight: 600, color: "#2563eb", fontFamily: "system-ui" }}>{sym} &nbsp;{name}</span>
+                        <span style={{ fontSize: 14, fontWeight: 700, color: "#111", fontFamily: "system-ui" }}>{val}</span>
+                    </div>
+                    <div style={{ fontSize: 11, color: "#888", lineHeight: 1.4, fontFamily: "system-ui" }}>{desc}</div>
+                </div>
+            ))}
+            <button onClick={() => { setStep(0); setSecs(15); setRunning(false); if (intervalRef.current) clearInterval(intervalRef.current) }}
+                style={{ background: "#111", color: "#fff", border: "none", borderRadius: 14, padding: "11px", fontSize: 13, fontWeight: 600, cursor: "pointer", marginTop: 4, fontFamily: "system-ui" }}>Done</button>
+        </div>,
+    ]
+
+    const navLabels = ["Check-In — Step 1 of 3", "Check-In — Step 2 of 3", "Check-In — Step 3 of 3", "Session Result", "Session Detail"]
+
+    return (
+        <div style={{ display: "flex", justifyContent: "center", marginBottom: 48 }}>
+            {/* Phone */}
+            <div style={{ background: "#1c1c1e", borderRadius: 44, padding: 10, boxShadow: "0 0 0 1px #2a2a2a, 0 24px 48px rgba(0,0,0,0.18)", width: 300, flexShrink: 0 }}>
+                {/* Notch */}
+                <div style={{ background: "#1c1c1e", borderRadius: "20px 20px 0 0", height: 28, display: "flex", alignItems: "center", justifyContent: "center" }}>
+                    <div style={{ width: 80, height: 22, background: "#000", borderRadius: 20, display: "flex", alignItems: "center", justifyContent: "center" }}>
+                        <div style={{ width: 10, height: 10, borderRadius: "50%", background: "#1a1a1a", border: "1px solid #333" }} />
+                    </div>
+                </div>
+                {/* Screen */}
+                <div style={{ background: "#f5f5f0", borderRadius: "0 0 32px 32px", overflow: "hidden" }}>
+                    {/* Status + nav */}
+                    <div style={{ background: "#fff", padding: "10px 16px 8px", display: "flex", alignItems: "center", justifyContent: "space-between", borderBottom: "1px solid #f0f0ec" }}>
+                        <span style={{ fontSize: 11, fontWeight: 600, color: "#555", fontFamily: "system-ui" }}>{navLabels[step]}</span>
+                        <button onClick={() => { setStep(0); setSecs(15); setRunning(false); if (intervalRef.current) clearInterval(intervalRef.current) }}
+                            style={{ fontSize: 12, color: "#666", background: "#f0f0ec", border: "none", borderRadius: 20, padding: "3px 10px", cursor: "pointer", fontFamily: "system-ui" }}>
+                            {step === 0 ? "Cancel" : "Done"}
+                        </button>
+                    </div>
+                    {/* Progress dots */}
+                    <div style={{ display: "flex", gap: 5, justifyContent: "center", padding: "8px 0 4px", background: "#fff" }}>
+                        {[0, 1, 2, 3, 4].map(i => (
+                            <div key={i} style={{ width: 6, height: 6, borderRadius: "50%", background: i === step ? "#2563eb" : "#ddd", transition: "background .2s" }} />
+                        ))}
+                    </div>
+                    {/* Slide */}
+                    <div style={{ padding: "16px 18px 20px", minHeight: 440, display: "flex", flexDirection: "column" as const }}>
+                        {slides[step]}
+                    </div>
+                </div>
+            </div>
+        </div>
+    )
+}
+
 export default function NOf1() {
     const [hovered, setHovered] = useState<number | null>(null)
 
@@ -141,78 +312,9 @@ export default function NOf1() {
                     <span>HRV + heartbeat task + narrative scoring</span>
                 </div>
 
-                {/* APP MOCKUP */}
+                {/* APP PROTOTYPE */}
                 <div className="section-label" style={{ marginBottom: 16 }}>The instrument</div>
-                <div style={{ background: "#f7f7f5", borderRadius: 20, padding: "28px 20px", marginBottom: 48 }}>
-                    <div style={{ display: "flex", gap: 28, alignItems: "flex-start", flexWrap: "wrap" as const, justifyContent: "center" }}>
-                        <div style={{ flexShrink: 0 }}>
-                            <div style={{ background: "#1a1a1a", borderRadius: 36, padding: 9, width: 220 }}>
-                                <div style={{ background: "#ffffff", borderRadius: 28, overflow: "hidden" }}>
-                                    <div style={{ padding: "12px 14px 6px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                                        <span style={{ fontSize: 10, fontWeight: 600, color: "#888", letterSpacing: "0.06em", fontFamily: "system-ui" }}>Check-In — Step 1 of 3</span>
-                                        <span style={{ fontSize: 11, color: "#888", background: "#f0f0ec", borderRadius: 20, padding: "2px 8px", fontFamily: "system-ui" }}>Cancel</span>
-                                    </div>
-                                    <div style={{ padding: "6px 14px 12px" }}>
-                                        <div style={{ fontSize: 9, fontWeight: 700, color: "#888", letterSpacing: "0.1em", textTransform: "uppercase" as const, marginBottom: 3, fontFamily: "system-ui" }}>Step 1 of 3</div>
-                                        <div style={{ fontSize: 14, fontWeight: 700, color: "#111", lineHeight: 1.2, marginBottom: 3, fontFamily: "system-ui" }}>What's happening in your body right now?</div>
-                                        <div style={{ fontSize: 10, color: "#aaa", marginBottom: 8, fontFamily: "system-ui" }}>Write anything — sensations, feelings, what you notice.</div>
-                                        <div style={{ background: "#f8f8f6", border: "1px solid #e8e8e3", borderRadius: 8, padding: "8px 10px", fontSize: 10, color: "#555", lineHeight: 1.5, marginBottom: 10, fontFamily: "system-ui" }}>
-                                            Post-sleep integration of prior day's material. Subjective sense of presence elevated across all domains. Regulatory burden minimal.
-                                        </div>
-                                        <div style={{ background: "#2563eb", color: "#fff", borderRadius: 10, padding: "8px", fontSize: 12, fontWeight: 600, textAlign: "center" as const, fontFamily: "system-ui" }}>Next →</div>
-                                    </div>
-                                    <div style={{ borderTop: "1px solid #f0f0ec", padding: "10px 14px" }}>
-                                        <div style={{ fontSize: 9, fontWeight: 700, color: "#888", letterSpacing: "0.1em", textTransform: "uppercase" as const, marginBottom: 4, fontFamily: "system-ui" }}>Step 2 of 3</div>
-                                        <div style={{ fontSize: 13, fontWeight: 700, color: "#111", marginBottom: 6, fontFamily: "system-ui" }}>Sense your heartbeat.</div>
-                                        <div style={{ display: "flex", justifyContent: "center", marginBottom: 6 }}>
-                                            <div style={{ width: 54, height: 54, borderRadius: "50%", border: "2.5px solid #2563eb", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                                                <span style={{ fontSize: 11, fontWeight: 700, color: "#111", fontFamily: "system-ui" }}>15s</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div style={{ background: "#f0fdf4", padding: "12px 14px" }}>
-                                        <div style={{ fontSize: 9, fontWeight: 700, color: "#888", letterSpacing: "0.1em", textTransform: "uppercase" as const, marginBottom: 2, textAlign: "center" as const, fontFamily: "system-ui" }}>Session Result</div>
-                                        <div style={{ fontSize: 40, fontWeight: 800, color: "#16a34a", textAlign: "center" as const, lineHeight: 1, fontFamily: "system-ui" }}>3.51</div>
-                                        <div style={{ fontSize: 9, fontWeight: 700, letterSpacing: "0.12em", color: "#16a34a", textAlign: "center" as const, marginBottom: 8, fontFamily: "system-ui" }}>RESILIENT</div>
-                                        <div style={{ display: "flex", gap: 4 }}>
-                                            {[["Φ", "1.00"], ["Kₑ", "0.61"], ["F", "0.08"]].map(([sym, val]) => (
-                                                <div key={sym} style={{ flex: 1, background: "#fff", borderRadius: 6, padding: "5px", textAlign: "center" as const, border: "1px solid #e8e8e3" }}>
-                                                    <div style={{ fontSize: 8, color: "#aaa", fontFamily: "system-ui" }}>{sym}</div>
-                                                    <div style={{ fontSize: 12, fontWeight: 700, color: "#111", fontFamily: "system-ui" }}>{val}</div>
-                                                </div>
-                                            ))}
-                                        </div>
-                                    </div>
-                                    <div style={{ background: "#f1f0f0", padding: "10px 14px" }}>
-                                        <div style={{ fontSize: 8, color: "#aaa", letterSpacing: "0.1em", textTransform: "uppercase" as const, marginBottom: 4, fontFamily: "system-ui" }}>⌁ Epistemic scaffolding</div>
-                                        <div style={{ fontSize: 10, color: "#444", lineHeight: 1.5, fontFamily: "system-ui" }}>Your nervous system has shifted into a high-coherence, low-load state (Φ=1.00, F=0.08) — interoceptive alignment is bridging prediction and sensation cleanly.</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div style={{ maxWidth: 260, flex: 1, minWidth: 180 }}>
-                            <p style={{ fontSize: 13, fontWeight: 600, color: "#111", marginBottom: 14, fontFamily: "system-ui" }}>3-step check-in. Real-time M score.</p>
-                            {[
-                                { step: "1", label: "Body narrative", desc: "Write what you notice. Scored by NLP for semantic, temporal, and causal coherence → NC component of Kₑ." },
-                                { step: "2", label: "Heartbeat task", desc: "Count your heartbeats for 15s without touching your body. Compared to Apple Watch ground truth → IA." },
-                                { step: "3", label: "Trigger + coherence", desc: "What caused this state? 1–10 subjective coherence. Anchors the session to its ecological context." },
-                            ].map(({ step, label, desc }) => (
-                                <div key={step} style={{ display: "flex", gap: 10, marginBottom: 12, alignItems: "flex-start" }}>
-                                    <div style={{ width: 20, height: 20, borderRadius: "50%", background: "#111", color: "#fff", fontSize: 10, fontWeight: 700, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, marginTop: 1, fontFamily: "system-ui" }}>{step}</div>
-                                    <div>
-                                        <div style={{ fontSize: 12, fontWeight: 600, color: "#111", fontFamily: "system-ui", marginBottom: 2 }}>{label}</div>
-                                        <div style={{ fontSize: 11, color: "#666", fontFamily: "system-ui", lineHeight: 1.5 }}>{desc}</div>
-                                    </div>
-                                </div>
-                            ))}
-                            <div style={{ background: "#f0fdf4", borderRadius: 10, padding: "10px 12px", marginTop: 8 }}>
-                                <div style={{ fontSize: 9, fontWeight: 700, color: "#16a34a", letterSpacing: "0.1em", textTransform: "uppercase" as const, marginBottom: 4, fontFamily: "system-ui" }}>Epistemic scaffolding</div>
-                                <div style={{ fontSize: 11, color: "#333", lineHeight: 1.5, fontFamily: "system-ui" }}>After each session, Claude generates a response grounded in your Φ, Kₑ, and F values — naming the mechanism behind your current state.</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <AppPrototype />
 
                 {/* STATS */}
                 <div className="section-label" style={{ marginBottom: 16 }}>Live data — April 16 to May 7, 2026</div>
