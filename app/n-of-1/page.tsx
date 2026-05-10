@@ -220,7 +220,7 @@ function AppPrototype() {
                         ))}
                     </div>
                     {/* Slide */}
-                    <div style={{ padding: "16px 18px 20px", minHeight: 440, display: "flex", flexDirection: "column" as const }}>
+                    <div style={{ padding: "16px 18px 20px", height: 500, display: "flex", flexDirection: "column" as const, overflowY: "auto" as const }}>
                         {slides[step]}
                     </div>
                 </div>
