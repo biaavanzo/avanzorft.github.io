@@ -78,6 +78,7 @@ export default function RootKnowledge() {
         <div className="header-inner">
           <a href="/" className="header-name">Root Lab</a>
           <nav>
+            <a href="/research-overview">Research Overview</a>
             <a href="/n-of-1">N=1 Study</a>
             <a href="/about-the-author">About the Author</a>
             <a href="/contact">Contact</a>

@@ -9,8 +9,9 @@ export default function AboutTheAuthor() {
         <div style={{ maxWidth: 900, margin: "0 auto", display: "flex", alignItems: "center", justifyContent: "center", gap: 40, padding: "14px 0" }}>
           <a href="/" style={{ fontSize: 16, fontWeight: 500, color: "#111", fontFamily: "system-ui", whiteSpace: "nowrap", textDecoration: "none" }}>Root Lab</a>
           <nav style={{ display: "flex", gap: 24, alignItems: "center" }}>
-            <a href="/n-of-1" style={{ fontSize: 15, color: "#555", textDecoration: "none", fontFamily: "system-ui", whiteSpace: "nowrap" }}>N=1 Study</a>
-            <a href="/about-the-author" style={{ fontSize: 15, color: "#111", fontWeight: 500, textDecoration: "none", fontFamily: "system-ui", whiteSpace: "nowrap" }}>About the Author</a>
+            <<a href="/research-overview">Research Overview</a>
+            <a href="/n-of-1">N=1 Study</a>
+            <a href="/about-the-author">About the Author</a>
             <a href="/contact" style={{ fontSize: 15, color: "#555", textDecoration: "none", fontFamily: "system-ui", whiteSpace: "nowrap" }}>Contact</a>
             <a href="https://www.linkedin.com/in/bianca-avanzo-b1b5231a9" target="_blank" rel="noopener noreferrer" style={{ color: "#555", display: "flex", alignItems: "center" }} aria-label="LinkedIn">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

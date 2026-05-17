@@ -63,8 +63,9 @@ export default function Contact() {
                         Root Lab
                     </a>
                     <nav style={{ display: "flex", gap: 24, alignItems: "center" }}>
-                        <a href="/n-of-1" style={navLink}>N=1 Study</a>
-                        <a href="/about-the-author" style={navLink}>About the Author</a>
+                        <<a href="/research-overview">Research Overview</a>
+                        <a href="/n-of-1">N=1 Study</a>
+                        <a href="/about-the-author">About the Author</a>
                         <a href="/contact" style={{ ...navLink, color: "#111", fontWeight: 500 }}>Contact</a>
                         <a href="https://www.linkedin.com/in/bianca-avanzo-b1b5231a9" target="_blank" rel="noopener noreferrer" style={{ color: "#555", display: "flex", alignItems: "center" }} aria-label="LinkedIn">
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

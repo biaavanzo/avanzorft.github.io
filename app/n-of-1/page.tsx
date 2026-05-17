@@ -282,7 +282,8 @@ export default function NOf1() {
                 <div className="header-inner">
                     <a href="/" className="header-name">Root Lab</a>
                     <nav>
-                        <a href="/n-of-1" className="active">N=1 Study</a>
+                        <a href="/research-overview">Research Overview</a>
+                        <a href="/n-of-1">N=1 Study</a>
                         <a href="/about-the-author">About the Author</a>
                         <a href="/contact">Contact</a>
                         <a href="https://www.linkedin.com/in/bianca-avanzo-b1b5231a9" target="_blank" rel="noopener noreferrer" style={{ color: "#555", display: "flex", alignItems: "center" }} aria-label="LinkedIn">
