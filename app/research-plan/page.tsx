@@ -2,7 +2,7 @@
 
 import React, { useState } from "react"
 
-export default function FormalizationPathway() {
+export default function Metric() {
     const [openPattern, setOpenPattern] = useState<number | null>(null)
 
     return (
@@ -64,44 +64,23 @@ export default function FormalizationPathway() {
 
         .divider { width: 100%; height: 1px; background: #eee; margin: 48px 0; }
 
-        .formula-block {
-          border: 1px solid #eee; background: #fafafa;
-          padding: 36px 32px; margin-bottom: 52px; text-align: center;
+        .embargo-banner {
+          background: #fdfbee; border: 1px solid #e8d98a;
+          padding: 16px 20px; margin-bottom: 32px;
+          display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
         }
-        .formula-label {
-          font-size: 10px; font-weight: 600; color: #555;
-          text-transform: uppercase; letter-spacing: 0.12em;
-          font-family: system-ui; margin-bottom: 20px;
+        .embargo-label {
+          font-size: 10px; font-weight: 700; color: #a07800;
+          text-transform: uppercase; letter-spacing: 0.1em;
+          font-family: system-ui; white-space: nowrap;
         }
-        .formula-display {
-          font-family: 'EB Garamond', Georgia, serif;
-          font-size: 42px; font-weight: 500; color: #111;
-          line-height: 1; margin-bottom: 4px;
-          display: flex; align-items: center; justify-content: center; gap: 8px;
+        .embargo-text {
+          font-size: 13px; color: #856a00; font-family: system-ui; line-height: 1.5;
         }
-        .formula-frac {
-          display: inline-flex; flex-direction: column;
-          align-items: center; gap: 2px;
+        .embargo-doi {
+          font-size: 11px; color: #a07800; font-family: system-ui;
+          font-style: italic; margin-top: 2px;
         }
-        .formula-num { font-size: 32px; }
-        .formula-bar { width: 80px; height: 1.5px; background: #111; }
-        .formula-den { font-size: 32px; }
-
-        .formula-legend {
-          margin-top: 28px; display: flex; flex-direction: column; gap: 10px;
-          text-align: left; border-top: 1px solid #eee; padding-top: 20px;
-        }
-        .legend-item {
-          display: flex; gap: 14px; align-items: flex-start;
-          font-size: 13px; line-height: 1.6;
-        }
-        .legend-sym {
-          font-family: 'EB Garamond', Georgia, serif;
-          font-size: 18px; color: #111; min-width: 24px;
-          flex-shrink: 0; font-style: italic; padding-top: 1px;
-        }
-        .legend-def { color: #555; font-family: system-ui; }
-        .legend-def strong { color: #111; font-weight: 500; }
 
         .protocol { display: flex; flex-direction: column; gap: 2px; margin-bottom: 0; }
         .protocol-step {
@@ -145,7 +124,7 @@ export default function FormalizationPathway() {
         .references a { color: #888; text-decoration: underline; }
 
         @media (max-width: 640px) {
-          .page-nav-links { display: none; }
+          .header-inner { flex-direction: column; gap: 10px; padding: 12px 0; }
         }
       `}</style>
 
@@ -153,7 +132,8 @@ export default function FormalizationPathway() {
                 <div className="header-inner">
                     <a href="/" className="header-name">Root Lab</a>
                     <nav>
-                        <a href="/n-of-1">N=1 Study</a>                        <a href="/about-the-author">About the Author</a>
+                        <a href="/n-of-1">N=1 Study</a>
+                        <a href="/about-the-author">About the Author</a>
                         <a href="/contact">Contact</a>
                     </nav>
                 </div>
@@ -163,13 +143,21 @@ export default function FormalizationPathway() {
 
                 <a href="/" className="back">← Back</a>
 
-                <div style={{ marginBottom: 56 }}>
-                    <div style={{ fontSize: 10, fontWeight: 600, color: "#888", textTransform: "uppercase" as const, letterSpacing: "0.14em", fontFamily: "system-ui", marginBottom: 16 }}>Embargoed · 2026</div>
+                <div style={{ marginBottom: 32 }}>
+                    <div style={{ fontSize: 10, fontWeight: 600, color: "#a07800", textTransform: "uppercase" as const, letterSpacing: "0.14em", fontFamily: "system-ui", marginBottom: 16 }}>Embargoed · Lifts June 1, 2026</div>
                     <h1 style={{ fontFamily: "'EB Garamond', Georgia, serif", fontSize: "clamp(32px, 5vw, 52px)", fontWeight: 500, color: "#111", lineHeight: 1.15, marginBottom: 16 }}>M-RFT Coherence Metric</h1>
                     <p style={{ fontFamily: "'EB Garamond', Georgia, serif", fontSize: "clamp(16px, 2vw, 20px)", fontWeight: 400, color: "#555", lineHeight: 1.6, marginBottom: 24 }}>Operational Proxy for Multiscale Integration</p>
                     <div style={{ display: "flex", gap: 24, flexWrap: "wrap" as const, alignItems: "center", fontSize: 12, color: "#888", fontFamily: "system-ui" }}>
                         <span>Bianca Avanzo · Independent Researcher</span>
-                        <a href="/contact" style={{ color: "#888", textDecoration: "none", borderBottom: "1px solid #ddd" }}>Available upon request →</a>
+                        <a href="/contact" style={{ color: "#a07800", textDecoration: "none", borderBottom: "1px solid #e8d98a" }}>Request early access →</a>
+                    </div>
+                </div>
+
+                <div className="embargo-banner">
+                    <div>
+                        <div className="embargo-label">📄 Embargoed Preprint</div>
+                        <div className="embargo-text">Full paper publicly available June 1, 2026. Early access available to researchers upon request.</div>
+                        <div className="embargo-doi">DOI: 10.5281/zenodo.19423115</div>
                     </div>
                 </div>
 
@@ -179,7 +167,22 @@ export default function FormalizationPathway() {
                         A persistent challenge in contemporary consciousness research is understanding how multiple layers of human functioning—from biological regulation to personal narrative—interact to support a coherent sense of self. While existing approaches have quantified neural and physiological features, fewer methods attempt to characterize their dynamic alignment. The M-RFT Coherence Metric is proposed as an initial step toward quantifying this integrative dimension.
                     </p>
                     <p>
-                        Building on the C0–C4 architecture established in RFT <span className="cite">(Avanzo, 2026)</span>, this study examines whether variation at the symbolic layer (C3) may be associated with changes in multiscale regulation. The central question is whether the introduction of structured epistemic scaffolding—formalized as Epistemic Synchrony (Kₑ)—is associated with reductions in systemic uncertainty, shifts in neural regulatory dynamics (C2), and measurable changes in physiological indices (C1). If such associations are observed, they may be reflected in longitudinal variations in the coherence of self-experience (C4).
+                        Building on the C0–C4 architecture established in RFT <span className="cite">(Avanzo, 2026a)</span>, this paper examines whether variation at the symbolic layer (C3) may be associated with changes in multiscale regulation. The central question is whether the introduction of structured epistemic scaffolding—formalized as Epistemic Synchrony (Kₑ)—is associated with reductions in systemic uncertainty, shifts in neural regulatory dynamics (C2), and measurable changes in physiological indices (C1). If such associations are observed, they may be reflected in longitudinal variations in the coherence of self-experience (C4).
+                    </p>
+                </div>
+
+                <div className="divider" />
+
+                <div className="section">
+                    <div className="section-title">The Metric</div>
+                    <p>
+                        The M-RFT metric is formally defined as <strong>M = (Φ · Kₑ) / F</strong>, where Φ represents autonomic flexibility indexed against personal HRV baseline, Kₑ = IA × NC represents Epistemic Synchrony (the product of interoceptive accuracy and narrative coherence), and F represents the fragmentation index — the regulatory burden the system is currently carrying.
+                    </p>
+                    <p>
+                        Each component operationalizes a theoretically motivated construct. Φ is measured via Apple Watch HRV (SDNN) normalized against a 30-day rolling personal baseline — capturing regulatory flexibility, not population norms. IA is measured via a contactless heartbeat detection task adapted from Garfinkel et al. (2015), with randomized duration to prevent memorization effects. NC is NLP-scored free-text self-report measuring temporal and causal integration. F floors at 0.001 to prevent division by zero. The final score is normalized to a [0, 10] scale with state thresholds: FRAGMENTED (M &lt; 2.5), STABLE (2.5 ≤ M &lt; 5.0), RESILIENT (M ≥ 5.0).
+                    </p>
+                    <p>
+                        The metric is a heuristic instrument in early-stage development — not a validated clinical tool, but a theoretically grounded framework for generating and testing hypotheses about cross-level coordination that prior instruments had not attempted to capture in integrated form. Empirical calibration of thresholds is a primary target of the planned N=20–40 validation trial.
                     </p>
                 </div>
 
@@ -188,13 +191,13 @@ export default function FormalizationPathway() {
                 <div className="section">
                     <div className="section-title">Origin of the Metric</div>
                     <p>
-                        The M-RFT Metric was developed through an iterative process of theory-building, grounded in a longitudinal N-of-1 pilot study that employed a neurophenomenological framework <span className="cite">(Varela, 1996)</span> and analytic autoethnography. By integrating the roles of researcher and subject, this approach allowed for the systematic documentation of physiological symptoms, reactive behavioral patterns, and cognitive-symbolic shifts. These observations were organized along a spatiotemporal timeline, tracking changes in perceived internal coherence under varying conditions of stress and informational load.
+                        The M-RFT Metric was developed through an iterative process of theory-building, grounded in a longitudinal N=1 pilot study that employed a neurophenomenological framework <span className="cite">(Varela, 1996)</span>. By integrating the roles of researcher and subject, this approach allowed for the systematic documentation of physiological symptoms, reactive behavioral patterns, and cognitive-symbolic shifts — organized along a spatiotemporal timeline tracking changes in perceived internal coherence under varying conditions of stress and informational load.
                     </p>
                     <p>
-                        A central observation during this investigative process was the apparent relationship between the structured organization of knowledge and shifts in internal regulatory dynamics. This led to the hypothesis that the acquisition of higher-order symbolic structure may function as a stabilizing constraint on lower-level biological and neural variability.
+                        A central observation was the apparent relationship between the structured organization of knowledge and shifts in internal regulatory dynamics. This led to the hypothesis that the acquisition of higher-order symbolic structure may function as a stabilizing constraint on lower-level biological and neural variability — the core mechanism the metric is designed to track.
                     </p>
                     <p>
-                        The full technical specification and research implications are available in a separate document <a href="/contact" style={{ color: "#111", textDecoration: "underline" }}>upon request</a>. What follows is an experimental protocol and illustrative case example — a practical demonstration of how the metric operates.
+                        The full technical specification, mathematical derivation, and research implications are in the full paper, available <a href="/contact" style={{ color: "#111", textDecoration: "underline" }}>upon request</a> until June 1. What follows is the experimental protocol and an illustrative case example.
                     </p>
                 </div>
 
@@ -212,7 +215,7 @@ export default function FormalizationPathway() {
                         <div className="protocol-num">1</div>
                         <div className="protocol-body">
                             <div className="protocol-title">Pre-Intervention Baseline</div>
-                            <div className="protocol-desc">Assessment of participants' interpretations of internal states through semi-structured interviews, cross-referenced with physiological indices and measures of large-scale network connectivity.</div>
+                            <div className="protocol-desc">Assessment of participants&apos; interpretations of internal states through semi-structured interviews, cross-referenced with physiological indices and measures of large-scale network connectivity.</div>
                         </div>
                     </div>
                     <div className="protocol-step">
@@ -236,7 +239,7 @@ export default function FormalizationPathway() {
                 <div className="section">
                     <div className="section-title">Illustrative Case Example</div>
                     <p>
-                        The following hypothetical scenario is offered to clarify how structured self-knowledge may function as an epistemic tool within the M-RFT framework.
+                        The following scenario clarifies how structured self-knowledge functions as an epistemic tool within the M-RFT framework.
                     </p>
                 </div>
 
@@ -281,10 +284,10 @@ export default function FormalizationPathway() {
                                 <div style={{ fontSize: 10, fontWeight: 600, color: "#555", textTransform: "uppercase", letterSpacing: "0.1em", fontFamily: "system-ui", marginBottom: 4 }}>Scenario A</div>
                                 <div style={{ fontSize: 16, fontWeight: 500, color: "#111", fontFamily: "system-ui", marginBottom: 12 }}>Fragmentation — Lower Epistemic Synchrony</div>
                                 <p style={{ fontSize: 14, lineHeight: 1.8, color: "#555", fontFamily: "system-ui", marginBottom: 12, textIndent: 0 }}>
-                                    Upon caffeine intake, transient tachycardia is triggered. Lacking an accurate symbolic interpretation of the physiological trigger, the C3 layer fails to provide an adequate model for the C1 biological arousal. Under these circumstances, large-scale neural systems associated with self-referential processing (C2) — including regions linked to DMN activity — may interpret the signal as potentially threatening.
+                                    Upon caffeine intake, transient tachycardia is triggered. Lacking an accurate symbolic interpretation of the physiological trigger, the C3 layer fails to provide an adequate model for the C1 biological arousal. Large-scale neural systems associated with self-referential processing (C2) may interpret the signal as potentially threatening. Persistent ruminative thoughts emerge.
                                 </p>
                                 <p style={{ fontSize: 14, lineHeight: 1.8, color: "#555", fontFamily: "system-ui", marginBottom: 16, textIndent: 0 }}>
-                                    Persistent ruminative thoughts emerge, along with growing self-doubt regarding the ability to focus at work and anxiety about the potential consequences of this attentional difficulty. Within the RFT framework, this state corresponds to reduced systemic integration, low synchronization between self-narrative and experiential reality, and elevated systemic noise.
+                                    Within the RFT framework, this state corresponds to reduced systemic integration, low synchronization between self-narrative and experiential reality, and elevated systemic noise.
                                 </p>
                             </div>
                         </div>
@@ -314,25 +317,25 @@ export default function FormalizationPathway() {
                         The M-RFT metric represents an attempt to move beyond the description of fragmentation toward its measurement. By treating Epistemic Synchrony (Kₑ) as a potentially manipulable variable — introduced at the symbolic layer and tracked across biological and neural indices — this framework opens a tractable research pathway into the dynamics of self-coherence under conditions of informational entropy.
                     </p>
                     <p>
-                        This case study illustrates a localized mechanism: the possibility that structured epistemic scaffolding functions as a top-down constraint, associated with reductions in systemic noise and enhanced individual stability. This observation raises a critical research question: if integrative processes are strengthened at the individual level, to what extent might these effects manifest across different spatiotemporal scales? This invites rigorous investigation into whether stabilization at the individual level correlates with more consistent patterns of organization across biological, neural, and socio-environmental domains.
-                    </p>
-                    <p>
-                        The subsequent section evaluates the scope of the M-RFT across clinical and everyday contexts, alongside the empirical requirements necessary to formally assess these cross-scale implications.
+                        Preliminary N=1 data from 321 sessions (Avanzo, 2026d) supports measurement feasibility and identifies a key pattern: M score and subjective coherence diverge (r = .186), suggesting the metric captures pre-reflective regulatory state not accessible to conscious self-report. This is a theoretically predicted finding, not a validity failure. It motivates the N=20–40 validation trial planned for 2027.
                     </p>
                 </div>
 
                 <div className="cta-block">
                     <a href="/contact" className="cta-link primary">Request full paper →</a>
+                    <a href="/n-of-1" className="cta-link">N=1 Study →</a>
                     <a href="/" className="cta-link">← Back to Root Lab</a>
                 </div>
 
                 <section className="references">
                     <h3>References</h3>
                     <ol>
-                        <li>Avanzo, B. (2026). <em>Root Frequency Theory: An integrative framework for the continuity of lived experience.</em> Independent publication.</li>
+                        <li>Avanzo, B. (2026a). <em>Root Frequency Theory: An integrative framework for the continuity of lived experience.</em> Zenodo. <a href="https://doi.org/10.5281/zenodo.18905376" target="_blank" rel="noopener">https://doi.org/10.5281/zenodo.18905376</a></li>
+                        <li>Avanzo, B. (2026b). <em>Multiscale integration of interoceptive signals and narrative scaffolding: Can systemic coherence be formally measured? (M-RFT).</em> Zenodo. https://doi.org/10.5281/zenodo.19423115 [Embargo lifts June 1, 2026]</li>
+                        <li>Avanzo, B. (2026d). <em>Before fragmentation: A longitudinal N=1 study of pre-symptomatic coherence across physiological, interoceptive, and narrative layers.</em> Zenodo. https://doi.org/10.5281/zenodo.20261109 [Embargo lifts June 1, 2026]</li>
                         <li>Friston, K. (2010). The free-energy principle: A unified brain theory? <em>Nature Reviews Neuroscience, 11</em>(2), 127–138. <a href="https://doi.org/10.1038/nrn2787" target="_blank" rel="noopener">https://doi.org/10.1038/nrn2787</a></li>
-                        <li>Tononi, G. (2004). An information integration theory of consciousness. <em>BMC Neuroscience, 5</em>, 42. <a href="https://doi.org/10.1186/1471-2202-5-42" target="_blank" rel="noopener">https://doi.org/10.1186/1471-2202-5-42</a></li>
-                        <li>Tononi, G., Boly, M., Massimini, M., &amp; Koch, C. (2016). Integrated information theory: From consciousness to its physical substrate. <em>Nature Reviews Neuroscience, 17</em>, 450–461. <a href="https://doi.org/10.1038/nrn.2016.44" target="_blank" rel="noopener">https://doi.org/10.1038/nrn.2016.44</a></li>
+                        <li>Garfinkel, S. N., Seth, A. K., Barrett, A. B., Suzuki, K., &amp; Critchley, H. D. (2015). Knowing your own heart: Distinguishing interoceptive accuracy from interoceptive awareness. <em>Biological Psychology, 104,</em> 65–74.</li>
+                        <li>Tononi, G. (2004). An information integration theory of consciousness. <em>BMC Neuroscience, 5,</em> 42. <a href="https://doi.org/10.1186/1471-2202-5-42" target="_blank" rel="noopener">https://doi.org/10.1186/1471-2202-5-42</a></li>
                         <li>Varela, F. J. (1996). Neurophenomenology: A methodological remedy for the hard problem. <em>Journal of Consciousness Studies, 3</em>(4), 330–349.</li>
                     </ol>
                 </section>

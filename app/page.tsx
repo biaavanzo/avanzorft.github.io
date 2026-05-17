@@ -143,13 +143,15 @@ export default function Home() {
         }
         .card-text { font-size: 14px; line-height: 1.7; color: #555; font-family: system-ui; flex: 1; }
         .card-date { font-size: 12px; color: #aaa; font-family: system-ui; margin-top: auto; padding-top: 12px; }
+        .card-date.live { color: #27ae60; font-weight: 500; }
+        .card-date.embargo { color: #a07800; }
         .paper-cta-section { margin-top: 48px; }
         .paper-cta-label {
           font-size: 10px; font-weight: 600; color: #555;
           text-transform: uppercase; letter-spacing: 0.14em;
           font-family: system-ui; margin-bottom: 16px; text-align: center;
         }
-        .paper-cta-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+        .paper-cta-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2px; }
         .paper-cta-card {
           text-decoration: none; display: flex; flex-direction: column;
           border: 1px solid #e8e8e8; padding: 20px; background: #fafafa;
@@ -289,7 +291,7 @@ export default function Home() {
             <ul className="goals-list">
               <li>
                 <div className="goal-dot" />
-                Securing an industrial PhD position with a research group working on interoception, computational psychiatry, or neuroscience-AI — to bring the empirical infrastructure this work requires.
+                Securing a PhD position with a research group working on interoception, computational psychiatry, or neuroscience-AI — to bring the empirical infrastructure this work requires.
               </li>
               <li>
                 <div className="goal-dot" />
@@ -317,29 +319,29 @@ export default function Home() {
         <section className="cards-section">
           <div className="cards-label">Explore the framework</div>
           <div className="cards">
-            <a href="/the-paper" className="card-wrapper">
+            <a href="/framework" className="card-wrapper">
               <div className="card-tag">Framework</div>
               <div className="card-title">Root Frequency Theory</div>
               <p className="card-text">The foundational framework. C0–C4 nested architecture. Experiential continuity as a systemic property.</p>
               <div className="card-date">February 2026 · Published</div>
             </a>
-            <a href="/research-plan" className="card-wrapper">
+            <a href="/metric" className="card-wrapper">
               <div className="card-tag">Metric</div>
               <div className="card-title">M-RFT Coherence Metric</div>
               <p className="card-text">A formal index of cross-level coordination. Pre-empirical. Designed for lab validation with neuroimaging partners.</p>
-              <div className="card-date">2026 · Embargoed preprint</div>
+              <div className="card-date embargo">2026 · Embargo lifts June 1</div>
             </a>
-            <a href="/expected-outcomes" className="card-wrapper">
+            <a href="/root-knowledge" className="card-wrapper">
               <div className="card-tag">Human-AI</div>
               <div className="card-title">Root Knowledge</div>
               <p className="card-text">Human-AI interaction as coherence scaffolding. The integration layer between information systems and lived experience.</p>
               <div className="card-date">May 2026 · Published</div>
             </a>
             <a href="/n-of-1" className="card-wrapper">
-              <div className="card-tag">Active Study</div>
+              <div className="card-tag">Longitudinal Study</div>
               <div className="card-title">Root Extension — N=1</div>
-              <p className="card-text">Longitudinal coherence tracking via Apple Watch HRV and interoceptive task. MVP in development. Data collection April–October 2026.</p>
-              <div className="card-date">2026 · Active</div>
+              <p className="card-text">321 sessions across 23 active days. Coherence tracked via Apple Watch HRV, interoceptive task, and narrative scoring. Preliminary data complete.</p>
+              <div className="card-date embargo">2026 · Embargo lifts June 1</div>
             </a>
           </div>
         </section>
@@ -356,7 +358,7 @@ export default function Home() {
             </a>
             <a href="https://doi.org/10.5281/zenodo.20060589" target="_blank" rel="noopener noreferrer" className="paper-cta-card">
               <div>
-                <div className="paper-cta-title">Root Knowledge — Embodied Knowledge & Human–AI Coherence</div>
+                <div className="paper-cta-title">Root Knowledge — Embodied Knowledge &amp; Human–AI Coherence</div>
                 <div className="paper-cta-doi">10.5281/zenodo.20060589</div>
               </div>
               <div className="paper-cta-action">Read on Zenodo ↗</div>
@@ -364,9 +366,16 @@ export default function Home() {
             <a href="/contact" className="paper-cta-card embargoed">
               <div>
                 <div className="paper-cta-title">M-RFT Coherence Metric</div>
-                <div className="paper-cta-doi">Registered preprint · embargo Dec 2026</div>
+                <div className="paper-cta-doi">10.5281/zenodo.19423115 · Embargo lifts June 1, 2026</div>
               </div>
-              <div className="paper-cta-action">Request access →</div>
+              <div className="paper-cta-action">Request early access →</div>
+            </a>
+            <a href="/contact" className="paper-cta-card embargoed">
+              <div>
+                <div className="paper-cta-title">Before Fragmentation — N=1 Longitudinal Study</div>
+                <div className="paper-cta-doi">10.5281/zenodo.20261109 · Embargo lifts June 1, 2026</div>
+              </div>
+              <div className="paper-cta-action">Request early access →</div>
             </a>
           </div>
         </div>
@@ -394,7 +403,7 @@ export default function Home() {
             <li>5. Garfinkel, S. N., Seth, A. K., Barrett, A. B., Suzuki, K., &amp; Critchley, H. D. (2015). Knowing your own heart: Distinguishing interoceptive accuracy from interoceptive awareness. <em>Biological Psychology, 104,</em> 65–74.</li>
             <li>6. Thayer, J. F., &amp; Lane, R. D. (2000). A model of neurovisceral integration in emotion regulation and dysregulation. <em>Journal of Affective Disorders, 61</em>(3), 201–216.</li>
             <li>7. Varela, F. J. (1996). Neurophenomenology: A methodological remedy for the hard problem. <em>Journal of Consciousness Studies, 3</em>(4), 330–349.</li>
-            <li>8. Avanzo, B. (2026). Root Knowledge: Embodied knowledge as a foundation for coherent human–AI interaction. Independent researcher.</li>
+            <li>8. Avanzo, B. (2026). Root Knowledge: Embodied knowledge as a foundation for coherent human–AI interaction. Zenodo. https://doi.org/10.5281/zenodo.20060589</li>
           </ol>
         </div>
 

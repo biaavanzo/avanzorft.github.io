@@ -78,7 +78,8 @@ export default function RootKnowledge() {
         <div className="header-inner">
           <a href="/" className="header-name">Root Lab</a>
           <nav>
-            <a href="/n-of-1">N=1 Study</a>            <a href="/about-the-author">About the Author</a>
+            <a href="/n-of-1">N=1 Study</a>
+            <a href="/about-the-author">About the Author</a>
             <a href="/contact">Contact</a>
           </nav>
         </div>
@@ -116,44 +117,33 @@ export default function RootKnowledge() {
           <div className="figure">
             <svg width="100%" viewBox="0 0 680 420" role="img">
               <title>Root of Knowledge — layered framework of embodied knowing</title>
-              <desc>A vertical diagram showing three nested layers of embodied knowing: Roots at the bottom (grounding, body wisdom), Interoception in the middle (heartbeat, breath, gut signals), and Limbic System at the top (emotional filtering, meaning-making). Arrows show bidirectional signaling between layers.</desc>
               <defs>
                 <marker id="arr1" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
                   <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                 </marker>
               </defs>
-
-              {/* Layer 1 - Roots */}
               <rect x="40" y="320" width="600" height="72" rx="8" fill="#F1EFE8" stroke="#B4B2A9" strokeWidth="0.5" />
               <text x="340" y="348" textAnchor="middle" fontFamily="system-ui" fontSize="13" fontWeight="500" fill="#444441">Roots</text>
               <text x="340" y="366" textAnchor="middle" fontFamily="system-ui" fontSize="12" fill="#888780">Grounding · Core drives · Body wisdom · Foundation for growth</text>
-
-              {/* Layer 2 - Interoception */}
               <rect x="40" y="210" width="600" height="80" rx="8" fill="#E1F5EE" stroke="#5DCAA5" strokeWidth="0.5" />
               <text x="340" y="240" textAnchor="middle" fontFamily="system-ui" fontSize="13" fontWeight="500" fill="#085041">Interoception</text>
               <text x="340" y="258" textAnchor="middle" fontFamily="system-ui" fontSize="12" fill="#0F6E56">Sensing the internal state of the body</text>
               <text x="340" y="276" textAnchor="middle" fontFamily="system-ui" fontSize="12" fill="#0F6E56">Heartbeat · Breath · Gut sensations · Muscle tension · Emotions</text>
-
-              {/* Layer 3 - Limbic */}
               <rect x="40" y="50" width="600" height="128" rx="8" fill="#FAEEDA" stroke="#EF9F27" strokeWidth="0.5" />
               <text x="340" y="80" textAnchor="middle" fontFamily="system-ui" fontSize="13" fontWeight="500" fill="#633806">Limbic System — Emotional home</text>
               <text x="340" y="100" textAnchor="middle" fontFamily="system-ui" fontSize="12" fill="#854F0B">Filters the world through how you feel</text>
               <text x="340" y="120" textAnchor="middle" fontFamily="system-ui" fontSize="12" fill="#854F0B">Emotional coloring · Tags events as internally important</text>
               <text x="340" y="140" textAnchor="middle" fontFamily="system-ui" fontSize="12" fill="#854F0B">Stores charged emotional memories · Modulates motivation</text>
               <text x="340" y="160" textAnchor="middle" fontFamily="system-ui" fontSize="12" fill="#854F0B">Controls appetites and sleep cycles · Promotes bonding</text>
-
-              {/* Arrows between layers */}
               <line x1="300" y1="210" x2="300" y2="194" stroke="#888780" strokeWidth="1" markerEnd="url(#arr1)" markerStart="url(#arr1)" fill="none" />
               <line x1="380" y1="210" x2="380" y2="194" stroke="#888780" strokeWidth="1" markerEnd="url(#arr1)" markerStart="url(#arr1)" fill="none" />
               <line x1="300" y1="320" x2="300" y2="304" stroke="#888780" strokeWidth="1" markerEnd="url(#arr1)" markerStart="url(#arr1)" fill="none" />
               <line x1="380" y1="320" x2="380" y2="304" stroke="#888780" strokeWidth="1" markerEnd="url(#arr1)" markerStart="url(#arr1)" fill="none" />
-
-              {/* Side labels */}
               <text x="24" y="360" textAnchor="middle" fontFamily="system-ui" fontSize="11" fill="#888780" transform="rotate(-90, 24, 360)">Anchors</text>
               <text x="24" y="255" textAnchor="middle" fontFamily="system-ui" fontSize="11" fill="#0F6E56" transform="rotate(-90, 24, 255)">Signals</text>
               <text x="24" y="115" textAnchor="middle" fontFamily="system-ui" fontSize="11" fill="#854F0B" transform="rotate(-90, 24, 115)">Filters</text>
             </svg>
-            <p className="figure-caption"><strong>Figure 1.</strong> The Root of Knowledge: A Limbic-Interoceptive-Foundational Framework. A layered view of embodied knowing, moving from bodily grounding and interoceptive signaling to emotional filtering and meaning-making. Adapted from the theoretical framework of Avanzo (2026).</p>
+            <p className="figure-caption"><strong>Figure 1.</strong> The Root of Knowledge: A Limbic-Interoceptive-Foundational Framework. A layered view of embodied knowing, moving from bodily grounding and interoceptive signaling to emotional filtering and meaning-making. Adapted from Avanzo (2026a).</p>
           </div>
         </div>
 
@@ -167,18 +157,13 @@ export default function RootKnowledge() {
 
           <div className="figure">
             <svg width="100%" viewBox="0 0 680 340" role="img">
-              <title>Fragmented system cycle — how stress propagates across regulatory layers</title>
-              <desc>A downward cascade diagram showing how environmental stress propagates through five layers: Environmental load, Autonomic disruption, Neural prediction error, Representational breakdown, and Experiential fragmentation. A feedback loop arrow on the right shows how fragmentation reinforces the cycle.</desc>
+              <title>Fragmented system cycle</title>
               <defs>
                 <marker id="arr2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
                   <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                 </marker>
               </defs>
-
-              {/* Title */}
               <text x="40" y="32" fontFamily="system-ui" fontSize="11" fontWeight="500" fill="#888780" letterSpacing="0.1em">INTEGRATIVE INSTABILITY — FRAGMENTATION CASCADE</text>
-
-              {/* Nodes */}
               {[
                 { y: 56, label: "Environmental", sub: "Allostatic load · Increasing stress", fill: "#FCEBEB", stroke: "#F09595", text: "#A32D2D", sub2: "#791F1F" },
                 { y: 112, label: "Autonomic", sub: "Greater regulatory effort · HRV declines", fill: "#FAEEDA", stroke: "#EF9F27", text: "#633806", sub2: "#854F0B" },
@@ -194,12 +179,10 @@ export default function RootKnowledge() {
                   {i < 4 && <line x1="60" y1={row.y + 26} x2="60" y2={row.y + 46} stroke="#D3D1C7" strokeWidth="1" markerEnd="url(#arr2)" fill="none" />}
                 </g>
               ))}
-
-              {/* Feedback loop */}
               <path d="M 542 298 C 620 298, 640 56, 542 56" fill="none" stroke="#D3D1C7" strokeWidth="1" strokeDasharray="4 3" markerEnd="url(#arr2)" />
               <text x="648" y="182" fontFamily="system-ui" fontSize="10" fill="#888780" textAnchor="middle">Loop</text>
             </svg>
-            <p className="figure-caption"><strong>Figure 2.</strong> Self-amplifying cycle of integrative instability. Sustained allostatic load propagates downward across regulatory levels, reducing autonomic flexibility, increasing prediction error, and degrading the coherent self-model. The feedback loop illustrates how experiential fragmentation reinforces the initial load. Adapted from Avanzo (2026).</p>
+            <p className="figure-caption"><strong>Figure 2.</strong> Self-amplifying cycle of integrative instability. Sustained allostatic load propagates downward across regulatory levels, reducing autonomic flexibility, increasing prediction error, and degrading the coherent self-model. Adapted from Avanzo (2026a).</p>
           </div>
         </div>
 
@@ -217,37 +200,28 @@ export default function RootKnowledge() {
           <div className="figure-pair">
             <div className="figure">
               <svg width="100%" viewBox="0 0 320 260" role="img">
-                <title>Current model — epistemic misalignment and amplified fragmentation</title>
-                <desc>Three boxes in sequence: Interface (Human) feeds into Integration Layer optimized for engagement, which feeds into Output that amplifies noise. A feedback arrow shows no correction loop.</desc>
+                <title>Current model — epistemic misalignment</title>
                 <defs>
                   <marker id="arr3" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
                     <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                   </marker>
                 </defs>
                 <text x="160" y="24" textAnchor="middle" fontFamily="system-ui" fontSize="11" fontWeight="500" fill="#A32D2D" letterSpacing="0.08em">CURRENT MODEL</text>
-
                 <rect x="20" y="40" width="80" height="52" rx="6" fill="#FCEBEB" stroke="#F09595" strokeWidth="0.5" />
                 <text x="60" y="62" textAnchor="middle" fontFamily="system-ui" fontSize="11" fontWeight="500" fill="#A32D2D">Interface</text>
                 <text x="60" y="76" textAnchor="middle" fontFamily="system-ui" fontSize="10" fill="#791F1F">Human</text>
                 <text x="60" y="88" textAnchor="middle" fontFamily="system-ui" fontSize="10" fill="#791F1F">noisy state</text>
-
                 <line x1="100" y1="66" x2="118" y2="66" stroke="#D3D1C7" strokeWidth="1" markerEnd="url(#arr3)" fill="none" />
-
                 <rect x="120" y="40" width="80" height="52" rx="6" fill="#FAEEDA" stroke="#EF9F27" strokeWidth="0.5" />
                 <text x="160" y="60" textAnchor="middle" fontFamily="system-ui" fontSize="11" fontWeight="500" fill="#633806">AI Layer</text>
                 <text x="160" y="74" textAnchor="middle" fontFamily="system-ui" fontSize="10" fill="#854F0B">engagement</text>
                 <text x="160" y="86" textAnchor="middle" fontFamily="system-ui" fontSize="10" fill="#854F0B">optimized</text>
-
                 <line x1="200" y1="66" x2="218" y2="66" stroke="#D3D1C7" strokeWidth="1" markerEnd="url(#arr3)" fill="none" />
-
                 <rect x="220" y="40" width="80" height="52" rx="6" fill="#FCEBEB" stroke="#F09595" strokeWidth="0.5" />
                 <text x="260" y="60" textAnchor="middle" fontFamily="system-ui" fontSize="11" fontWeight="500" fill="#A32D2D">Output</text>
                 <text x="260" y="74" textAnchor="middle" fontFamily="system-ui" fontSize="10" fill="#791F1F">amplified</text>
                 <text x="260" y="86" textAnchor="middle" fontFamily="system-ui" fontSize="10" fill="#791F1F">noise</text>
-
                 <text x="160" y="130" textAnchor="middle" fontFamily="system-ui" fontSize="10" fill="#888780">No feedback. No learning about the human.</text>
-                <text x="160" y="144" textAnchor="middle" fontFamily="system-ui" fontSize="10" fill="#888780">Just more of the same.</text>
-
                 <text x="20" y="180" fontFamily="system-ui" fontSize="10" fill="#A32D2D">✗ Reinforces prediction errors</text>
                 <text x="20" y="196" fontFamily="system-ui" fontSize="10" fill="#A32D2D">✗ Increases attentional load</text>
                 <text x="20" y="212" fontFamily="system-ui" fontSize="10" fill="#A32D2D">✗ No coherence gate</text>
@@ -258,37 +232,29 @@ export default function RootKnowledge() {
 
             <div className="figure">
               <svg width="100%" viewBox="0 0 320 260" role="img">
-                <title>Root Knowledge model — coherence-centered human-AI architecture</title>
-                <desc>Three boxes in sequence: Interface (Human) feeds into Integration Layer prioritizing epistemic alignment, which feeds into Coherent Output. A feedback arrow shows the system learns from human state.</desc>
+                <title>Root Knowledge model — coherence-centered architecture</title>
                 <defs>
                   <marker id="arr4" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
                     <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                   </marker>
                 </defs>
                 <text x="160" y="24" textAnchor="middle" fontFamily="system-ui" fontSize="11" fontWeight="500" fill="#085041" letterSpacing="0.08em">ROOT KNOWLEDGE MODEL</text>
-
                 <rect x="20" y="40" width="80" height="52" rx="6" fill="#E1F5EE" stroke="#5DCAA5" strokeWidth="0.5" />
                 <text x="60" y="62" textAnchor="middle" fontFamily="system-ui" fontSize="11" fontWeight="500" fill="#085041">Interface</text>
                 <text x="60" y="76" textAnchor="middle" fontFamily="system-ui" fontSize="10" fill="#0F6E56">Human</text>
                 <text x="60" y="88" textAnchor="middle" fontFamily="system-ui" fontSize="10" fill="#0F6E56">current state</text>
-
                 <line x1="100" y1="66" x2="118" y2="66" stroke="#5DCAA5" strokeWidth="1" markerEnd="url(#arr4)" fill="none" />
-
                 <rect x="120" y="40" width="80" height="52" rx="6" fill="#E1F5EE" stroke="#1D9E75" strokeWidth="1" />
                 <text x="160" y="60" textAnchor="middle" fontFamily="system-ui" fontSize="11" fontWeight="500" fill="#085041">Integration</text>
                 <text x="160" y="74" textAnchor="middle" fontFamily="system-ui" fontSize="10" fill="#0F6E56">epistemic</text>
                 <text x="160" y="86" textAnchor="middle" fontFamily="system-ui" fontSize="10" fill="#0F6E56">alignment</text>
-
                 <line x1="200" y1="66" x2="218" y2="66" stroke="#5DCAA5" strokeWidth="1" markerEnd="url(#arr4)" fill="none" />
-
                 <rect x="220" y="40" width="80" height="52" rx="6" fill="#E1F5EE" stroke="#5DCAA5" strokeWidth="0.5" />
                 <text x="260" y="60" textAnchor="middle" fontFamily="system-ui" fontSize="11" fontWeight="500" fill="#085041">Output</text>
                 <text x="260" y="74" textAnchor="middle" fontFamily="system-ui" fontSize="10" fill="#0F6E56">coherent</text>
                 <text x="260" y="86" textAnchor="middle" fontFamily="system-ui" fontSize="10" fill="#0F6E56">meaningful</text>
-
                 <path d="M 260 92 C 260 130, 60 130, 60 92" fill="none" stroke="#9FE1CB" strokeWidth="1" strokeDasharray="3 3" markerEnd="url(#arr4)" />
                 <text x="160" y="148" textAnchor="middle" fontFamily="system-ui" fontSize="10" fill="#0F6E56">Feedback loop active</text>
-
                 <text x="20" y="180" fontFamily="system-ui" fontSize="10" fill="#085041">✓ Reduces prediction error</text>
                 <text x="20" y="196" fontFamily="system-ui" fontSize="10" fill="#085041">✓ Supports narrative continuity</text>
                 <text x="20" y="212" fontFamily="system-ui" fontSize="10" fill="#085041">✓ Calibrated to coherence state</text>
@@ -317,12 +283,13 @@ export default function RootKnowledge() {
           <div className="section-label">Limitations</div>
           <h2 className="section-title">What this work does not claim</h2>
           <p>This framework remains in its early conceptual stages. The theoretical architecture and design principles proposed here have not yet been empirically validated, and claims about effectiveness await systematic testing. What is offered here is not a finished system, but a structured proposal: grounded in established research, internally consistent, and designed to generate testable predictions.</p>
-          <p>A companion paper introduces the M-RFT metric — a preliminary mathematical index designed to estimate coherence across layers of the human system. That manuscript is currently under embargo and available upon request for academic or research purposes. Empirical validation requires multimodal data collection combining physiological, neuroimaging, and narrative measures.</p>
+          <p>A companion paper introduces the M-RFT metric — a preliminary mathematical index designed to estimate coherence across layers of the human system. The N=1 longitudinal study using the Root Extension application provides preliminary feasibility data. Both are embargoed until June 1, 2026 and available upon request for academic or research purposes. Full empirical validation requires multimodal data collection combining physiological, neuroimaging, and narrative measures — the target of the planned N=20–40 validation trial.</p>
         </div>
 
         <div className="cta-block">
           <a href="https://doi.org/10.5281/zenodo.20060589" target="_blank" rel="noopener noreferrer" className="cta-link primary">Read full paper on Zenodo ↗</a>
-          <a href="/contact" className="cta-link">Request M-RFT metric →</a>
+          <a href="/metric" className="cta-link">M-RFT Metric →</a>
+          <a href="/n-of-1" className="cta-link">N=1 Study →</a>
           <a href="/" className="cta-link">← Back to Root Lab</a>
         </div>
 

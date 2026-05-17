@@ -60,7 +60,6 @@ const stateLabel: Record<string, string> = {
 
 function AppPrototype() {
     const [step, setStep] = useState(0)
-    const [timer, setTimer] = useState<number | null>(null)
     const [secs, setSecs] = useState(15)
     const [running, setRunning] = useState(false)
     const [conf, setConf] = useState("Very sure")
@@ -84,18 +83,16 @@ function AppPrototype() {
     }
 
     const slides = [
-        // Step 1 — narrative
         <div key="s1" style={{ display: "flex", flexDirection: "column" as const, height: "100%" }}>
             <div style={{ fontSize: 9, fontWeight: 700, color: "#888", letterSpacing: "0.1em", textTransform: "uppercase" as const, marginBottom: 4, fontFamily: "system-ui" }}>Step 1 of 3</div>
-            <div style={{ fontSize: 17, fontWeight: 700, color: "#111", lineHeight: 1.2, marginBottom: 4, fontFamily: "system-ui" }}>What's happening in your body right now?</div>
-            <div style={{ fontSize: 12, color: "#aaa", marginBottom: 12, fontFamily: "system-ui" }}>Write anything — sensations, feelings, what you notice. There's no right answer.</div>
+            <div style={{ fontSize: 17, fontWeight: 700, color: "#111", lineHeight: 1.2, marginBottom: 4, fontFamily: "system-ui" }}>What&apos;s happening in your body right now?</div>
+            <div style={{ fontSize: 12, color: "#aaa", marginBottom: 12, fontFamily: "system-ui" }}>Write anything — sensations, feelings, what you notice. There&apos;s no right answer.</div>
             <div style={{ background: "#f8f8f6", border: "1px solid #e8e8e3", borderRadius: 10, padding: "10px 12px", fontSize: 12, color: "#555", lineHeight: 1.6, marginBottom: 14, flex: 1, fontFamily: "system-ui" }}>
-                It's been a few days since my last log. I feel so present — spiritually, mentally, emotionally. Sleeping feels like being embraced by pure calm. I wake up grateful, refreshed.
+                It&apos;s been a few days since my last log. I feel so present — spiritually, mentally, emotionally. Sleeping feels like being embraced by pure calm. I wake up grateful, refreshed.
             </div>
             <button onClick={() => setStep(1)} style={{ background: "#2563eb", color: "#fff", border: "none", borderRadius: 14, padding: "13px", fontSize: 15, fontWeight: 600, cursor: "pointer", fontFamily: "system-ui" }}>Next →</button>
         </div>,
 
-        // Step 2 — heartbeat
         <div key="s2" style={{ display: "flex", flexDirection: "column" as const, height: "100%", alignItems: "stretch" }}>
             <div style={{ fontSize: 9, fontWeight: 700, color: "#888", letterSpacing: "0.1em", textTransform: "uppercase" as const, marginBottom: 4, fontFamily: "system-ui" }}>Step 2 of 3</div>
             <div style={{ fontSize: 17, fontWeight: 700, color: "#111", marginBottom: 4, fontFamily: "system-ui" }}>Sense your heartbeat.</div>
@@ -130,7 +127,6 @@ function AppPrototype() {
             <button onClick={() => setStep(2)} style={{ background: "#2563eb", color: "#fff", border: "none", borderRadius: 14, padding: "13px", fontSize: 15, fontWeight: 600, cursor: "pointer", fontFamily: "system-ui" }}>Next →</button>
         </div>,
 
-        // Step 3 — trigger + coherence
         <div key="s3" style={{ display: "flex", flexDirection: "column" as const, height: "100%" }}>
             <div style={{ fontSize: 9, fontWeight: 700, color: "#888", letterSpacing: "0.1em", textTransform: "uppercase" as const, marginBottom: 4, fontFamily: "system-ui" }}>Step 3 of 3</div>
             <div style={{ fontSize: 17, fontWeight: 700, color: "#111", marginBottom: 14, fontFamily: "system-ui" }}>Almost done.</div>
@@ -146,7 +142,6 @@ function AppPrototype() {
             <button onClick={() => setStep(3)} style={{ background: "#16a34a", color: "#fff", border: "none", borderRadius: 14, padding: "13px", fontSize: 15, fontWeight: 600, cursor: "pointer", fontFamily: "system-ui" }}>Calculate M →</button>
         </div>,
 
-        // Result
         <div key="s4" style={{ display: "flex", flexDirection: "column" as const, height: "100%" }}>
             <div style={{ background: "#f0fdf4", borderRadius: 16, padding: "16px 14px", marginBottom: 12, textAlign: "center" as const }}>
                 <div style={{ fontSize: 11, fontWeight: 600, color: "#888", letterSpacing: "0.1em", textTransform: "uppercase" as const, marginBottom: 4, fontFamily: "system-ui" }}>Session Result</div>
@@ -168,7 +163,6 @@ function AppPrototype() {
             <button onClick={() => setStep(4)} style={{ background: "#444", color: "#fff", border: "none", borderRadius: 14, padding: "11px", fontSize: 13, fontWeight: 600, cursor: "pointer", fontFamily: "system-ui" }}>View detail →</button>
         </div>,
 
-        // Detail
         <div key="s5" style={{ display: "flex", flexDirection: "column" as const, height: "100%", overflowY: "auto" as const }}>
             <div style={{ fontSize: 9, color: "#aaa", letterSpacing: "0.1em", textTransform: "uppercase" as const, marginBottom: 10, fontFamily: "system-ui" }}>What was measured</div>
             {[
@@ -195,17 +189,13 @@ function AppPrototype() {
 
     return (
         <div style={{ display: "flex", justifyContent: "center", marginBottom: 48 }}>
-            {/* Phone */}
             <div style={{ background: "#1c1c1e", borderRadius: 44, padding: 10, boxShadow: "0 0 0 1px #2a2a2a, 0 24px 48px rgba(0,0,0,0.18)", width: 300, flexShrink: 0 }}>
-                {/* Notch */}
                 <div style={{ background: "#1c1c1e", borderRadius: "20px 20px 0 0", height: 28, display: "flex", alignItems: "center", justifyContent: "center" }}>
                     <div style={{ width: 80, height: 22, background: "#000", borderRadius: 20, display: "flex", alignItems: "center", justifyContent: "center" }}>
                         <div style={{ width: 10, height: 10, borderRadius: "50%", background: "#1a1a1a", border: "1px solid #333" }} />
                     </div>
                 </div>
-                {/* Screen */}
                 <div style={{ background: "#f5f5f0", borderRadius: "0 0 32px 32px", overflow: "hidden" }}>
-                    {/* Status + nav */}
                     <div style={{ background: "#fff", padding: "10px 16px 8px", display: "flex", alignItems: "center", justifyContent: "space-between", borderBottom: "1px solid #f0f0ec" }}>
                         <span style={{ fontSize: 11, fontWeight: 600, color: "#555", fontFamily: "system-ui" }}>{navLabels[step]}</span>
                         <button onClick={() => { setStep(0); setSecs(15); setRunning(false); if (intervalRef.current) clearInterval(intervalRef.current) }}
@@ -213,13 +203,11 @@ function AppPrototype() {
                             {step === 0 ? "Cancel" : "Done"}
                         </button>
                     </div>
-                    {/* Progress dots */}
                     <div style={{ display: "flex", gap: 5, justifyContent: "center", padding: "8px 0 4px", background: "#fff" }}>
                         {[0, 1, 2, 3, 4].map(i => (
                             <div key={i} style={{ width: 6, height: 6, borderRadius: "50%", background: i === step ? "#2563eb" : "#ddd", transition: "background .2s" }} />
                         ))}
                     </div>
-                    {/* Slide */}
                     <div style={{ padding: "16px 18px 20px", height: 500, display: "flex", flexDirection: "column" as const, overflowY: "auto" as const }}>
                         {slides[step]}
                     </div>
@@ -278,7 +266,7 @@ export default function NOf1() {
         .timeline-row { display: flex; gap: 20px; align-items: flex-start; padding: 16px 0; border-bottom: 1px solid #eee; }
         .timeline-row:last-child { border-bottom: none; }
         .timeline-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; margin-top: 6px; }
-        .timeline-date { font-size: 11px; color: #aaa; font-family: system-ui; white-space: nowrap; padding-top: 2px; min-width: 90px; }
+        .timeline-date { font-size: 11px; color: #aaa; font-family: system-ui; white-space: nowrap; padding-top: 2px; min-width: 100px; }
         .timeline-content { flex: 1; }
         .timeline-event { font-size: 14px; font-weight: 500; color: #111; font-family: system-ui; margin-bottom: 4px; }
         .timeline-desc { font-size: 13px; color: #666; font-family: system-ui; line-height: 1.6; }
@@ -286,6 +274,7 @@ export default function NOf1() {
         .cta-link { font-size: 13px; color: #111; text-decoration: none; border: 1px solid #ddd; padding: 9px 20px; font-family: system-ui; letter-spacing: 0.04em; transition: border-color 0.15s, background 0.15s; }
         .cta-link:hover { border-color: #111; background: #f7f7f7; }
         .disclaimer { font-size: 12px; color: #aaa; font-family: system-ui; line-height: 1.7; font-style: italic; border-top: 1px solid #eee; padding-top: 20px; margin-top: 40px; }
+        .embargo-badge { display: inline-block; font-size: 10px; font-weight: 600; color: #a07800; background: #fdfbee; border: 1px solid #e8d98a; padding: 3px 10px; letter-spacing: 0.08em; text-transform: uppercase; font-family: system-ui; }
         @media (max-width: 640px) { .stat-row { grid-template-columns: 1fr; } .header-inner { flex-direction: column; gap: 10px; padding: 12px 0; } }
       `}</style>
 
@@ -312,13 +301,14 @@ export default function NOf1() {
             <main>
                 <a href="/" className="back">← Back</a>
 
-                <div className="hero-label">Active · April 2026 — October 2026</div>
+                <div className="hero-label">Preliminary data complete · April – May 2026</div>
                 <h1 className="hero-title">Root Extension — N=1 Longitudinal Study</h1>
                 <p className="hero-subtitle">A self-as-instrument protocol tracking coherence across physiological, interoceptive, and narrative layers in real time</p>
                 <div className="hero-meta">
                     <span>Bianca Avanzo · Independent Researcher</span>
-                    <span>48 sessions · April 16 – May 7, 2026</span>
+                    <span>321 sessions · 23 active days · April 16 – May 14, 2026</span>
                     <span>HRV + heartbeat task + narrative scoring</span>
+                    <span className="embargo-badge">Paper embargo lifts June 1 · 10.5281/zenodo.20261109</span>
                 </div>
 
                 {/* APP PROTOTYPE */}
@@ -326,18 +316,18 @@ export default function NOf1() {
                 <AppPrototype />
 
                 {/* STATS */}
-                <div className="section-label" style={{ marginBottom: 16 }}>Live data — April 16 to May 7, 2026</div>
+                <div className="section-label" style={{ marginBottom: 16 }}>Preliminary data — April 16 to May 14, 2026</div>
                 <div className="stat-row">
                     <div className="stat-card">
-                        <div className="stat-val">48</div>
+                        <div className="stat-val">321</div>
                         <div className="stat-label">Sessions logged</div>
                     </div>
                     <div className="stat-card">
-                        <div className="stat-val">2.74</div>
+                        <div className="stat-val">3.79</div>
                         <div className="stat-label">Mean M score</div>
                     </div>
                     <div className="stat-card">
-                        <div className="stat-val">58%</div>
+                        <div className="stat-val">71%</div>
                         <div className="stat-label">Resilient states</div>
                     </div>
                 </div>
@@ -419,7 +409,7 @@ export default function NOf1() {
                     <div className="section-label">Origin</div>
                     <h2 className="section-title">The research began as observation of the self</h2>
                     <p>In December 2024, before there was a framework or a metric or an app, there was a practice: longitudinal self-tracking, journaling, and sustained inner work grounded in neurophenomenological method. The process involved mapping symptoms, tracking patterns across time, and re-contextualizing early developmental experiences through contemporary knowledge of brain development and nervous system regulation.</p>
-                    <p>This was neurophenomenology applied not in a controlled laboratory, but in the conditions of everyday life. The systematic observation of one's own experiential field — across states of fragmentation and integration, across days of acute clarity and acute dysregulation — produced the first dataset from which Root Frequency Theory was constructed.</p>
+                    <p>This was neurophenomenology applied not in a controlled laboratory, but in the conditions of everyday life. The systematic observation of one&apos;s own experiential field — across states of fragmentation and integration, across days of acute clarity and acute dysregulation — produced the first dataset from which Root Frequency Theory was constructed.</p>
                     <p>What emerged from months of this work was a direction: the more coherent the symbolic layer became — the more the self-narrative aligned with what the body was actually signaling — the more accurate the perception of internal and external states. Coherence was measurably present before formal tracking began. The inner work preceded the instrument. The instrument followed the observed pattern.</p>
                     <p>By February 2026, those observations had crystallized into two formal outputs: the RFT framework and the M-RFT metric. Root Extension became the means by which an informal practice was formalized into a replicable measurement instrument — computing coherence in real time, under ecological conditions, session by session.</p>
                 </div>
@@ -430,7 +420,7 @@ export default function NOf1() {
                     <div className="section-label">Protocol</div>
                     <h2 className="section-title">What gets measured and how</h2>
                     <p>Each session captures three components of the M-RFT metric simultaneously. Φ is derived from Apple Watch HRV — SDNN indexed against a 30-day rolling baseline, reflecting autonomic flexibility as a proxy for large-scale network coordination. Kₑ combines interoceptive accuracy from a randomized heartbeat detection task with narrative coherence scored across semantic, temporal, and causal dimensions via natural language processing. F is computed from HRV drop below baseline, indexing regulatory burden.</p>
-                    <p>Sessions are initiated at ecologically naturalistic moments rather than at fixed times, in order to capture coherence variation as it actually occurs: prior to high-stakes professional encounters, during spontaneous insight states, during acute fragmentation, and following deliberate grounding practices. This is not a controlled intervention study. It is a longitudinal ecological protocol designed to generate the kind of within-person, real-world data that laboratory designs cannot produce at this resolution.</p>
+                    <p>Sessions were initiated at ecologically naturalistic moments rather than at fixed times, in order to capture coherence variation as it actually occurs: prior to high-stakes professional encounters, during spontaneous insight states, during acute fragmentation, and following deliberate grounding practices. This is not a controlled intervention study. It is a longitudinal ecological protocol designed to generate the kind of within-person, real-world data that laboratory designs cannot produce at this resolution.</p>
                 </div>
 
                 <div className="divider" />
@@ -441,10 +431,11 @@ export default function NOf1() {
                     <div style={{ marginTop: 8 }}>
                         {[
                             { date: "Dec 2024", color: "#888", event: "Longitudinal self-tracking begins", desc: "Daily journaling, symptom mapping, and sustained inner work. Neurophenomenological observation of one's own experiential field — fragmentation patterns, recovery trajectories, and the relationship between narrative reframing and physiological shift." },
-                            { date: "Feb 2026", color: "#444", event: "Root Frequency Theory published · M-RFT metric registered", desc: "Fourteen months of first-person observation crystallize into a formal framework. C0–C4 nested architecture. Preprint registered with DOI (embargoed). The metric precedes the instrument — the theoretical pattern preceded the measurement instrument." },
-                            { date: "Mar 2026", color: "#111", event: "Root Extension — first HRV session", desc: "The instrument becomes functional. Apple Watch HRV feeds the Φ proxy. Heartbeat task scores interoceptive accuracy. Narrative entry scored for semantic, temporal, and causal coherence via API. N=1 data collection begins." },
-                            { date: "Apr–Oct 2026", color: "#27ae60", event: "Active data collection", desc: "48 sessions across 21 days to date. M scores ranging from 0.22 (acute fragmentation) to 10.00 (full physiological resilience). Insight states, anticipatory anxiety, grounding recovery cycles — all captured under real-world ecological conditions." },
-                            { date: "Dec 2026", color: "#27ae60", event: "Simultaneous public launch", desc: "N=1 longitudinal paper submitted. M-RFT metric embargo lifts. Root Extension app publicly available. Six months of ecological coherence data — the first dataset of its kind in the field." },
+                            { date: "Feb 2026", color: "#444", event: "Root Frequency Theory published · M-RFT metric registered", desc: "Fourteen months of first-person observation crystallize into a formal framework. C0–C4 nested architecture. Preprint registered with DOI." },
+                            { date: "Apr–May 2026", color: "#27ae60", event: "N=1 data collection complete — 321 sessions", desc: "321 sessions across 23 active measurement days. M scores ranging from 0.22 (acute fragmentation) to 10.00 (full physiological resilience). Key finding: low correlation (r = .186) between M score and subjective coherence — interpreted as theoretically significant evidence of interoceptive misalignment in high-SPS systems." },
+                            { date: "Jun 1, 2026", color: "#27ae60", event: "Embargo lift — all papers go public", desc: "M-RFT metric paper (zenodo.19423115), N=1 longitudinal paper (zenodo.20261109), and website launch. Four papers now publicly available." },
+                            { date: "Oct 2026", color: "#bbb", event: "N=20 TestFlight protocol design", desc: "Design phase for formal N=20–40 within-subject validation trial. PhD institutional collaboration application in progress." },
+                            { date: "2027", color: "#bbb", event: "IRB-approved validation trial", desc: "Formal N=20–40 clinical validation trial under institutional IRB oversight. Empirical calibration of M-RFT thresholds. Peer-reviewed journal submission." },
                         ].map((row, i) => (
                             <div className="timeline-row" key={i}>
                                 <div className="timeline-dot" style={{ background: row.color }} />
@@ -463,19 +454,19 @@ export default function NOf1() {
                 <div className="section">
                     <div className="section-label">What this study investigates</div>
                     <h2 className="section-title">Coherence as a measurable, trackable property of lived experience</h2>
-                    <p>This is not a clinical trial. There is no control condition, no blinding, no randomized intervention. What it is: a six-month ecological record of coherence variation in one participant, across real-world conditions, using a novel multimodal instrument. The researcher is the subject. The app is simultaneously the intervention and the measurement instrument.</p>
+                    <p>This is not a clinical trial. There is no control condition, no blinding, no randomized intervention. What it is: a preliminary ecological record of coherence variation in one participant, across real-world conditions, using a novel multimodal instrument. The researcher is the subject. The app is simultaneously the intervention and the measurement instrument.</p>
                     <p>The N=1 longitudinal format is appropriate for this stage of investigation. It permits the detection of within-person patterns — fragmentation cascades, recovery trajectories, the temporal lag between physiological disruption and narrative reintegration — that between-person designs cannot resolve at this level of granularity. It generates the preliminary data structure required to design a formal N=20–40 validation trial.</p>
-                    <p>The central empirical question: does M score, computed from HRV, interoceptive accuracy, and narrative coherence, covary with subjective reports of experiential integration? The preliminary data suggests the metric is tracking something. The next step is to determine how much, and under what conditions.</p>
+                    <p>The central empirical question: does M score, computed from HRV, interoceptive accuracy, and narrative coherence, covary with subjective reports of experiential integration? The preliminary data suggests the metric is tracking something real. The low M-score/subjective coherence correlation (r = .186) is not a failure — it is a finding, consistent with theoretical predictions about interoceptive misalignment in highly sensitive nervous systems. The next step is formal validation.</p>
                 </div>
 
                 <div className="cta-block">
                     <a href="/contact" className="cta-link" style={{ background: "#111", color: "#fff", borderColor: "#111" }}>Request protocol details →</a>
-                    <a href="/research-plan" className="cta-link">M-RFT Coherence Metric →</a>
+                    <a href="/metric" className="cta-link">M-RFT Coherence Metric →</a>
                     <a href="/" className="cta-link">← Back to Root Lab</a>
                 </div>
 
                 <p className="disclaimer">
-                    This protocol is conducted as independent research in development, not as a clinical intervention. Data collection is ongoing. Results presented here are preliminary and pre-empirical. The researcher is the sole participant at this stage. IRB review will be required before any formal clinical trial.
+                    This protocol is conducted as independent research, not as a clinical intervention. Preliminary data collection is complete (April–May 2026). All findings are pre-empirical and hypothesis-generating only. IRB review will be required before any formal clinical trial. Full paper: Avanzo, B. (2026). Before Fragmentation: A Longitudinal N=1 Study. Zenodo. https://doi.org/10.5281/zenodo.20261109 — embargo lifts June 1, 2026.
                 </p>
             </main>
         </>
